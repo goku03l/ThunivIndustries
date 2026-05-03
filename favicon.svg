@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="245" fill="#1a120a"/>
+  <!-- Amber ring -->
+  <circle cx="256" cy="256" r="234" fill="none" stroke="#d97706" stroke-width="12" stroke-opacity="0.8"/>
+  <!-- T stem -->
+  <rect x="228" y="142" width="56" height="266" rx="4" fill="#fffbf4"/>
+  <!-- T bar -->
+  <rect x="122" y="142" width="268" height="46" rx="4" fill="#fffbf4"/>
+  <!-- Amber accent dot -->
+  <circle cx="332" cy="418" r="28" fill="#d97706"/>
+</svg>
