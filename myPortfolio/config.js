@@ -54,7 +54,7 @@ const PORTFOLIO = {
       featured: true,
       youtube: "https://youtu.be/MfWPskO2LjM",   // You can also paste just the video ID
       image: "utils/drawdiff.png",
-      link: "",
+      link: "https://drawingdiff-dvaacmnaapwuvdhzt7zvo5.streamlit.app/",
     },
     {
       title: "Tamil Nadu Political Sentiment Dashboard",
