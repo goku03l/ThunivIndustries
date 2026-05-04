@@ -52,7 +52,7 @@ const PORTFOLIO = {
 "Upload. Compare. Build with confidence.",
       tags: ["GenAI", "Industry Problem"],
       featured: true,
-      youtube: "dQw4w9WgXcQ",   // You can also paste just the video ID
+      youtube: "https://youtu.be/MfWPskO2LjM",   // You can also paste just the video ID
       image: "",
       link: "",
     },
