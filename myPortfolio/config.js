@@ -39,7 +39,7 @@ const PORTFOLIO = {
       tags: ["GenAI","Industry Problem"],
       featured: true,
       youtube: "https://youtu.be/56AVSxNFZ3c?si=X4x83NZvaoZ85_z_",
-      image: "utils/drawdiff.png",
+      image: "",
       link: "https://intellicad-ap6znq2zrc7bw7zzxddkru.streamlit.app/",
     },
     {
@@ -53,7 +53,7 @@ const PORTFOLIO = {
       tags: ["GenAI", "Industry Problem"],
       featured: true,
       youtube: "https://youtu.be/MfWPskO2LjM",   // You can also paste just the video ID
-      image: "",
+      image: "utils/drawdiff.png",
       link: "",
     },
     {
