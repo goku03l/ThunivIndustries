@@ -72,23 +72,23 @@ const PORTFOLIO = {
   // These appear in the standalone "Videos" section.
   // Paste the full YouTube URL or just the video ID.
 
-  videos: [
-    {
-      title: "Rick Roll 1",
-      description: "You are being RickRoled",
-      youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    },
-    {
-      title: "Rick Roll 2",
-      description: "You are being RickRoled",
-      youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    },
-    {
-      title: "Rick Roll 3",
-      description: "You are being RickRoled",
-      youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    },
-  ],
+  // videos: [
+  //   {
+  //     title: "Rick Roll 1",
+  //     description: "You are being RickRoled",
+  //     youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  //   },
+  //   {
+  //     title: "Rick Roll 2",
+  //     description: "You are being RickRoled",
+  //     youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  //   },
+  //   {
+  //     title: "Rick Roll 3",
+  //     description: "You are being RickRoled",
+  //     youtube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  //   },
+  // ],
 
   // ─── BLOG POSTS ───────────────────────────────────────────────────
   // link: URL to the full article (Medium, Substack, your own blog, etc.)
