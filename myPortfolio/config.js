@@ -63,7 +63,7 @@ const PORTFOLIO = {
       featured: false,
       youtube: "",
       image: "utils/sm.png",
-      link: "https://example.com",
+      link: "https://smelectiondashboard-djs8th6wuyojv78q4dbczr.streamlit.app/",
     },
 
   ],
