@@ -5,7 +5,7 @@ const PORTFOLIO = {
   nameAlt: "கோகுல்",
   profession: "Aspiring Entreprenuer",
   tagline: "I craft experiences that linger.",
-  bio: `Aspiring entrepreneur and builder. I have zero interest in "ticking boxes"—I’m here to take full-stack ownership of ideas and turn them into industrial reality. I believe every project should be as bold as it is beautiful. This is a living archive of my work before it becomes an industry.\n\nDocumenting my work`,
+  bio: `Aspiring entrepreneur and builder. I have zero interest in "ticking boxes" I’m here to take full-stack ownership of ideas and turn them into industrial reality. I believe every project should be as bold as it is beautiful. This is a living archive of my work before it becomes an industry.\n\nDocumenting my work`,
   avatar: "utils/myimage.png", // Optional: URL to your photo. Leave "" for initials avatar.
 
   // ─── SOCIAL & CONTACT ─────────────────────────────────────────────
