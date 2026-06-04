@@ -8,14 +8,17 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- NAV — cream -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo" id="nav-name">Alex Rivera</a>
+      <a href="#hero" class="nav-logo" id="nav-name">
+        <div class="nav-logo-mark" id="nav-mark">G</div>
+        Gokul
+      </a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -38,12 +41,12 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — dark green -->
   <section id="hero">
-    <div class="hero-grain"></div>
-    <div class="hero-blob blob1"></div>
-    <div class="hero-blob blob2"></div>
+    <div class="hero-light"></div>
+    <div class="hero-stripe"></div>
     <div class="hero-inner">
+      <div class="racing-detail"><span></span><span></span><span></span></div>
       <div class="hero-tag">Available for work</div>
       <h1 class="hero-name" id="hero-name"></h1>
       <p class="hero-profession" id="hero-profession"></p>
@@ -51,12 +54,16 @@
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">See My Work</a>
         <a href="#contact" class="btn-secondary">Get in Touch</a>
+        <button class="btn-secondary" onclick="openResumeModal()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          View Résumé
+        </button>
       </div>
     </div>
     <div class="hero-scroll-hint">scroll ↓</div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT — cream -->
   <section id="about">
     <div class="container">
       <div class="section-label">About</div>
@@ -71,12 +78,12 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS — dark green -->
   <section id="projects">
     <div class="container">
-      <div class="section-label">Projects</div>
+      <div class="section-label-light">Projects</div>
       <div class="projects-header">
-        <h2 class="section-heading">Selected<br><em>Work.</em></h2>
+        <h2 class="section-heading-light">Selected<br><em>Work.</em></h2>
         <div class="project-controls">
           <div class="filter-row" id="filter-row">
             <button class="filter-btn active" data-filter="all">All</button>
@@ -99,33 +106,52 @@
       <button class="modal-close" id="modal-close">&#10005;</button>
       <div class="modal-iframe-wrap" style="position:relative;">
         <iframe id="modal-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
-
-        <!-- Loading spinner -->
-        <div id="modal-loader" style="display:flex;position:absolute;inset:0;background:#0f0a06;align-items:center;justify-content:center;flex-direction:column;gap:1rem;">
-          <div style="width:36px;height:36px;border:3px solid #3a2a1a;border-top-color:#d97706;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
-          <span style="font-family:'DM Sans',sans-serif;font-size:0.8rem;color:#8a7060;letter-spacing:0.08em;">Checking video...</span>
+        <div id="modal-loader" style="display:flex;position:absolute;inset:0;background:#0D1F18;align-items:center;justify-content:center;flex-direction:column;gap:1rem;">
+          <div style="width:34px;height:34px;border:2.5px solid #243D2E;border-top-color:#3EC99A;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+          <span style="font-family:'DM Mono',monospace;font-size:0.72rem;color:#7A9E8C;letter-spacing:0.14em;text-transform:uppercase;">Loading...</span>
         </div>
-
-        <!-- Fallback for non-embeddable videos -->
-        <div id="modal-fallback" style="display:none;position:absolute;inset:0;background:#0f0a06;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;padding:2.5rem;text-align:center;">
-          <div style="width:64px;height:64px;background:#1e1208;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.75rem;border:1px solid #3a2a1a;">&#128679;</div>
+        <div id="modal-fallback" style="display:none;position:absolute;inset:0;background:#0D1F18;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;padding:2.5rem;text-align:center;">
+          <div style="width:60px;height:60px;background:#162C20;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;border:1px solid #243D2E;">🔗</div>
           <div>
-            <p style="color:#ecdcc0;font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;margin-bottom:0.5rem;">Embedding disabled by creator</p>
-            <p id="modal-fallback-title" style="color:#8a7060;font-family:'DM Sans',sans-serif;font-size:0.85rem;"></p>
+            <p style="color:#F0EBE0;font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;margin-bottom:0.5rem;">Embedding disabled by creator</p>
+            <p id="modal-fallback-title" style="color:#7A9E8C;font-family:'DM Mono',monospace;font-size:0.78rem;"></p>
           </div>
           <a id="modal-fallback-link" href="#" target="_blank" rel="noopener noreferrer"
-             style="display:inline-flex;align-items:center;gap:8px;background:#d97706;color:#fffbf4;padding:0.75rem 2rem;border-radius:99px;font-size:0.9rem;font-weight:500;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background 0.2s;"
-             onmouseover="this.style.background='#b45309'" onmouseout="this.style.background='#d97706'">
-            &#9654; Watch on YouTube &nbsp;&#8599;
+             style="display:inline-flex;align-items:center;gap:8px;background:#F5F0E8;color:#0D1F18;padding:0.7rem 1.8rem;border-radius:4px;font-size:0.82rem;font-weight:600;font-family:'DM Sans',sans-serif;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:background 0.2s;"
+             onmouseover="this.style.background='#F0D898'" onmouseout="this.style.background='#F5F0E8'">
+            ▶ Watch on YouTube ↗
           </a>
-          <p style="color:#4a3728;font-family:'DM Mono',monospace;font-size:0.7rem;">Opens in a new tab</p>
         </div>
       </div>
       <p class="modal-title" id="modal-title"></p>
     </div>
   </div>
 
-  <!-- SKILLS -->
+  <!-- RESUME MODAL -->
+  <div id="resume-modal">
+    <div class="resume-modal-box">
+      <div class="resume-modal-header">
+        <div class="resume-modal-title">Résumé — Gokul</div>
+        <div class="resume-modal-actions">
+          <a href="utils/resume.pdf" download="Gokul_Resume.pdf" class="resume-download-btn" id="resume-download-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+          <button class="resume-modal-close" onclick="closeResumeModal()">&#10005;</button>
+        </div>
+      </div>
+      <div class="resume-viewer-wrap" id="resume-viewer-wrap">
+        <iframe id="resume-iframe" src="utils/resume.pdf" title="Résumé" style="width:100%;height:100%;border:none;display:block;"></iframe>
+        <div class="resume-placeholder" id="resume-placeholder" style="display:none;">
+          <div class="resume-placeholder-icon">📄</div>
+          <p class="resume-placeholder-text">Résumé not yet uploaded</p>
+          <p class="resume-placeholder-sub">Place your PDF at <code style="background:rgba(26,107,80,0.1);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em;">utils/resume.pdf</code> and it will appear here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS — cream warm -->
   <section id="skills">
     <div class="container">
       <div class="section-label">Skills</div>
@@ -134,16 +160,16 @@
     </div>
   </section>
 
-  <!-- VIDEOS -->
+  <!-- VIDEOS — dark -->
   <section id="videos">
     <div class="container">
-      <div class="section-label">Videos</div>
-      <h2 class="section-heading">Watch &<br><em>Learn.</em></h2>
+      <div class="section-label-light">Videos</div>
+      <h2 class="section-heading-light">Watch &<br><em>Learn.</em></h2>
       <div class="videos-grid" id="videos-grid"></div>
     </div>
   </section>
 
-  <!-- BLOG -->
+  <!-- BLOG — cream -->
   <section id="blog">
     <div class="container">
       <div class="section-label">Blog</div>
@@ -152,10 +178,10 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT — dark -->
   <section id="contact">
     <div class="container">
-      <div class="section-label">Contact</div>
+      <div class="section-label-light">Contact</div>
       <div class="contact-inner">
         <h2 class="contact-heading">Let's make<br><em>something great.</em></h2>
         <a href="#" class="contact-email" id="contact-email"></a>
@@ -166,11 +192,32 @@
 
   <!-- FOOTER -->
   <footer>
-    <p id="footer-name">Thuniv Industries</p>
+    <p id="footer-name"></p>
     <p class="footer-sub">Welcome / நல்வரவு</p>
   </footer>
 
   <script src="config.js"></script>
   <script src="script.js"></script>
+  <script>
+    function openResumeModal() {
+      document.getElementById('resume-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      const iframe = document.getElementById('resume-iframe');
+      iframe.onerror = function() {
+        document.getElementById('resume-placeholder').style.display = 'flex';
+        iframe.style.display = 'none';
+      };
+    }
+    function closeResumeModal() {
+      document.getElementById('resume-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('resume-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeResumeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeResumeModal();
+    });
+  </script>
 </body>
 </html>
