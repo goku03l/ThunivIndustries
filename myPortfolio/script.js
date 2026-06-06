@@ -90,7 +90,8 @@ function closeVideo() {
 // ── Render hero ───────────────────────────────────────────────
 function renderHero() {
   document.getElementById('page-title').textContent      = PORTFOLIO.name + ' — Portfolio';
-  document.getElementById('nav-name').querySelector('.nav-logo-mark').textContent = PORTFOLIO.name[0];
+  const logoMark = document.getElementById('nav-name').querySelector('.nav-logo-mark');
+  if (logoMark) logoMark.textContent = PORTFOLIO.name[0];
   document.getElementById('hero-profession').textContent = PORTFOLIO.profession;
   document.getElementById('hero-tagline').textContent    = PORTFOLIO.tagline;
   document.getElementById('footer-name').textContent     = '© ' + new Date().getFullYear() + ' ' + PORTFOLIO.name;

@@ -1,9 +1,11 @@
 const PORTFOLIO = {
   name: "Gokul",
   nameAlt: "கோகுல்",
-  profession: "Aspiring Entreprenuer",
-  tagline: "I craft experiences that linger.",
-  bio: `Aspiring entrepreneur and builder. I have zero interest in "ticking boxes" I'm here to take full-stack ownership of ideas and turn them into industrial reality. I believe every project should be as bold as it is beautiful. This is a living archive of my work before it becomes an industry.\n\nDocumenting my work`,
+  profession: "Founder Office Generalist · Builder",
+  tagline: "Most people plan. I build.",
+  bio: `I'm an engineer who got frustrated waiting for Seniors approval and started building it. My work sits at the intersection of deep engineering intuition and AI, identifying problems that cost real money and shipping tools that solve them, fast.
+ 
+I don't fit in a lane.I do have immense knowledge Vehicle dynamics. GenAI. Data products. PLM pipelines, Digital Electronic, Embeededs Systems. That's not a lack of focus it's a deliberate bet that the most valuable person in a founding team is the one who can hold the full picture and move on all of it.`,
   avatar: "utils/myimage.png",
   contact: {
     email: "gokul@thunivin.com",
@@ -13,22 +15,23 @@ const PORTFOLIO = {
     twitter: "",
   },
   skills: [
-    { category: "Engineering", items: ["Embedded Systems", "Automobile Engineering", "Vehicle Dynamics"] },
-    { category: "Tech",        items: ["AI/ML", "GenAI", "PLM", "DS"] },
+    { category: "Engineering", items: ["Automobile Engineering", "Embedded Systems", "Vehicle Dynamics", "PLM"] },
+    { category: "Build & Tech", items: ["GenAI", "AI/ML", "Data Science", "Rapid Prototyping"] },
+    { category: "Founder Skills", items: ["0→1 Product Building", "Problem Scoping", "Cross-functional Ownership","Process Restructuring"] },
   ],
   projects: [
     {
-      title: "Prompt to CAD",
-      description: "Prompt to 3D 👓.\n\nGet ready to ditch the manual sketches while IntelliCAD is here! 🚀✨\nWhy click and drag for hours when you can just talk to your design? I've built a tool that turns your \"what if\" into a 3D reality.\n\nThe IntelliCAD Vibe:\n\n💬 Prompt to CAD: Just type it, and watch the geometry appear.\n\n🤖 Chatbot Collab: Discuss your design ideas like you're talking to a peer.\n\n📥 Download & Go: Export your files and drop them straight into your pro CAD tools.\n\nDesign at the speed of thought. Check out the demo below and let's build something cool! 🛠️🔥",
-      tags: ["GenAI","Industry Problem"],
+      title: "IntelliCAD — Prompt to CAD",
+      description: "Engineers waste thousands of hours clicking through CAD tools to model ideas they already have in their heads. I fixed that.\n\nIntelliCAD lets you describe a 3D geometry in plain language and get a production-ready CAD file — no manual sketches, no constraint dragging. You talk to it like a peer, it ships the geometry. The interface CAD software should have built a decade ago.",
+      tags: ["GenAI", "Industry Problem"],
       featured: true,
       youtube: "https://youtu.be/56AVSxNFZ3c?si=X4x83NZvaoZ85_z_",
       image: "",
       link: "https://intellicad-ap6znq2zrc7bw7zzxddkru.streamlit.app/",
     },
     {
-      title: "DrawingDIFF: See the Shift. Skip the Squint.",
-      description: "DrawingDIFF: See the Shift. Skip the Squint.\n\nStop playing \"Spot the Difference\" with complex blueprints. DrawingDIFF instantly overlays your engineering revisions, highlighting every moved line and modified dimension in high-contrast detail.\n\nPixel-Perfect Comparison: Instantly catch what the human eye misses.\nAuto-Generated Audit Trails: Every change is automatically tabularized into a clean, exportable report.\nEngineering Grade Precision: Built for the high-stakes world where a millimeter matters.\n\nUpload. Compare. Build with confidence.",
+      title: "DrawingDIFF — See the Shift. Skip the Squint.",
+      description: "In high-stakes engineering, a missed revision doesn't just slow things down — it can cost millions. DrawingDIFF kills the 'spot the difference' problem in drawing reviews entirely.\n\nUpload two revisions, get a pixel-perfect overlay with every moved line and modified dimension highlighted in high contrast, plus an auto-generated audit trail ready to export. Built for environments where a misread millimetre has real consequences.",
       tags: ["GenAI", "Industry Problem"],
       featured: true,
       youtube: "https://youtu.be/MfWPskO2LjM",
@@ -37,7 +40,7 @@ const PORTFOLIO = {
     },
     {
       title: "Tamil Nadu Political Sentiment Dashboard",
-      description: "This dashboard presents an analysis of political sentiment in Tamil Nadu based on data collected from Twitter/X. The dataset reflects recent public discourse around elections and political activity, offering insights into how people are reacting online. While it provides a useful snapshot, it is important to note that social media data may include inherent platform and sampling biases.",
+      description: "Turned 10,000+ tweets into a live political intelligence layer for Tamil Nadu's election cycle. The dashboard maps sentiment shifts by party, tracks narrative momentum in real time, and surfaces what the mainstream media consistently lags behind on.\n\nData journalism meets political analytics — built from scratch in a weekend to prove a point.",
       tags: ["Experimental"],
       featured: false,
       youtube: "",
@@ -48,21 +51,21 @@ const PORTFOLIO = {
   blogs: [
     {
       title: "Danke SEB!",
-      excerpt: "Engineanalysing SEBs carrear",
+      excerpt: "A proper engineering autopsy of Sebastian Vettel's career — what the lap times, car data, and team dynamics actually tell you about one of the most technically intelligent drivers Formula 1 has ever seen.",
       date: "July 30, 2022",
       link: "https://explaining-engineering-f1.blogspot.com/2022/07/danke-seb.html",
       tags: ["Formula 1"],
     },
     {
-      title: "Aerodynamics are for winner",
-      excerpt: "Victory isn't just about horsepower; it's about how you carve through the air. In this post, we break down the invisible forces that separate the podium finishers from the rest of the pack. From active aero to the ground effect, learn why mastering the wind is the ultimate unfair advantage in modern motorsport",
+      title: "Aerodynamics Are for Winners",
+      excerpt: "Horsepower gets you to the grid. Aerodynamics wins you the race. A breakdown of the invisible forces — active aero, ground effect, drag reduction — that separate the podium from the pack in modern motorsport.",
       date: "September 6, 2020",
       link: "https://explaining-engineering-f1.blogspot.com/2020/09/aerodynamics-are-for-winners.html",
       tags: ["Formula 1", "Explaining Engineering"],
     },
     {
-      title: "Tire Dynamics - The Dark Art",
-      excerpt: "Forget everything you know about friction. In the realm of high-performance driving, the contact patch is a chaotic battlefield of heat, chemical bonding, and mechanical interlocking. This post pulls back the curtain on 'The Dark Art' exploring how slip angles, load sensitivity, and hysteresis determine whether a car sticks to the apex or slides into the barriers. Master the rubber, master the race",
+      title: "Tyre Dynamics — The Dark Art",
+      excerpt: "The contact patch is a 200 cm² battlefield of heat, chemistry, and physics that determines whether you stick the apex or hit the barrier. A deep dive into slip angles, load sensitivity, and hysteresis — the stuff tyre engineers don't put in press releases.",
       date: "August 23, 2020",
       link: "https://explaining-engineering-f1.blogspot.com/2020/08/tyre-dynamics-dark-art.html",
       tags: ["Automobile", "Explaining Engineering"],
