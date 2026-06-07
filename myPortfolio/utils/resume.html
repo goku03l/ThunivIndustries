@@ -95,7 +95,7 @@ body {
 .stamp-lbl { font-size:7.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--silver); line-height:1.5; }
 
 /* ── BODY ── */
-.body { display:grid; grid-template-columns:210px 1fr; }
+.body { display:grid; grid-template-columns:var(--sidebar-w, 210px) 1fr; }
 
 .sidebar {
   background:var(--brg-pale);
@@ -317,6 +317,12 @@ body {
 ───────────────────────────────────────────────────────── */
 
 const $ = id => document.getElementById(id);
+
+// Apply layout config
+const layout = CONFIG.layout || {};
+if (layout.sidebarWidth) {
+  document.documentElement.style.setProperty('--sidebar-w', layout.sidebarWidth);
+}
 
 // ── Helpers ───────────────────────────────────────────────
 // Render a value only if it's truthy, otherwise return ''
