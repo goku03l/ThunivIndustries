@@ -95,7 +95,7 @@ body {
 .stamp-lbl { font-size:7.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--silver); line-height:1.5; }
 
 /* ── BODY ── */
-.body { display:grid; grid-template-columns:210px 1fr; }
+.body { display:grid; grid-template-columns:var(--sidebar-w, 210px) 1fr; }
 
 .sidebar {
   background:var(--brg-pale);
@@ -109,6 +109,12 @@ body {
   font-size:7.5px; font-weight:500; letter-spacing:.26em; text-transform:uppercase;
   color:var(--silver-dk); padding-bottom:6px; border-bottom:1px solid var(--silver-lt); margin-bottom:12px;
 }
+
+/* skills */
+.skills { display:flex; flex-direction:column; gap:12px; }
+.sk-cat  { font-size:8px; letter-spacing:.18em; text-transform:uppercase; color:var(--silver-dk); font-weight:500; margin-bottom:5px; }
+.sk-tags { display:flex; flex-wrap:wrap; gap:4px; }
+.sk-tag  { font-size:10px; padding:3px 8px; background:var(--surface); color:var(--brg); border:1px solid var(--silver-lt); line-height:1.4; }
 
 /* about */
 .about { display:flex; flex-direction:column; gap:8px; }
@@ -318,6 +324,12 @@ body {
 
 const $ = id => document.getElementById(id);
 
+// Apply layout config
+const layout = CONFIG.layout || {};
+if (layout.sidebarWidth) {
+  document.documentElement.style.setProperty('--sidebar-w', layout.sidebarWidth);
+}
+
 // ── Helpers ───────────────────────────────────────────────
 // Render a value only if it's truthy, otherwise return ''
 const f = (val, tpl) => val ? tpl(val) : '';
@@ -377,7 +389,7 @@ $('footer').innerHTML = `
 // ── Sidebar ───────────────────────────────────────────────
 const sidebarSections = [];
 
-// About — skip paragraphs without text
+// About — first
 const aboutItems = clean(CONFIG.about, 'text');
 if (aboutItems.length) {
   sidebarSections.push(`
@@ -389,12 +401,29 @@ if (aboutItems.length) {
     </section>`);
 }
 
-// Timeline — skip entries without role
+// Skills — second
+const skills = Array.isArray(CONFIG.skills) ? CONFIG.skills.filter(s => s && (s.items?.length || s.tags?.length)) : [];
+if (skills.length) {
+  const items = skills.map(s => {
+    const tags = (s.items || s.tags || []).map(t => `<span class="sk-tag">${t}</span>`).join('');
+    return `<div>
+      ${f(s.category, v => `<div class="sk-cat">${v}</div>`)}
+      <div class="sk-tags">${tags}</div>
+    </div>`;
+  }).join('');
+  sidebarSections.push(`
+    <section>
+      <div class="lbl">Skills</div>
+      <div class="skills">${items}</div>
+    </section>`);
+}
+
+// Timeline — experience second
 const tlItems = clean(CONFIG.timeline, 'role');
 if (tlItems.length) {
   sidebarSections.push(`
     <section>
-      <div class="lbl">Where I've Been</div>
+      <div class="lbl">Experience</div>
       <div class="timeline">
         ${tlItems.map((t, i) => `
           <div class="tl">
@@ -416,6 +445,21 @@ $('sidebar').innerHTML = sidebarSections.join('');
 
 // ── Main ──────────────────────────────────────────────────
 const mainSections = [];
+
+// Looking — entire section optional; each sub-field optional
+const L = CONFIG.looking;
+if (L && (L.headline || L.body || L.cta)) {
+  const lookingLabel = CONFIG.labels?.looking || "What I'm Looking For";
+  mainSections.push(`
+    <section>
+      <div class="lbl">${lookingLabel}</div>
+      <div class="looking">
+        ${f(L.headline, v => `<div class="l-head">${v}</div>`)}
+        ${f(L.body,     v => `<div class="l-body">${v}</div>`)}
+        ${f(L.cta,      v => `<div class="l-cta">${v}</div>`)}
+      </div>
+    </section>`);
+}
 
 // Builds — skip items with no title, all other fields optional
 const builds = clean(CONFIG.builds, 'title');
@@ -474,21 +518,6 @@ if (principles.length) {
             <div class="p-head">${p.headline}</div>
             ${f(p.body, v => `<div class="p-body">${v}</div>`)}
           </div>`).join('')}
-      </div>
-    </section>`);
-}
-
-// Looking — entire section optional; each sub-field optional
-const L = CONFIG.looking;
-if (L && (L.headline || L.body || L.cta)) {
-  const lookingLabel = CONFIG.labels?.looking || "What I'm Looking For";
-  mainSections.push(`
-    <section>
-      <div class="lbl">${lookingLabel}</div>
-      <div class="looking">
-        ${f(L.headline, v => `<div class="l-head">${v}</div>`)}
-        ${f(L.body,     v => `<div class="l-body">${v}</div>`)}
-        ${f(L.cta,      v => `<div class="l-cta">${v}</div>`)}
       </div>
     </section>`);
 }
