@@ -2,320 +2,224 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thuniv Industries — Coming Soon</title>
-  <link rel="icon" href="favicon.ico" sizes="48x48">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#1A6B50">
-  <meta property="og:title" content="Thuniv Industries — Coming Soon">
-  <meta property="og:description" content="Something formidable is being forged. A new company is on the horizon.">
-  <meta property="og:image" content="icons/icon-512.png">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="utils/favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --cream:        #F5F0E8;
-      --cream-warm:   #EDE7D9;
-      --cream-deep:   #E0D8C8;
-      --cream-border: #D4CBB8;
-      --forest:       #0D1F18;
-      --forest-mid:   #112419;
-      --forest-card:  #162C20;
-      --forest-lift:  #1C3828;
-      --green:        #1A6B50;
-      --green-mid:    #22845F;
-      --green-bright: #2AA876;
-      --green-glow:   #3EC99A;
-      --gold:         #B8922A;
-      --gold-warm:    #D4A83A;
-      --gold-pale:    #F0D898;
-      --ink:          #1A2A22;
-      --ink-soft:     #3D5248;
-      --ink-muted:    #6B8878;
-      --light:        #F0EBE0;
-      --light-soft:   #C8D8CC;
-      --light-muted:  #7A9E8C;
-      --border-light: #D0C9B8;
-      --border-dark:  #243D2E;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body:    'DM Sans', sans-serif;
-      --font-mono:    'DM Mono', monospace;
-    }
-
-    html, body { height: 100%; font-family: var(--font-body); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
-
-    /* NAV — cream */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(13,31,24,0.95);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-dark);
-      box-shadow: 0 2px 16px rgba(0,0,0,0.4);
-    }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 2rem;
-      height: 68px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
-      color: var(--light); letter-spacing: -0.01em; text-decoration: none;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .nav-logo svg { width: 28px; height: 28px; flex-shrink: 0; }
-    .nav-status {
-      font-family: var(--font-mono); font-size: 0.66rem;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--light-muted); display: flex; align-items: center; gap: 8px;
-    }
-    .nav-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--green-glow); animation: pulse 2.2s ease-in-out infinite;
-    }
-
-    /* HERO — dark forest */
-    #hero {
-      position: relative; min-height: 100svh;
-      display: flex; align-items: center;
-      overflow: hidden; padding-top: 68px;
-      background: var(--forest);
-      color: var(--light);
-    }
-    .hero-light {
-      position: absolute; inset: 0; pointer-events: none;
-      background:
-        radial-gradient(ellipse 55% 65% at 88% 25%, rgba(245,240,232,0.055) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(62,201,154,0.07) 0%, transparent 50%);
-    }
-    .hero-stripe {
-      position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
-      background: linear-gradient(180deg, transparent 0%, var(--green) 20%, var(--gold-warm) 50%, var(--green) 80%, transparent 100%);
-      opacity: 0.8;
-    }
-    .hero-inner {
-      position: relative; z-index: 2;
-      max-width: 1100px; margin: 0 auto; padding: 6rem 2rem 4rem;
-    }
-    .racing-detail { display: flex; align-items: center; gap: 3px; margin-bottom: 1.5rem; animation: fadeUp 0.5s ease both; }
-    .racing-detail span { display: block; height: 2.5px; border-radius: 2px; }
-    .racing-detail span:nth-child(1) { width: 28px; background: var(--green-glow); }
-    .racing-detail span:nth-child(2) { width: 7px; background: var(--gold-warm); }
-    .racing-detail span:nth-child(3) { width: 28px; background: var(--green-glow); }
-
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(62,201,154,0.1); color: var(--green-glow);
-      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
-      padding: 0.32rem 0.9rem; border-radius: 4px; border: 1px solid rgba(62,201,154,0.2);
-      margin-bottom: 1.5rem; animation: fadeUp 0.6s 0.05s ease both;
-    }
-    .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--green-glow); border-radius: 50%; animation: pulse 2.2s infinite; }
-
-    .hero-name {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 8vw, 7rem); font-weight: 700; line-height: 1.0;
-      letter-spacing: -0.03em; color: var(--light); margin-bottom: 0.75rem;
-      animation: fadeUp 0.7s 0.1s ease both;
-    }
-    .hero-name em { font-style: italic; color: var(--green-glow); }
-
-    .hero-sub {
-      font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 400; font-style: italic;
-      color: var(--gold-warm); margin-bottom: 1.25rem;
-      animation: fadeUp 0.7s 0.2s ease both;
-    }
-    .hero-tagline {
-      font-size: 1.05rem; color: var(--light-soft);
-      max-width: 480px; margin-bottom: 2.5rem;
-      animation: fadeUp 0.7s 0.3s ease both;
-    }
-
-    /* COUNTDOWN */
-    .countdown-wrap { display: flex; align-items: flex-start; gap: 0; margin-bottom: 2.75rem; animation: fadeUp 0.7s 0.35s ease both; }
-    .c-block { text-align: center; min-width: 72px; }
-    .c-num { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; color: var(--light); line-height: 1; }
-    .c-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--light-muted); margin-top: 4px; }
-    .c-sep { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--green-glow); padding: 0 6px; line-height: 1.05; align-self: flex-start; }
-
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.4s ease both; }
-    .btn-primary {
-      background: var(--cream); color: var(--forest);
-      padding: 0.75rem 2rem; border-radius: 4px; font-size: 0.82rem; font-weight: 600;
-      text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
-      transition: background 0.2s, transform 0.15s; display: inline-flex; align-items: center; gap: 8px;
-    }
-    .btn-primary:hover { background: var(--gold-pale); transform: translateY(-2px); }
-    .btn-secondary {
-      border: 1px solid rgba(240,235,224,0.28); color: var(--light-soft);
-      padding: 0.75rem 2rem; border-radius: 4px; font-size: 0.82rem; font-weight: 400;
-      text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
-      transition: border-color 0.2s, color 0.2s, transform 0.15s;
-    }
-    .btn-secondary:hover { border-color: var(--green-glow); color: var(--green-glow); transform: translateY(-2px); }
-
-    /* TEASER — cream */
-    .teaser-strip {
-      background: var(--cream-warm);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-dark);
-      padding: 5rem 0; position: relative; overflow: hidden;
-    }
-    .teaser-strip::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, transparent, var(--green), var(--gold-warm), var(--green), transparent);
-    }
-    .teaser-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 2rem;
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; text-align: center;
-    }
-    .teaser-item {
-      padding: 2rem 1.5rem; background: white;
-      border: 1px solid var(--cream-border); border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(26,42,34,0.07);
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-      position: relative; overflow: hidden;
-    }
-    .teaser-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--green); opacity: 0; transition: opacity 0.2s; }
-    .teaser-item:hover { border-color: var(--cream-deep); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(26,42,34,0.1); }
-    .teaser-item:hover::before { opacity: 1; }
-    .teaser-icon { font-size: 1.75rem; margin-bottom: 1rem; }
-    .teaser-mono { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); display: block; margin-bottom: 0.5rem; }
-    .teaser-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; }
-    .teaser-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.7; }
-
-    /* CONTACT — dark */
-    .contact-strip {
-      background: var(--forest); text-align: center; padding: 5.5rem 2rem;
-      position: relative; overflow: hidden; border-top: 1px solid var(--border-dark);
-    }
-    .contact-strip::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--green-glow), transparent);
-    }
-    .contact-label { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--green-glow); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
-    .contact-label::before, .contact-label::after { content: ''; display: block; width: 20px; height: 1.5px; background: var(--green-glow); }
-    .contact-heading { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; line-height: 1.1; color: var(--light); margin-bottom: 0.75rem; }
-    .contact-heading em { font-style: italic; color: var(--green-glow); }
-    .contact-sub { font-size: 0.95rem; color: var(--light-muted); margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; }
-
-    footer { background: var(--forest); border-top: 1px solid var(--border-dark); text-align: center; padding: 2rem 1rem; }
-    footer p { font-family: var(--font-display); font-size: 0.9rem; color: var(--light-muted); }
-    .footer-sub { font-family: var(--font-mono); font-size: 0.64rem; margin-top: 0.3rem; opacity: 0.45; }
-
-    .hero-scroll-hint {
-      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-      font-size: 0.68rem; font-family: var(--font-mono); color: var(--light-muted); letter-spacing: 0.16em;
-      animation: fadeUp 0.7s 0.8s ease both, bounce 2s 1.5s ease-in-out infinite;
-    }
-
-    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(1.4);} }
-    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(7px);} }
-    .reveal { opacity:0; transform:translateY(26px); transition:opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-
-    @media (max-width: 768px) { .teaser-inner { grid-template-columns:1fr; } .hero-inner { padding:5rem 1.5rem 3rem; } }
-    @media (max-width: 480px) { .c-block { min-width:54px; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <nav>
+  <!-- NAV — cream -->
+  <nav id="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="256" cy="256" r="245" fill="#0D1F18"/>
-          <circle cx="256" cy="256" r="234" fill="none" stroke="#1A6B50" stroke-width="12" stroke-opacity="0.9"/>
-          <rect x="228" y="142" width="56" height="266" rx="4" fill="#F0EBE0"/>
-          <rect x="122" y="142" width="268" height="46" rx="4" fill="#F0EBE0"/>
-          <circle cx="332" cy="418" r="28" fill="#3EC99A"/>
-        </svg>
-        Thuniv Industries
-      </a>
-      <div class="nav-status"><div class="nav-dot"></div>Coming Soon</div>
+    <a href="#hero" class="nav-logo" id="nav-name">
+      <img src="utils/favicon.svg" alt="Thuniv" style="width:28px;height:28px;border-radius:4px;">
+      Gokul
+    </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#videos">Videos</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact" class="nav-cta">Let's Talk</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#videos">Videos</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Let's Talk</a>
     </div>
   </nav>
 
+  <!-- HERO — dark green -->
   <section id="hero">
     <div class="hero-light"></div>
     <div class="hero-stripe"></div>
     <div class="hero-inner">
       <div class="racing-detail"><span></span><span></span><span></span></div>
-      <div class="hero-tag">In the making</div>
-      <h1 class="hero-name">Thuniv<br><em>Industries.</em></h1>
-      <p class="hero-sub">Something formidable is being forged.</p>
-      <p class="hero-tagline">A new company is on the horizon. Big things take time — we're building ours with intention.</p>
-      <div class="countdown-wrap">
-        <div class="c-block"><div class="c-num" id="cd-d">000</div><div class="c-label">Days</div></div>
-        <div class="c-sep">:</div>
-        <div class="c-block"><div class="c-num" id="cd-h">00</div><div class="c-label">Hours</div></div>
-        <div class="c-sep">:</div>
-        <div class="c-block"><div class="c-num" id="cd-m">00</div><div class="c-label">Mins</div></div>
-        <div class="c-sep">:</div>
-        <div class="c-block"><div class="c-num" id="cd-s">00</div><div class="c-label">Secs</div></div>
-      </div>
+      <div class="hero-tag">Available for work</div>
+      <h1 class="hero-name" id="hero-name"></h1>
+      <p class="hero-profession" id="hero-profession"></p>
+      <p class="hero-tagline" id="hero-tagline"></p>
       <div class="hero-actions">
-        <a href="https://thunivin.com/myPortfolio" target="_blank" rel="noopener" class="btn-primary">Meet the Founder ↗</a>
-        <a href="#whats-coming" class="btn-secondary">What's Coming</a>
+        <a href="#projects" class="btn-primary">See My Work</a>
+        <a href="#contact" class="btn-secondary">Get in Touch</a>
+        <a href="../utils/resume.html"" class="btn-secondary">Open Resume</a>
+        <!-- <button class="btn-secondary" onclick="openResumeModal()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          View Résumé
+        </button> -->
       </div>
     </div>
     <div class="hero-scroll-hint">scroll ↓</div>
   </section>
 
-  <section class="teaser-strip" id="whats-coming">
-    <div class="teaser-inner">
-      <div class="teaser-item reveal">
-        <div class="teaser-icon">🛠</div>
-        <span class="teaser-mono">Phase 01</span>
-        <div class="teaser-title">Being Built</div>
-        <p class="teaser-desc">Every great company starts with a vision. Thuniv Industries is being crafted with purpose, detail and ambition.</p>
-      </div>
-      <div class="teaser-item reveal">
-        <div class="teaser-icon">🌐</div>
-        <span class="teaser-mono">Phase 02</span>
-        <div class="teaser-title">Going Live</div>
-        <p class="teaser-desc">Soon this page will make way for the full Thuniv Industries experience. Watch this space.</p>
-      </div>
-      <div class="teaser-item reveal">
-        <div class="teaser-icon">🚀</div>
-        <span class="teaser-mono">Phase 03</span>
-        <div class="teaser-title">The Launch</div>
-        <p class="teaser-desc">From concept to industry — the journey of Thuniv Industries begins in the near future. Stay ready.</p>
+  <!-- ABOUT — cream -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label">About</div>
+      <div class="about-grid">
+        <div class="about-avatar" id="about-avatar"></div>
+        <div class="about-content">
+          <h2 class="section-heading">The person<br><em>behind the work.</em></h2>
+          <p class="about-bio" id="about-bio"></p>
+          <div class="about-socials" id="about-socials"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="contact-strip reveal">
-    <div class="contact-label">Curious?</div>
-    <h2 class="contact-heading">Meet the mind<br><em>behind it all.</em></h2>
-    <p class="contact-sub">Until Thuniv Industries launches, explore the founder's portfolio and work.</p>
-    <a href="https://thunivin.com/myPortfolio" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;">View Portfolio ↗</a>
+  <!-- PROJECTS — dark green -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-label-light">Projects</div>
+      <div class="projects-header">
+        <h2 class="section-heading-light">Selected<br><em>Work.</em></h2>
+        <div class="project-controls">
+          <div class="filter-row" id="filter-row">
+            <button class="filter-btn active" data-filter="all">All</button>
+          </div>
+          <div class="sort-row">
+            <span class="sort-label">Sort:</span>
+            <button class="sort-btn active" data-sort="featured">Featured first</button>
+            <button class="sort-btn" data-sort="az">A–Z</button>
+            <button class="sort-btn" data-sort="za">Z–A</button>
+          </div>
+        </div>
+      </div>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- VIDEO MODAL -->
+  <div class="modal-overlay" id="video-modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close">&#10005;</button>
+      <div class="modal-iframe-wrap" style="position:relative;">
+        <iframe id="modal-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
+        <div id="modal-loader" style="display:flex;position:absolute;inset:0;background:#0D1F18;align-items:center;justify-content:center;flex-direction:column;gap:1rem;">
+          <div style="width:34px;height:34px;border:2.5px solid #243D2E;border-top-color:#3EC99A;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+          <span style="font-family:'DM Mono',monospace;font-size:0.72rem;color:#7A9E8C;letter-spacing:0.14em;text-transform:uppercase;">Loading...</span>
+        </div>
+        <div id="modal-fallback" style="display:none;position:absolute;inset:0;background:#0D1F18;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;padding:2.5rem;text-align:center;">
+          <div style="width:60px;height:60px;background:#162C20;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;border:1px solid #243D2E;">🔗</div>
+          <div>
+            <p style="color:#F0EBE0;font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;margin-bottom:0.5rem;">Embedding disabled by creator</p>
+            <p id="modal-fallback-title" style="color:#7A9E8C;font-family:'DM Mono',monospace;font-size:0.78rem;"></p>
+          </div>
+          <a id="modal-fallback-link" href="#" target="_blank" rel="noopener noreferrer"
+             style="display:inline-flex;align-items:center;gap:8px;background:#F5F0E8;color:#0D1F18;padding:0.7rem 1.8rem;border-radius:4px;font-size:0.82rem;font-weight:600;font-family:'DM Sans',sans-serif;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:background 0.2s;"
+             onmouseover="this.style.background='#F0D898'" onmouseout="this.style.background='#F5F0E8'">
+            ▶ Watch on YouTube ↗
+          </a>
+        </div>
+      </div>
+      <p class="modal-title" id="modal-title"></p>
+    </div>
   </div>
 
+  <!-- RESUME MODAL -->
+  <div id="resume-modal">
+    <div class="resume-modal-box">
+      <div class="resume-modal-header">
+        <div class="resume-modal-title">Résumé Gokul</div>
+        <div class="resume-modal-actions">
+          <a href="utils/resume.pdf" download="Gokul_Resume.pdf" class="resume-download-btn" id="resume-download-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+          <button class="resume-modal-close" onclick="closeResumeModal()">&#10005;</button>
+        </div>
+      </div>
+      <div class="resume-viewer-wrap" id="resume-viewer-wrap">
+        <iframe id="resume-iframe" src="utils/resume.pdf" title="Résumé" style="width:100%;height:100%;border:none;display:block;"></iframe>
+        <div class="resume-placeholder" id="resume-placeholder" style="display:none;">
+          <div class="resume-placeholder-icon">📄</div>
+          <p class="resume-placeholder-text">Résumé not yet uploaded</p>
+          <p class="resume-placeholder-sub">Place your PDF at <code style="background:rgba(26,107,80,0.1);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em;">utils/resume.pdf</code> and it will appear here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS — cream warm -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label">Skills</div>
+      <h2 class="section-heading">What I<br><em>bring.</em></h2>
+      <div class="skills-grid" id="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- VIDEOS — dark -->
+  <section id="videos">
+    <div class="container">
+      <div class="section-label-light">Videos</div>
+      <h2 class="section-heading-light">Watch &<br><em>Learn.</em></h2>
+      <div class="videos-grid" id="videos-grid"></div>
+    </div>
+  </section>
+
+  <!-- BLOG — cream -->
+  <section id="blog">
+    <div class="container">
+      <div class="section-label">Blog</div>
+      <h2 class="section-heading">Words &<br><em>Ideas.</em></h2>
+      <div class="blog-grid" id="blog-grid"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT — dark -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label-light">Contact</div>
+      <div class="contact-inner">
+        <h2 class="contact-heading">Let's make<br><em>something great.</em></h2>
+        <a href="#" class="contact-email" id="contact-email"></a>
+        <div class="contact-socials" id="contact-socials"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>Thuniv Industries</p>
+    <p id="footer-name"></p>
     <p class="footer-sub">Welcome / நல்வரவு</p>
   </footer>
 
+  <script src="config.js"></script>
+  <script src="script.js"></script>
   <script>
-    const launch = new Date("2028-07-03T00:00:00");
-    function tick() {
-      const diff = launch - new Date(); if (diff <= 0) return;
-      document.getElementById("cd-d").textContent = String(Math.floor(diff/86400000)).padStart(3,"0");
-      document.getElementById("cd-h").textContent = String(Math.floor((diff%86400000)/3600000)).padStart(2,"0");
-      document.getElementById("cd-m").textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,"0");
-      document.getElementById("cd-s").textContent = String(Math.floor((diff%60000)/1000)).padStart(2,"0");
+    function openResumeModal() {
+      document.getElementById('resume-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      const iframe = document.getElementById('resume-iframe');
+      iframe.onerror = function() {
+        document.getElementById('resume-placeholder').style.display = 'flex';
+        iframe.style.display = 'none';
+      };
     }
-    tick(); setInterval(tick, 1000);
-    const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("visible"); }), {threshold:0.1});
-    document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+    function closeResumeModal() {
+      document.getElementById('resume-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('resume-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeResumeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeResumeModal();
+    });
   </script>
 </body>
 </html>
