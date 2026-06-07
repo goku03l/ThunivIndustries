@@ -127,8 +127,8 @@ const CONFIG = {
   /* ── LOOKING — entire block optional ─────────────────── */
   looking: {
     headline: "A Founder Office, or 0→1 execution role at an early-stage startup or builder, strategist, operator, all at once.",
-    body:     "Ideally AI/ML, B2B SaaS, or deep-tech — but the problem matters more than the sector. I want to be close to the founding team, own real outcomes, and eventually build my own.",
-    cta:      "If you're a founder who needs someone who can think with you on Monday and ship with you on Friday — let's talk.",
+    body:     "Ideally AI/ML, B2B SaaS, or deep-tech but the problem matters more than the sector. I want to be close to the founding team, own real outcomes, and eventually build my own.",
+    cta:      "If you're a founder who needs someone who can think with you on Monday and ship with you on Friday, let's talk.",
   },
 
   /* ── LABELS — (optional) override section headings ───── */
