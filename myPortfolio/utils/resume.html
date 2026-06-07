@@ -179,6 +179,113 @@ body {
   .hdr, .sidebar, .b-right, .footer, .principle
     { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 }
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
+  body { padding: 0 0 40px; background: var(--brg); }
+
+  /* toolbar */
+  .toolbar {
+    max-width: 100%;
+    margin: 0;
+    padding: 12px 16px;
+    background: var(--brg);
+    border-bottom: 1px solid rgba(200,212,202,.15);
+    justify-content: stretch;
+  }
+  .btn { flex: 1; justify-content: center; padding: 12px; font-size: 14px; }
+
+  /* card */
+  .resume { box-shadow: none; }
+
+  /* header — stack vertically */
+  .hdr {
+    grid-template-columns: 1fr;
+    padding: 24px 20px 20px;
+    gap: 16px;
+  }
+  .hdr-name { font-size: 36px; }
+  .eyebrow  { font-size: 9px; }
+  .tagline  { font-size: 13px; max-width: 100%; }
+
+  /* contacts flip to horizontal wrapping row */
+  .hdr-right { align-items: flex-start; }
+  .contacts  { flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 8px 16px; }
+  .contacts span { font-size: 11px; }
+
+  /* hide stamp on mobile — saves space */
+  .stamp { display: none; }
+
+  /* body — single column, sidebar on top */
+  .body { grid-template-columns: 1fr; }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--silver-lt);
+    padding: 20px 20px;
+    gap: 20px;
+  }
+  .main { padding: 20px; gap: 20px; }
+
+  /* section labels — slightly bigger */
+  .lbl { font-size: 9px; margin-bottom: 14px; }
+
+  /* about — bigger body text */
+  .about p      { font-size: 13px; }
+  .about p.italic { font-size: 12.5px; }
+
+  /* timeline */
+  .tl-period { font-size: 10px; }
+  .tl-role   { font-size: 12px; }
+  .tl-org    { font-size: 11px; }
+
+  /* builds — stack meta panel below content */
+  .build, .build.no-meta {
+    grid-template-columns: 1fr;
+  }
+  .b-left { border-right: none; border-bottom: 1px solid var(--silver-lt); padding: 16px; }
+  .b-title  { font-size: 20px; }
+  .b-sub    { font-size: 11px; margin-bottom: 10px; }
+  .b-story  { font-size: 13px; }
+  .b-company { font-size: 11px; }
+  .b-tag    { font-size: 10px; padding: 3px 9px; }
+  .b-url    { font-size: 12px; margin-top: 8px; margin-right: 10px; }
+  .b-status { font-size: 9px; }
+
+  /* right meta panel — horizontal strip on mobile */
+  .b-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding: 14px 16px;
+  }
+  .b-right > div { min-width: 80px; }
+  .rs-lbl { font-size: 8px; }
+  .rs-val  { font-size: 13px; }
+  .rs-stk  { font-size: 11px; }
+  .rs-role { font-size: 12px; }
+
+  /* principles — single column */
+  .principles { grid-template-columns: 1fr; gap: 8px; }
+  .p-head { font-size: 14px; }
+  .p-body { font-size: 12px; }
+
+  /* looking */
+  .looking  { padding: 16px; }
+  .l-head   { font-size: 14px; }
+  .l-body   { font-size: 13px; }
+  .l-cta    { font-size: 13px; }
+
+  /* footer — stack vertically */
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 20px;
+    gap: 4px;
+  }
+  .footer-left  { font-size: 11px; line-height: 1.8; }
+  .footer-right { font-size: 12px; }
+}
 </style>
 </head>
 <body>
@@ -310,6 +417,21 @@ $('sidebar').innerHTML = sidebarSections.join('');
 // ── Main ──────────────────────────────────────────────────
 const mainSections = [];
 
+// Looking — entire section optional; each sub-field optional
+const L = CONFIG.looking;
+if (L && (L.headline || L.body || L.cta)) {
+  const lookingLabel = CONFIG.labels?.looking || "What I'm Looking For";
+  mainSections.push(`
+    <section>
+      <div class="lbl">${lookingLabel}</div>
+      <div class="looking">
+        ${f(L.headline, v => `<div class="l-head">${v}</div>`)}
+        ${f(L.body,     v => `<div class="l-body">${v}</div>`)}
+        ${f(L.cta,      v => `<div class="l-cta">${v}</div>`)}
+      </div>
+    </section>`);
+}
+
 // Builds — skip items with no title, all other fields optional
 const builds = clean(CONFIG.builds, 'title');
 if (builds.length) {
@@ -367,21 +489,6 @@ if (principles.length) {
             <div class="p-head">${p.headline}</div>
             ${f(p.body, v => `<div class="p-body">${v}</div>`)}
           </div>`).join('')}
-      </div>
-    </section>`);
-}
-
-// Looking — entire section optional; each sub-field optional
-const L = CONFIG.looking;
-if (L && (L.headline || L.body || L.cta)) {
-  const lookingLabel = CONFIG.labels?.looking || "What I'm Looking For";
-  mainSections.push(`
-    <section>
-      <div class="lbl">${lookingLabel}</div>
-      <div class="looking">
-        ${f(L.headline, v => `<div class="l-head">${v}</div>`)}
-        ${f(L.body,     v => `<div class="l-body">${v}</div>`)}
-        ${f(L.cta,      v => `<div class="l-cta">${v}</div>`)}
       </div>
     </section>`);
 }

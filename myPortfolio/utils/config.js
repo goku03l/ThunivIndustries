@@ -20,7 +20,7 @@ const CONFIG = {
   identity: {
     name:       "Gokul Kumar",
     eyebrow:    "Founder Office · Chief of Staff · 0→1",   // (optional)
-    tagline:    "I build things that didn't exist before — inside big companies, now outside.", // (optional)
+    tagline:    "I know how to build things from scratch, but I want to learn how to survive the early days. I’m looking to lock into a startup bunker with a founder, act as a force multiplier for their vision, and earn the scars it takes to scale a company from the ground up.", // (optional)
     email:      "gokul@thunivin.com",                      // (optional)
     phone:      "9884990139",                              // (optional)
     location:   "Gurugram, India",                         // (optional)
@@ -126,7 +126,7 @@ const CONFIG = {
 
   /* ── LOOKING — entire block optional ─────────────────── */
   looking: {
-    headline: "A Founder Office, Chief of Staff, or 0→1 execution role at an early-stage startup — builder, strategist, operator, all at once.",
+    headline: "A Founder Office, or 0→1 execution role at an early-stage startup or builder, strategist, operator, all at once.",
     body:     "Ideally AI/ML, B2B SaaS, or deep-tech — but the problem matters more than the sector. I want to be close to the founding team, own real outcomes, and eventually build my own.",
     cta:      "If you're a founder who needs someone who can think with you on Monday and ship with you on Friday — let's talk.",
   },
