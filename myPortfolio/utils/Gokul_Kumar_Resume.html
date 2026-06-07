@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gokul Kumar — Founder Office</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+/* ── Tokens ──────────────────────────────────────────── */
+:root {
+  --brg:         #1B4332;
+  --brg-mid:     #2D6A4F;
+  --brg-pale:    #E4EDE6;
+  --warm-white:  #F7F7F2;
+  --silver:      #8A9A8E;
+  --silver-lt:   #C8D4CA;
+  --silver-dark: #5A6B5E;
+  --ink:         #1C2319;
+  --mist:        #5A6B5E;
+  --page-w:      900px;
+
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body:    'DM Sans', system-ui, sans-serif;
+}
+
+/* ── Reset ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+
+body {
+  background: #e8e8e2;
+  font-family: var(--ff-body);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px 80px;
+}
+
+/* ── Page shell ──────────────────────────────────────── */
+.page {
+  background: var(--warm-white);
+  width: 100%;
+  max-width: var(--page-w);
+  box-shadow: 0 8px 60px rgba(27,67,50,0.18), 0 2px 8px rgba(27,67,50,0.08);
+  position: relative;
+}
+
+/* ── PDF button ──────────────────────────────────────── */
+.pdf-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--brg);
+  color: var(--warm-white);
+  font-family: var(--ff-body);
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, transform 0.15s;
+}
+.pdf-btn:hover { background: var(--brg-mid); transform: translateY(-1px); }
+.pdf-btn svg { flex-shrink: 0; }
+
+/* ── HEADER GRID ─────────────────────────────────────── */
+.header-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0;
+  background: var(--brg);
+  padding: 48px 52px 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle grid lines on header */
+.header-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,212,202,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,212,202,0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.header-eyebrow {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--silver);
+  text-transform: uppercase;
+}
+
+.header-name {
+  font-family: var(--ff-display);
+  font-size: 58px;
+  font-weight: 700;
+  color: var(--warm-white);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.header-tagline {
+  font-family: var(--ff-display);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--brg-pale);
+  line-height: 1.6;
+  max-width: 420px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(200,212,202,0.3);
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.contact-item {
+  font-size: 11.5px;
+  color: var(--silver-lt);
+  letter-spacing: 0.01em;
+}
+
+.contact-item span {
+  color: var(--silver);
+  margin-right: 6px;
+}
+
+.header-stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border-top: 1px solid rgba(200,212,202,0.25);
+  padding-top: 12px;
+}
+
+.stamp-year {
+  font-family: var(--ff-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(200,212,202,0.18);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stamp-label {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--silver);
+  text-align: right;
+  line-height: 1.5;
+}
+
+/* ── BODY GRID ───────────────────────────────────────── */
+.body-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0;
+}
+
+/* ── SIDEBAR ─────────────────────────────────────────── */
+.sidebar {
+  background: var(--brg-pale);
+  padding: 40px 28px;
+  border-right: 1px solid var(--silver-lt);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ── MAIN COL ────────────────────────────────────────── */
+.main-col {
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+/* ── Section label ───────────────────────────────────── */
+.section-label {
+  font-family: var(--ff-body);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--silver-dark);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--silver-lt);
+}
+
+/* ── About text ──────────────────────────────────────── */
+.about-text p {
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.about-text p:last-child {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--mist);
+  margin-bottom: 0;
+}
+
+/* ── Timeline ────────────────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 2px 1fr;
+  gap: 0 14px;
+}
+
+.timeline-bar {
+  background: var(--silver-lt);
+  border-radius: 2px;
+  position: relative;
+}
+
+.timeline-bar::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brg);
+  border: 2px solid var(--brg-pale);
+}
+
+.timeline-content {}
+
+.timeline-period {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 10px;
+  color: var(--silver-dark);
+  margin-bottom: 3px;
+}
+
+.timeline-role {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 2px;
+}
+
+.timeline-org {
+  font-size: 10.5px;
+  color: var(--mist);
+  line-height: 1.4;
+}
+
+/* ── Builds grid ─────────────────────────────────────── */
+.builds-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.build-card {
+  display: grid;
+  grid-template-columns: 1fr 170px;
+  border: 1px solid var(--silver-lt);
+  background: var(--warm-white);
+  transition: box-shadow 0.2s;
+}
+
+.build-card:hover {
+  box-shadow: 0 4px 24px rgba(27,67,50,0.1);
+}
+
+.build-left {
+  padding: 20px 22px;
+  border-right: 1px solid var(--silver-lt);
+}
+
+.build-title {
+  font-family: var(--ff-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brg);
+  margin-bottom: 3px;
+  line-height: 1;
+}
+
+.build-subtitle {
+  font-size: 10.5px;
+  color: var(--silver-dark);
+  font-style: italic;
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+
+.build-story {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.build-company {
+  font-size: 10.5px;
+  color: var(--mist);
+  font-style: italic;
+}
+
+.build-right {
+  background: var(--brg);
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.build-stat-label {
+  font-size: 8.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver-lt);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.build-stat-value {
+  font-family: var(--ff-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--warm-white);
+  line-height: 1.3;
+}
+
+.build-stack {
+  font-size: 10.5px;
+  color: var(--brg-pale);
+  line-height: 1.5;
+}
+
+.build-role {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--silver-lt);
+  letter-spacing: 0.02em;
+}
+
+/* ── Principles grid ─────────────────────────────────── */
+.principles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.principle-card {
+  background: var(--brg-pale);
+  padding: 18px 20px;
+  border-left: 3px solid var(--brg);
+}
+
+.principle-headline {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--brg);
+  margin-bottom: 8px;
+}
+
+.principle-body {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+/* ── Looking for ─────────────────────────────────────── */
+.looking-card {
+  border: 1px solid var(--silver-lt);
+  border-left: 4px solid var(--brg);
+  background: var(--warm-white);
+  padding: 24px 28px;
+}
+
+.looking-headline {
+  font-family: var(--ff-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--brg);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.looking-body {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--silver-lt);
+}
+
+.looking-cta {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--brg-mid);
+  line-height: 1.6;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+  background: var(--brg);
+  padding: 14px 52px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--silver);
+  letter-spacing: 0.06em;
+}
+
+/* ── Print / PDF styles ──────────────────────────────── */
+@media print {
+  body {
+    background: none;
+    padding: 0;
+    display: block;
+  }
+
+  .pdf-btn { display: none !important; }
+
+  .page {
+    max-width: 100%;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .header-grid { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .build-right  { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .sidebar      { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .footer       { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .principle-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .looking-card   { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
+
+</style>
+  <script>
+const RESUME = {
+  name: "Gokul Kumar",
+  tagline: "I build things that didn't exist before —
+inside big companies, until the right startup calls.",
+  contact: {
+    email: "gokul@thunivin.com",
+    phone: "9884990139",
+    location: "Gurugram, India",
+    github: "github.com/goku03l"
+  },
+  about: [
+    "I'm a technical builder who ended up inside Maruti Suzuki — not because I love process, but because that's where I found genuinely hard problems to solve.",
+    "I write code, define products, run sprints, and own outcomes — often all in the same week. I've done this across LLM tooling, NLP, and ML systems, mostly in environments with no playbook and no safety net.",
+    "Mechanical engineer by degree. AI practitioner by choice. Builder by instinct."
+  ],
+  builds: [
+    {
+      title: "ForgeAI",
+      subtitle: "LLM-powered document & report generation",
+      story: "Nobody asked me to build this. I spotted the pain point, recruited 3 junior engineers without a mandate, framed the problem from scratch, and shipped an LLM system that replaced a manual, error-prone reporting process across the entire engineering org.",
+      company: "Maruti Suzuki · 2025",
+      impact: "~20,000 man-hours saved annually",
+      stack: "LLMs · Prompt Eng · Python · OpenAI / Anthropic APIs",
+      role: "Conceived · Resourced · Shipped"
+    },
+    {
+      title: "Smart Pulse",
+      subtitle: "Social media sentiment & insight platform",
+      story: "Turned an ocean of unstructured social media noise into dashboards that business teams actually open every morning. Owned the full arc — PRD, KPIs, UAT, post-launch adoption.",
+      company: "Maruti Suzuki · 2025",
+      impact: "2,500+ internal users",
+      stack: "NLP · Sentiment Classification · Analytics",
+      role: "Product Owner · PM · Adoption Lead"
+    },
+    {
+      title: "ML Clash Detection",
+      subtitle: "Automated vehicle design validation",
+      story: "Replaced tedious manual triage of thousands of vehicle design clashes. Built an ML classifier that auto-categorised every clash — cutting lead time by 70% and manual effort by 95%.",
+      company: "Renault Nissan TBCI · 2023–25",
+      impact: "70% faster · 95% less manual effort",
+      stack: "Python · Scikit-learn · ML Classification · 3DEXPERIENCE",
+      role: "Built end-to-end"
+    }
+  ],
+  principles: [
+    { headline: "Start with the problem.", body: "Most of what I've built began as something I noticed was broken — not a task assigned to me. ForgeAI didn't have a ticket." },
+    { headline: "Comfortable with fog.", body: "At Maruti, there was no AI team, no prior art, no template. I figured it out. Founder office roles should feel the same." },
+    { headline: "Close the loop.", body: "I don't hand off to someone else to measure success. I track adoption, talk to users, and iterate until it actually sticks." },
+    { headline: "Code + boardroom.", body: "I can go from a whiteboard session to a working prototype — and then brief a business head on the outcome the next morning." }
+  ],
+  timeline: [
+    { period: "Apr 2025 → now", role: "Technical Program Manager — AI & ML", org: "Maruti Suzuki India Limited, Gurugram" },
+    { period: "Jun 2023 – Apr 2025", role: "Digital Transformation Analyst — PLM & AI", org: "Renault Nissan Technology & Business Centre India (GCC), Chennai" },
+    { period: "2019 – 2023", role: "B.Tech Mechanical Engineering · 9.05 CGPA", org: "B.S. Abdur Rahman Crescent Institute of Science & Technology, Chennai" }
+  ],
+  looking_for: {
+    headline: "A Founder Office, Chief of Staff, or 0→1 execution role at an early-stage startup where I can wear multiple hats — builder, strategist, operator, all at once.",
+    body: "Ideally AI/ML, B2B SaaS, or deep-tech — but the problem matters more than the sector. I want to be close to the founding team, own real outcomes, and eventually build my own.",
+    cta: "If you're a founder who needs someone who can think with you on Monday and ship with you on Friday — let's talk."
+  }
+};
+
+</script>
+</head>
+<body>
+  <button class="pdf-btn" onclick="downloadPDF()" aria-label="Download PDF">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download PDF
+  </button>
+
+  <div class="page" id="resume">
+
+    <!-- ── HEADER GRID ── -->
+    <header class="header-grid">
+      <div class="header-left">
+        <div class="header-eyebrow">Founder Office · Chief of Staff · 0→1</div>
+        <h1 class="header-name" id="h-name"></h1>
+        <p class="header-tagline" id="h-tagline"></p>
+      </div>
+      <div class="header-right">
+        <div class="contact-block" id="h-contact"></div>
+        <div class="header-stamp">
+          <span class="stamp-year">2025</span>
+          <span class="stamp-label">Open to<br>opportunities</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── BODY GRID ── -->
+    <main class="body-grid">
+
+      <!-- COL 1 — narrow sidebar -->
+      <aside class="sidebar">
+        <section class="section">
+          <h2 class="section-label">Who I Am</h2>
+          <div class="about-text" id="s-about"></div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-label">Where I've Been</h2>
+          <div class="timeline" id="s-timeline"></div>
+        </section>
+      </aside>
+
+      <!-- COL 2 — main content -->
+      <div class="main-col">
+
+        <section class="section">
+          <h2 class="section-label">Things I've Actually Built</h2>
+          <div class="builds-grid" id="s-builds"></div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-label">How I Think & Work</h2>
+          <div class="principles-grid" id="s-principles"></div>
+        </section>
+
+        <section class="section looking-for-section">
+          <h2 class="section-label">What I'm Looking For</h2>
+          <div class="looking-card" id="s-looking"></div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+      <span id="f-contact"></span>
+    </footer>
+
+  </div>
+
+  <script>
+/* render.js — reads RESUME config and builds the DOM */
+
+(function () {
+  const R = RESUME;
+
+  /* ── Header ───────────────────────────────────────── */
+  document.getElementById('h-name').textContent = R.name;
+  document.getElementById('h-tagline').textContent = R.tagline;
+
+  const contactEl = document.getElementById('h-contact');
+  const contactItems = [
+    { icon: '✉', value: R.contact.email },
+    { icon: '↗', value: R.contact.github },
+    { icon: '◎', value: R.contact.location },
+    { icon: '✆', value: R.contact.phone }
+  ];
+  contactItems.forEach(({ icon, value }) => {
+    const div = document.createElement('div');
+    div.className = 'contact-item';
+    div.innerHTML = `<span>${icon}</span>${value}`;
+    contactEl.appendChild(div);
+  });
+
+  /* ── About ────────────────────────────────────────── */
+  const aboutEl = document.getElementById('s-about');
+  R.about.forEach(text => {
+    const p = document.createElement('p');
+    p.textContent = text;
+    aboutEl.appendChild(p);
+  });
+
+  /* ── Timeline ─────────────────────────────────────── */
+  const timelineEl = document.getElementById('s-timeline');
+  R.timeline.forEach(item => {
+    timelineEl.innerHTML += `
+      <div class="timeline-item">
+        <div class="timeline-bar"></div>
+        <div class="timeline-content">
+          <div class="timeline-period">${item.period}</div>
+          <div class="timeline-role">${item.role}</div>
+          <div class="timeline-org">${item.org}</div>
+        </div>
+      </div>`;
+  });
+
+  /* ── Builds ───────────────────────────────────────── */
+  const buildsEl = document.getElementById('s-builds');
+  R.builds.forEach(b => {
+    buildsEl.innerHTML += `
+      <div class="build-card">
+        <div class="build-left">
+          <div class="build-title">${b.title}</div>
+          <div class="build-subtitle">${b.subtitle}</div>
+          <p class="build-story">${b.story}</p>
+          <div class="build-company">${b.company}</div>
+        </div>
+        <div class="build-right">
+          <div>
+            <div class="build-stat-label">Impact</div>
+            <div class="build-stat-value">${b.impact}</div>
+          </div>
+          <div>
+            <div class="build-stat-label">Stack</div>
+            <div class="build-stack">${b.stack}</div>
+          </div>
+          <div>
+            <div class="build-stat-label">Role</div>
+            <div class="build-role">${b.role}</div>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  /* ── Principles ───────────────────────────────────── */
+  const principlesEl = document.getElementById('s-principles');
+  R.principles.forEach(p => {
+    principlesEl.innerHTML += `
+      <div class="principle-card">
+        <div class="principle-headline">${p.headline}</div>
+        <div class="principle-body">${p.body}</div>
+      </div>`;
+  });
+
+  /* ── Looking for ──────────────────────────────────── */
+  const lf = R.looking_for;
+  document.getElementById('s-looking').innerHTML = `
+    <div class="looking-headline">${lf.headline}</div>
+    <div class="looking-body">${lf.body}</div>
+    <div class="looking-cta">${lf.cta}</div>`;
+
+  /* ── Footer ───────────────────────────────────────── */
+  const c = R.contact;
+  document.getElementById('f-contact').textContent =
+    `${c.email}   ·   ${c.phone}   ·   ${c.github}   ·   ${c.location}`;
+})();
+
+</script>
+  <script>
+/* pdf.js — PDF download via html2pdf.js */
+
+function downloadPDF() {
+  const btn = document.querySelector('.pdf-btn');
+  btn.textContent = 'Generating…';
+  btn.disabled = true;
+
+  /* Load html2pdf on demand */
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+  script.onload = function () {
+    const element = document.getElementById('resume');
+
+    const opt = {
+      margin:      0,
+      filename:    'Gokul_Kumar_FounderOffice.pdf',
+      image:       { type: 'jpeg', quality: 0.98 },
+      html2canvas: {
+        scale:         2,
+        useCORS:       true,
+        logging:       false,
+        letterRendering: true
+      },
+      jsPDF: {
+        unit:        'mm',
+        format:      'a4',
+        orientation: 'portrait'
+      },
+      pagebreak: { mode: ['avoid-all'] }
+    };
+
+    html2pdf()
+      .set(opt)
+      .from(element)
+      .save()
+      .then(() => {
+        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Downloaded`;
+        setTimeout(() => {
+          btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download PDF`;
+          btn.disabled = false;
+        }, 2500);
+      });
+  };
+
+  document.head.appendChild(script);
+}
+
+</script>
+</body>
+</html>
