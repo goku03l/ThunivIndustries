@@ -3,256 +3,503 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Gokul Kumar — Resume</title>
+<title id="page-title">Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<!-- ═══════════════════════════════════════════════════════
+     All content lives in config.js — never edit this file
+════════════════════════════════════════════════════════ -->
+<script src="config.js"></script>
 <style>
-  /* ── ATS-FRIENDLY: single-column, no floats, no grid, no JS ── */
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --brg:       #1B4332;
+  --brg-mid:   #2D6A4F;
+  --brg-pale:  #E4EDE6;
+  --page-bg:   #C8D4CA;
+  --surface:   #F7F7F2;
+  --ink:       #1C2319;
+  --mist:      #5E6E62;
+  --silver:    #8A9A8E;
+  --silver-lt: #C8D4CA;
+  --silver-dk: #5A6B5E;
+  --fd: 'Playfair Display', Georgia, serif;
+  --fb: 'DM Sans', system-ui, sans-serif;
+}
 
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11pt;
-    line-height: 1.5;
-    color: #111;
-    background: #fff;
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 36px 40px 48px;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--fb);
+  background: var(--page-bg);
+  color: var(--ink);
+  padding: 32px 24px 60px;
+}
+
+/* toolbar */
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 860px;
+  margin: 0 auto 14px;
+  gap: 10px;
+}
+.btn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 10px 22px;
+  font-family: var(--fb); font-size: 13px; font-weight: 500;
+  border: none; cursor: pointer; letter-spacing: .04em;
+  transition: background .18s, transform .12s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-pdf { background: var(--brg); color: var(--surface); }
+.btn-pdf:hover { background: var(--brg-mid); }
+
+/* card */
+.resume {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--surface);
+  box-shadow: 0 8px 48px rgba(27,67,50,.2);
+}
+
+/* ── HEADER ── */
+.hdr {
+  background: var(--brg);
+  padding: 32px 40px 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.hdr::before {
+  content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(200,212,202,.08) 1px,transparent 1px),
+                    linear-gradient(90deg,rgba(200,212,202,.08) 1px,transparent 1px);
+  background-size: 36px 36px;
+}
+.hdr-left  { position:relative; z-index:1; }
+.eyebrow   { font-size:8.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--silver); font-weight:500; margin-bottom:8px; }
+.hdr-name  { font-family:var(--fd); font-size:52px; font-weight:700; color:var(--surface); line-height:1; margin-bottom:10px; }
+.hdr-rule  { height:1px; background:rgba(200,212,202,.22); margin-bottom:10px; }
+.tagline   { font-family:var(--fd); font-style:italic; font-size:12.5px; color:var(--brg-pale); line-height:1.6; max-width:400px; }
+.hdr-right { position:relative; z-index:1; display:flex; flex-direction:column; align-items:flex-end; justify-content:space-between; }
+.contacts  { display:flex; flex-direction:column; align-items:flex-end; gap:5px; }
+.contacts span { font-size:10px; color:var(--silver-lt); }
+.contacts span em { font-style:normal; color:var(--silver); margin-right:5px; }
+.contacts a { color:inherit; text-decoration:none; }
+.contacts a:hover { text-decoration:underline; }
+.stamp     { text-align:right; border-top:1px solid rgba(200,212,202,.18); padding-top:8px; margin-top:8px; }
+.stamp-yr  { font-family:var(--fd); font-size:28px; font-weight:700; color:rgba(200,212,202,.13); line-height:1; }
+.stamp-lbl { font-size:7.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--silver); line-height:1.5; }
+
+/* ── BODY ── */
+.body { display:grid; grid-template-columns:var(--sidebar-w, 210px) 1fr; }
+
+.sidebar {
+  background:var(--brg-pale);
+  border-right:1px solid var(--silver-lt);
+  padding:28px 20px;
+  display:flex; flex-direction:column; gap:28px;
+}
+.main { padding:28px 32px; display:flex; flex-direction:column; gap:28px; }
+
+.lbl {
+  font-size:7.5px; font-weight:500; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--silver-dk); padding-bottom:6px; border-bottom:1px solid var(--silver-lt); margin-bottom:12px;
+}
+
+/* about */
+.about { display:flex; flex-direction:column; gap:8px; }
+.about p { font-size:11.5px; line-height:1.7; color:var(--ink); }
+.about p.bold   { font-weight:500; color:var(--brg); }
+.about p.italic { font-family:var(--fd); font-style:italic; font-size:11px; color:var(--mist); }
+
+/* timeline — any number of entries */
+.timeline { display:flex; flex-direction:column; gap:14px; }
+.tl { display:grid; grid-template-columns:10px 1fr; gap:0 11px; }
+.tl-dot    { display:flex; flex-direction:column; align-items:center; padding-top:3px; }
+.tl-circle { width:8px; height:8px; border-radius:50%; background:var(--brg); border:2px solid var(--brg-pale); flex-shrink:0; }
+.tl-line   { flex:1; width:1.5px; background:var(--silver-lt); margin-top:3px; min-height:10px; }
+.tl-period { font-family:var(--fd); font-style:italic; font-size:9px; color:var(--silver-dk); margin-bottom:2px; }
+.tl-role   { font-size:11px; font-weight:500; color:var(--ink); line-height:1.3; margin-bottom:2px; }
+.tl-org    { font-size:9.5px; color:var(--mist); line-height:1.3; }
+
+/* builds — any number, all fields optional */
+.builds { display:flex; flex-direction:column; gap:10px; }
+.build  { display:grid; grid-template-columns:1fr 142px; border:1px solid var(--silver-lt); }
+.build.no-meta { grid-template-columns:1fr; }   /* no right panel if no meta at all */
+.b-left    { padding:14px 16px; border-right:1px solid var(--silver-lt); }
+.build.no-meta .b-left { border-right:none; }
+.b-right   { background:var(--brg); padding:14px 13px; display:flex; flex-direction:column; gap:10px; }
+.b-title   { font-family:var(--fd); font-size:17px; font-weight:700; color:var(--brg); line-height:1; margin-bottom:2px; }
+.b-sub     { font-size:9.5px; font-style:italic; color:var(--silver-dk); margin-bottom:8px; }
+.b-story   { font-size:11px; line-height:1.7; color:var(--ink); margin-bottom:6px; }
+.b-company { font-size:9.5px; font-style:italic; color:var(--mist); }
+.b-tags    { display:flex; flex-wrap:wrap; gap:4px; margin-top:6px; }
+.b-tag     { font-size:8.5px; padding:2px 7px; background:var(--brg-pale); color:var(--brg); border:1px solid var(--silver-lt); }
+.b-url     { font-size:9px; color:var(--brg-mid); text-decoration:none; margin-top:4px; display:inline-block; }
+.b-url:hover { text-decoration:underline; }
+.b-status  { display:inline-block; font-size:7.5px; letter-spacing:.15em; text-transform:uppercase;
+             padding:2px 7px; background:var(--brg-pale); color:var(--brg); border:1px solid var(--silver-lt); margin-bottom:6px; }
+.rs-lbl    { font-size:7px; letter-spacing:.2em; text-transform:uppercase; color:var(--silver-lt); margin-bottom:2px; font-weight:500; }
+.rs-val    { font-family:var(--fd); font-size:11px; font-weight:600; color:var(--surface); line-height:1.3; }
+.rs-stk    { font-size:9.5px; color:var(--brg-pale); line-height:1.5; }
+.rs-role   { font-size:10px; font-weight:500; color:var(--silver-lt); }
+
+/* principles — auto-wrap to any count */
+.principles { display:grid; grid-template-columns:repeat(auto-fill, minmax(190px,1fr)); gap:8px; }
+.principle  { background:var(--brg-pale); border-left:3px solid var(--brg); padding:12px 14px; }
+.p-head { font-family:var(--fd); font-style:italic; font-size:12.5px; font-weight:600; color:var(--brg); margin-bottom:4px; }
+.p-body { font-size:10.5px; line-height:1.65; color:var(--ink); }
+
+/* looking — all sub-fields optional */
+.looking    { border:1px solid var(--silver-lt); border-left:4px solid var(--brg); padding:18px 22px; }
+.l-head     { font-family:var(--fd); font-size:13px; font-weight:600; color:var(--brg); line-height:1.5; margin-bottom:8px; }
+.l-body     { font-size:11.5px; line-height:1.75; color:var(--ink); margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid var(--silver-lt); }
+.l-cta      { font-family:var(--fd); font-style:italic; font-size:11.5px; color:var(--brg-mid); line-height:1.6; }
+
+/* footer */
+.footer {
+  background:var(--brg);
+  padding:10px 40px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;
+}
+.footer-left  { font-size:9.5px; color:var(--silver); letter-spacing:.05em; }
+.footer-right { font-family:var(--fd); font-size:10.5px; color:var(--silver-lt); }
+
+/* ── PRINT ── */
+@media print {
+  @page { size: auto; margin: 12mm; }
+  body { background: var(--page-bg) !important; padding: 0;
+         -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .toolbar { display:none !important; }
+  .resume  { box-shadow:none; max-width:100%; }
+  .hdr, .sidebar, .b-right, .footer, .principle
+    { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
+  body { padding: 0 0 40px; background: var(--brg); }
+
+  /* toolbar */
+  .toolbar {
+    max-width: 100%;
+    margin: 0;
+    padding: 12px 16px;
+    background: var(--brg);
+    border-bottom: 1px solid rgba(200,212,202,.15);
+    justify-content: stretch;
   }
+  .btn { flex: 1; justify-content: center; padding: 12px; font-size: 14px; }
 
-  /* ── HEADER ── */
-  .name {
-    font-size: 24pt;
-    font-weight: 700;
-    letter-spacing: .01em;
-    margin-bottom: 2px;
+  /* card */
+  .resume { box-shadow: none; }
+
+  /* header — stack vertically */
+  .hdr {
+    grid-template-columns: 1fr;
+    padding: 24px 20px 20px;
+    gap: 16px;
   }
-  .eyebrow {
-    font-size: 9.5pt;
-    color: #444;
-    margin-bottom: 8px;
-    letter-spacing: .04em;
+  .hdr-name { font-size: 36px; }
+  .eyebrow  { font-size: 9px; }
+  .tagline  { font-size: 13px; max-width: 100%; }
+
+  /* contacts flip to horizontal wrapping row */
+  .hdr-right { align-items: flex-start; }
+  .contacts  { flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 8px 16px; }
+  .contacts span { font-size: 11px; }
+
+  /* hide stamp on mobile — saves space */
+  .stamp { display: none; }
+
+  /* body — single column, sidebar on top */
+  .body { grid-template-columns: 1fr; }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--silver-lt);
+    padding: 20px 20px;
+    gap: 20px;
   }
-  .contact-line {
-    font-size: 9.5pt;
-    color: #333;
-    margin-bottom: 4px;
+  .main { padding: 20px; gap: 20px; }
+
+  /* section labels — slightly bigger */
+  .lbl { font-size: 9px; margin-bottom: 14px; }
+
+  /* about — bigger body text */
+  .about p      { font-size: 13px; }
+  .about p.italic { font-size: 12.5px; }
+
+  /* timeline */
+  .tl-period { font-size: 10px; }
+  .tl-role   { font-size: 12px; }
+  .tl-org    { font-size: 11px; }
+
+  /* builds — stack meta panel below content */
+  .build, .build.no-meta {
+    grid-template-columns: 1fr;
   }
-  .contact-line a { color: #111; text-decoration: none; }
-  .contact-line a:hover { text-decoration: underline; }
-  .sep { margin: 0 6px; color: #aaa; }
+  .b-left { border-right: none; border-bottom: 1px solid var(--silver-lt); padding: 16px; }
+  .b-title  { font-size: 20px; }
+  .b-sub    { font-size: 11px; margin-bottom: 10px; }
+  .b-story  { font-size: 13px; }
+  .b-company { font-size: 11px; }
+  .b-tag    { font-size: 10px; padding: 3px 9px; }
+  .b-url    { font-size: 12px; margin-top: 8px; margin-right: 10px; }
+  .b-status { font-size: 9px; }
 
-  /* ── DIVIDER ── */
-  hr {
-    border: none;
-    border-top: 1.5px solid #1B4332;
-    margin: 14px 0 10px;
+  /* right meta panel — horizontal strip on mobile */
+  .b-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding: 14px 16px;
   }
+  .b-right > div { min-width: 80px; }
+  .rs-lbl { font-size: 8px; }
+  .rs-val  { font-size: 13px; }
+  .rs-stk  { font-size: 11px; }
+  .rs-role { font-size: 12px; }
 
-  /* ── SECTION HEADINGS ── */
-  h2 {
-    font-size: 10.5pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    color: #1B4332;
-    border-bottom: 1px solid #c8d4ca;
-    padding-bottom: 3px;
-    margin: 20px 0 10px;
+  /* principles — single column */
+  .principles { grid-template-columns: 1fr; gap: 8px; }
+  .p-head { font-size: 14px; }
+  .p-body { font-size: 12px; }
+
+  /* looking */
+  .looking  { padding: 16px; }
+  .l-head   { font-size: 14px; }
+  .l-body   { font-size: 13px; }
+  .l-cta    { font-size: 13px; }
+
+  /* footer — stack vertically */
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 20px;
+    gap: 4px;
   }
-
-  /* ── SUMMARY ── */
-  .summary p { font-size: 10.5pt; margin-bottom: 6px; }
-
-  /* ── EXPERIENCE ── */
-  .job { margin-bottom: 14px; }
-  .job-header { display: flex; justify-content: space-between; align-items: baseline; }
-  .job-title { font-weight: 700; font-size: 11pt; }
-  .job-period { font-size: 9.5pt; color: #555; white-space: nowrap; }
-  .job-org { font-size: 10pt; color: #333; margin-bottom: 4px; }
-  .job ul { padding-left: 18px; margin-top: 4px; }
-  .job li { font-size: 10.5pt; margin-bottom: 3px; }
-
-  /* ── PROJECTS ── */
-  .project { margin-bottom: 14px; }
-  .proj-header { display: flex; justify-content: space-between; align-items: baseline; }
-  .proj-title { font-weight: 700; font-size: 11pt; }
-  .proj-org { font-size: 9.5pt; color: #555; white-space: nowrap; }
-  .proj-sub { font-size: 10pt; font-style: italic; color: #444; margin-bottom: 4px; }
-  .project p { font-size: 10.5pt; margin-bottom: 3px; }
-  .proj-meta { font-size: 9.5pt; color: #555; margin-top: 3px; }
-  .proj-links { font-size: 9.5pt; margin-top: 3px; }
-  .proj-links a { color: #1B4332; margin-right: 10px; }
-
-  /* ── SKILLS ── */
-  .skills-grid { display: block; }
-  .skill-row { font-size: 10.5pt; margin-bottom: 5px; }
-  .skill-row strong { display: inline-block; min-width: 160px; }
-
-  /* ── EDUCATION ── */
-  .edu { margin-bottom: 10px; }
-  .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
-  .edu-deg { font-weight: 700; font-size: 11pt; }
-  .edu-period { font-size: 9.5pt; color: #555; }
-  .edu-org { font-size: 10pt; color: #333; }
-
-  /* ── PRINT ── */
-  @media print {
-    @page { size: Letter; margin: 14mm 16mm; }
-    body { padding: 0; max-width: 100%; }
-    a { color: #111 !important; }
-  }
+  .footer-left  { font-size: 11px; line-height: 1.8; }
+  .footer-right { font-size: 12px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════
-     HEADER
-════════════════════════════════════════════ -->
-<div class="header">
-  <div class="name">Gokul Kumar</div>
-  <div class="eyebrow">Founder Office · Chief of Staff · 0→1 Builder</div>
-  <div class="contact-line">
-    <a href="mailto:gokul@thunivin.com">gokul@thunivin.com</a>
-    <span class="sep">|</span>
-    <a href="tel:+919884990139">+91 98849 90139</a>
-    <span class="sep">|</span>
-    Gurugram, India
-    <span class="sep">|</span>
-    <a href="https://linkedin.com/in/goku03l" target="_blank">linkedin.com/in/goku03l</a>
-    <span class="sep">|</span>
-    <a href="https://github.com/goku03l" target="_blank">github.com/goku03l</a>
-    <span class="sep">|</span>
-    <a href="https://thunivin.com" target="_blank">thunivin.com</a>
+<div class="toolbar">
+  <button class="btn btn-pdf" onclick="window.print()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 6 2 18 2 18 9"/>
+      <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+      <rect x="6" y="14" width="12" height="8"/>
+    </svg>
+    Save as PDF
+  </button>
+</div>
+
+<div class="resume" id="resume">
+  <div class="hdr"  id="hdr"></div>
+  <div class="body">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main  class="main"    id="main"></main>
   </div>
+  <div class="footer" id="footer"></div>
 </div>
 
-<hr/>
+<script>
+/* ─────────────────────────────────────────────────────────
+   RENDERER — reads CONFIG from config.js, renders everything.
+   Every field is optional. Sections are skipped if empty.
+───────────────────────────────────────────────────────── */
 
-<!-- ══════════════════════════════════════════
-     PROFESSIONAL SUMMARY
-════════════════════════════════════════════ -->
-<h2>Professional Summary</h2>
-<div class="summary">
-  <p>
-    Generalist builder and technical program manager working across code, hardware, and AI systems. Specializes in 0→1 execution — taking a fuzzy problem and shipping a working solution, often without a playbook or prior art. Experienced in AI/ML product development, LLM tooling, NLP systems, process optimization, and cross-functional ownership from requirements to post-launch adoption. Seeking a Founder Office or Chief of Staff role at an early-stage startup where I can act as a force multiplier for the founding team's vision.
-  </p>
-  <p>
-    Mechanical engineer by degree. AI practitioner by choice. Builder by instinct.
-  </p>
-</div>
+const $ = id => document.getElementById(id);
 
-<!-- ══════════════════════════════════════════
-     WORK EXPERIENCE
-════════════════════════════════════════════ -->
-<h2>Work Experience</h2>
+// Apply layout config
+const layout = CONFIG.layout || {};
+if (layout.sidebarWidth) {
+  document.documentElement.style.setProperty('--sidebar-w', layout.sidebarWidth);
+}
 
-<div class="job">
-  <div class="job-header">
-    <div class="job-title">Technical Program Manager — AI &amp; ML</div>
-    <div class="job-period">Apr 2025 – Present</div>
+// ── Helpers ───────────────────────────────────────────────
+// Render a value only if it's truthy, otherwise return ''
+const f = (val, tpl) => val ? tpl(val) : '';
+
+// Filter any array safely: skip falsy items & items with no title/text
+const clean = (arr, key='title') =>
+  Array.isArray(arr) ? arr.filter(x => x && x[key]) : [];
+
+// Build a contact row — auto-wraps in the right <a> type:
+//   email  → mailto:   phone → tel:   everything else → https://
+const contactRow = (icon, val) => {
+  if (!val) return '';
+  let href;
+  if (val.startsWith('mailto:') || val.includes('@'))       href = `mailto:${val}`;
+  else if (val.startsWith('tel:') || /^\+?\d[\d\s\-()]+$/.test(val)) href = `tel:${val.replace(/\s/g,'')}`;
+  else href = val.startsWith('http') ? val : `https://${val}`;
+  return `<span><em>${icon}</em><a href="${href}" target="_blank" rel="noopener">${val}</a></span>`;
+};
+
+// ── Identity ──────────────────────────────────────────────
+const I = CONFIG.identity || {};
+document.title = I.name ? `${I.name} — Resume` : 'Resume';
+
+$('hdr').innerHTML = `
+  <div class="hdr-left">
+    ${f(I.eyebrow,  v => `<div class="eyebrow">${v}</div>`)}
+    ${f(I.name,     v => `<div class="hdr-name">${v}</div>`)}
+    <div class="hdr-rule"></div>
+    ${f(I.tagline,  v => `<div class="tagline">${v}</div>`)}
   </div>
-  <div class="job-org">Maruti Suzuki India Limited, Gurugram</div>
-  <ul>
-    <li>Conceived and shipped <strong>ForgeAI</strong> — an LLM-powered document and report generation system — by recruiting 3 engineers without a formal mandate, replacing a manual error-prone process across the entire engineering org and saving approximately 20,000 man-hours.</li>
-    <li>Built and owned <strong>Smart Pulse</strong>, a social media sentiment and insight platform: authored the PRD, defined KPIs, ran UAT, and drove post-launch adoption to 2,500+ internal users.</li>
-    <li>Operated as primary AI/ML program owner with no prior internal playbook; drove full project arc from problem identification through stakeholder delivery.</li>
-  </ul>
-</div>
+  <div class="hdr-right">
+    <div class="contacts">
+      ${contactRow('✉', I.email)}
+      ${contactRow('↗', I.github)}
+      ${contactRow('◎', I.location)}
+      ${contactRow('✆', I.phone)}
+      ${contactRow('🔗', I.linkedin)}
+      ${contactRow('🌐', I.website)}
+    </div>
+    ${(I.stampYear || I.stampLabel) ? `
+    <div class="stamp">
+      ${f(I.stampYear,  v => `<div class="stamp-yr">${v}</div>`)}
+      ${f(I.stampLabel, v => `<div class="stamp-lbl">${v}</div>`)}
+    </div>` : `
+    <div class="stamp">
+      <div class="stamp-yr">2025</div>
+      <div class="stamp-lbl">Open to<br>opportunities</div>
+    </div>`}
+  </div>`;
 
-<div class="job">
-  <div class="job-header">
-    <div class="job-title">Digital Transformation Analyst — PLM &amp; AI</div>
-    <div class="job-period">Jun 2023 – Apr 2025</div>
-  </div>
-  <div class="job-org">Renault Nissan TBCI (Global Capability Centre), Chennai</div>
-  <ul>
-    <li>Built an <strong>ML Clash Detection</strong> classifier (Python, Scikit-learn, 3DEXPERIENCE) to automate triage of thousands of vehicle design clashes — cutting lead time by 70% and manual effort by 95%.</li>
-    <li>Developed <strong>DrawingDIFF</strong>, a pixel-perfect engineering drawing comparison tool with automated audit trail export — targeting high-stakes environments where a misread dimension has real cost consequences.</li>
-    <li>Drove AI adoption and digital transformation initiatives across PLM workflows with no pre-existing AI team or internal template to follow.</li>
-  </ul>
-</div>
+// ── Footer ────────────────────────────────────────────────
+const footerParts = [I.email, I.phone, I.github, I.linkedin, I.website, I.location].filter(Boolean);
+$('footer').innerHTML = `
+  <div class="footer-left">${footerParts.join(' · ')}</div>
+  ${f(I.name, v => `<div class="footer-right">${v}</div>`)}`;
 
-<!-- ══════════════════════════════════════════
-     PROJECTS
-════════════════════════════════════════════ -->
-<h2>Projects</h2>
+// ── Sidebar ───────────────────────────────────────────────
+const sidebarSections = [];
 
-<div class="project">
-  <div class="proj-header">
-    <div class="proj-title">IntelliCAD</div>
-    <div class="proj-org">Personal Project</div>
-  </div>
-  <div class="proj-sub">LLM-powered Text-to-CAD Generation</div>
-  <p>Converts natural language descriptions of 3D geometry into ready-made CAD files using LLMs and OpenAI APIs — eliminating manual sketching and constraint-dragging for engineers.</p>
-  <div class="proj-meta"><strong>Stack:</strong> Python · LLMs · Prompt Engineering · OpenAI APIs · Streamlit</div>
-  <div class="proj-links">
-    <a href="https://github.com/goku03l/IntelliCAD">GitHub</a>
-    <a href="https://intellicad-ap6znq2zrc7bw7zzxddkru.streamlit.app/">Live App</a>
-    <a href="https://youtu.be/56AVSxNFZ3c">Demo Video</a>
-  </div>
-</div>
+// About — skip paragraphs without text
+const aboutItems = clean(CONFIG.about, 'text');
+if (aboutItems.length) {
+  sidebarSections.push(`
+    <section>
+      <div class="lbl">Who I Am</div>
+      <div class="about">
+        ${aboutItems.map(a => `<p class="${a.bold ? 'bold' : a.italic ? 'italic' : ''}">${a.text}</p>`).join('')}
+      </div>
+    </section>`);
+}
 
-<div class="project">
-  <div class="proj-header">
-    <div class="proj-title">DrawingDIFF</div>
-    <div class="proj-org">Personal Project</div>
-  </div>
-  <div class="proj-sub">Engineering Drawing Version Comparison &amp; Audit Tool</div>
-  <p>Upload two drawing revisions to get a high-contrast pixel overlay highlighting every changed line and dimension, plus an auto-generated audit trail ready for export.</p>
-  <div class="proj-meta"><strong>Stack:</strong> Python · LLMs · OpenAI APIs · Streamlit · Computer Vision</div>
-  <div class="proj-links">
-    <a href="https://github.com/goku03l/DrawingDIFF">GitHub</a>
-    <a href="https://drawingdiff-dvaacmnaapwuvdhzt7zvo5.streamlit.app/">Live App</a>
-    <a href="https://youtu.be/MfWPskO2LjM">Demo Video</a>
-  </div>
-</div>
+// Timeline — skip entries without role
+const tlItems = clean(CONFIG.timeline, 'role');
+if (tlItems.length) {
+  sidebarSections.push(`
+    <section>
+      <div class="lbl">Where I've Been</div>
+      <div class="timeline">
+        ${tlItems.map((t, i) => `
+          <div class="tl">
+            <div class="tl-dot">
+              <div class="tl-circle"></div>
+              ${i < tlItems.length - 1 ? '<div class="tl-line"></div>' : ''}
+            </div>
+            <div>
+              ${f(t.period, v => `<div class="tl-period">${v}</div>`)}
+              ${f(t.role,   v => `<div class="tl-role">${v}</div>`)}
+              ${f(t.org,    v => `<div class="tl-org">${v}</div>`)}
+            </div>
+          </div>`).join('')}
+      </div>
+    </section>`);
+}
 
-<div class="project">
-  <div class="proj-header">
-    <div class="proj-title">Election Pulse</div>
-    <div class="proj-org">Freelance</div>
-  </div>
-  <div class="proj-sub">Social Media Sentiment Platform for Political Analytics</div>
-  <p>Built for a political party client: ingested unstructured social media data via X API and YouTube API and transformed it into actionable sentiment dashboards for campaign teams.</p>
-  <div class="proj-meta"><strong>Stack:</strong> Python · NLP · Sentiment Classification · X API · YouTube API · Analytics</div>
-</div>
+$('sidebar').innerHTML = sidebarSections.join('');
 
-<!-- ══════════════════════════════════════════
-     SKILLS
-════════════════════════════════════════════ -->
-<h2>Skills</h2>
-<div class="skills-grid">
-  <div class="skill-row"><strong>AI / ML:</strong> LLMs, Prompt Engineering, NLP, Sentiment Classification, Scikit-learn, OpenAI APIs, ML Classifiers</div>
-  <div class="skill-row"><strong>Programming:</strong> Python, JavaScript</div>
-  <div class="skill-row"><strong>Product &amp; Program:</strong> PRD Writing, Sprint Planning, KPI Definition, UAT, Stakeholder Management, 0→1 Product Development, Post-Launch Adoption</div>
-  <div class="skill-row"><strong>Tools &amp; Platforms:</strong> Streamlit, 3DEXPERIENCE (Dassault), Scikit-learn, X API, YouTube API</div>
-  <div class="skill-row"><strong>Domain:</strong> Manufacturing / Automotive, AI Transformation, PLM, Process Optimization, Engineering Design</div>
-</div>
+// ── Main ──────────────────────────────────────────────────
+const mainSections = [];
 
-<!-- ══════════════════════════════════════════
-     EDUCATION
-════════════════════════════════════════════ -->
-<h2>Education</h2>
-<div class="edu">
-  <div class="edu-header">
-    <div class="edu-deg">B.Tech, Mechanical Engineering — CGPA: 9.05 / 10</div>
-    <div class="edu-period">2019 – 2023</div>
-  </div>
-  <div class="edu-org">B.S. Abdur Rahman Crescent Institute of Science and Technology, Chennai</div>
-</div>
+// Looking — entire section optional; each sub-field optional
+const L = CONFIG.looking;
+if (L && (L.headline || L.body || L.cta)) {
+  const lookingLabel = CONFIG.labels?.looking || "What I'm Looking For";
+  mainSections.push(`
+    <section>
+      <div class="lbl">${lookingLabel}</div>
+      <div class="looking">
+        ${f(L.headline, v => `<div class="l-head">${v}</div>`)}
+        ${f(L.body,     v => `<div class="l-body">${v}</div>`)}
+        ${f(L.cta,      v => `<div class="l-cta">${v}</div>`)}
+      </div>
+    </section>`);
+}
 
-<!-- ══════════════════════════════════════════
-     WHAT I'M LOOKING FOR
-════════════════════════════════════════════ -->
-<h2>What I'm Looking For</h2>
-<div class="summary">
-  <p>
-    A Founder Office, Chief of Staff, or 0→1 execution role at an early-stage startup — acting as builder, strategist, and operator simultaneously. Ideally in AI/ML, B2B SaaS, or deep-tech, though the problem matters more than the sector. I want to be close to the founding team, own real outcomes, and earn the operational scars that come with scaling a company from scratch.
-  </p>
-  <p>
-    If you're a founder who needs someone who can think with you on Monday and ship with you on Friday, let's talk.
-  </p>
-</div>
+// Builds — skip items with no title, all other fields optional
+const builds = clean(CONFIG.builds, 'title');
+if (builds.length) {
+  const buildLabel = CONFIG.labels?.builds || "Things I've Actually Built";
 
+  const buildCards = builds.map(b => {
+    // Right panel: only render if at least one meta field exists
+    const hasMeta = b.impact || b.stack || b.role;
+    const rightPanel = hasMeta ? `
+      <div class="b-right">
+        ${f(b.impact, v => `<div><div class="rs-lbl">Impact</div><div class="rs-val">${v}</div></div>`)}
+        ${f(b.stack,  v => `<div><div class="rs-lbl">Stack</div><div class="rs-stk">${v}</div></div>`)}
+        ${f(b.role,   v => `<div><div class="rs-lbl">Role</div><div class="rs-role">${v}</div></div>`)}
+      </div>` : '';
+
+    const tags = Array.isArray(b.tags) && b.tags.length
+      ? `<div class="b-tags">${b.tags.map(t => `<span class="b-tag">${t}</span>`).join('')}</div>`
+      : '';
+
+    return `
+      <div class="build${hasMeta ? '' : ' no-meta'}">
+        <div class="b-left">
+          ${f(b.status,   v => `<span class="b-status">${v}</span>`)}
+          ${f(b.title,    v => `<div class="b-title">${v}</div>`)}
+          ${f(b.subtitle, v => `<div class="b-sub">${v}</div>`)}
+          ${f(b.story,    v => `<div class="b-story">${v}</div>`)}
+          ${f(b.company,  v => `<div class="b-company">${v}</div>`)}
+          ${tags}
+          ${Array.isArray(b.links) && b.links.length ? b.links.map(l => {
+            const href = l.url.startsWith('http') ? l.url : `https://${l.url}`;
+            return `<a class="b-url" href="${href}" target="_blank" rel="noopener">↗ ${l.label || l.url}</a>`;
+          }).join('') : ''}
+        </div>
+        ${rightPanel}
+      </div>`;
+  }).join('');
+
+  mainSections.push(`
+    <section>
+      <div class="lbl">${buildLabel}</div>
+      <div class="builds">${buildCards}</div>
+    </section>`);
+}
+
+// Principles — skip items without headline; auto-wrap to any count
+const principles = clean(CONFIG.principles, 'headline');
+if (principles.length) {
+  const principlesLabel = CONFIG.labels?.principles || 'How I Think &amp; Work';
+  mainSections.push(`
+    <section>
+      <div class="lbl">${principlesLabel}</div>
+      <div class="principles">
+        ${principles.map(p => `
+          <div class="principle">
+            <div class="p-head">${p.headline}</div>
+            ${f(p.body, v => `<div class="p-body">${v}</div>`)}
+          </div>`).join('')}
+      </div>
+    </section>`);
+}
+
+$('main').innerHTML = mainSections.join('');
+</script>
 </body>
 </html>
