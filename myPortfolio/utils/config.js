@@ -46,10 +46,10 @@ const RESUME = {
 
   /* ── SKILLS ──────────────────────────────────────── */
   skills: [
-    { category: "AI and ML",          items: "LLMs, Prompt Engineering, NLP, Sentiment Classification, Scikit-learn, OpenAI APIs, ML Classifiers" },
+    { category: "AI and ML",          items: "LLMs, Prompt Engineering, NLP, Sentiment Classification, Scikit-learn, OpenAI APIs, Machine Learning, RAG" },
     { category: "Programming",        items: "Python, JavaScript" },
     { category: "Product and Program",items: "PRD Writing, Sprint Planning, KPI Definition, UAT, Stakeholder Management, 0-to-1 Product Development, Post-Launch Adoption" },
-    { category: "Tools and Platforms",items: "Streamlit, 3DEXPERIENCE (Dassault), Scikit-learn, X API, YouTube API" },
+    { category: "Tools and Platforms",items: "Streamlit, 3DEXPERIENCE (Dassault), Scikit-learn, X API, YouTube API, Claude, Cursor" },
     { category: "Domain",             items: "Manufacturing, Automotive, AI Transformation, PLM, Process Optimization, Engineering Design" },
   ],
 
