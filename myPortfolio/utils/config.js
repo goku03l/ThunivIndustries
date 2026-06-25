@@ -1,145 +1,101 @@
-/* ═══════════════════════════════════════════════════════════════
-   RESUME CONFIG  the ONLY file you ever edit.
+const RESUME = {
 
-   RULES:
-   • Every field marked "(optional)" can be deleted entirely.
-   • Sections (builds, principles, timeline, looking) can be
-     empty arrays / omitted  the renderer skips them gracefully.
-   • Builds: only `title` is required. Add as many as you want.
-   • New build fields supported out-of-the-box:
-       url      – link shown on card
-       tags     – string array, rendered as chips
-       status   – e.g. "Live", "WIP", "Archived"
-   • labels   – (optional) override section heading text
-   • identity – add linkedin / website / stampYear / stampLabel
-═══════════════════════════════════════════════════════════════ */
+  /* ── HEADER ─────────────────────────────────────── */
+  name: "Gokul Kumar",
+  tagline: "Founder Office | Chief of Staff | 0-to-1 Builder",
 
-const CONFIG = {
-
-  /* ── IDENTITY ─────────────────────────────────────────── */
-  identity: {
-    name:       "Gokul Kumar",
-    eyebrow:    "Founder Office · Chief of Staff · 0→1",   // (optional)
-    tagline:    "I know how to build things from scratch, but I want to learn how to survive the early days. I’m looking to lock into a startup bunker with a founder, act as a force multiplier for their vision, and earn the scars it takes to scale a company from the ground up.", // (optional)
-    email:      "gokul@thunivin.com",                      // (optional)
-    phone:      "9884990139",                              // (optional)
-    location:   "Gurugram, India",                         // (optional)
-    github:     "github.com/goku03l",                      // (optional)
-    linkedin:  "linkedin.com/in/goku03l/",            // (optional)
-    website:   "thunivin.com",                          // (optional)
-    stampYear: "2026",                                  // (optional  defaults to 2025)
-    stampLabel:"Open to\nopportunities",                // (optional)
-  },
-
-  /* ── ABOUT  any number of paragraphs ────────────────── */
-  about: [
-    { text: "I am a generalist builder who works across code, hardware, and circuits. But while I love designing components, and manage projects, my engineering instinct ultimately pulled me toward process optimization. Legacy manufacturing is slow and inefficient. To me, a sluggish corporate process is just a poorly engineered machine. I step in to clear the noise, eliminate structural bottlenecks, and force traditional industries to modernize through AI. I don’t just write software or design parts. I fix the macro-machine", bold: true },
-    { text: "I write code, define products, run sprints, and own outcomes  often all in the same week. Across LLM tooling, NLP, and ML systems  mostly with no playbook and no safety net." },
-    { text: "Mechanical engineer by degree. AI practitioner by choice. Builder by instinct.", italic: true },
+  contact: [
+    { label: "Email",    value: "gokul@thunivin.com",        href: "mailto:gokul@thunivin.com" },
+    { label: "Phone",    value: "+91 98849 90139",           href: "tel:+919884990139" },
+    { label: "Location", value: "Gurugram, India",           href: null },
+    { label: "LinkedIn", value: "linkedin.com/in/goku03l",   href: "https://linkedin.com/in/goku03l" },
+    { label: "GitHub",   value: "github.com/goku03l",        href: "https://github.com/goku03l" },
+    { label: "Website",  value: "thunivin.com",              href: "https://thunivin.com" },
   ],
 
-  /* ── BUILDS  add as many as you want ────────────────────
-     Required:  title
-     Optional:  subtitle, story, company, impact, stack,
-                role, url, tags, status
-  ───────────────────────────────────────────────────────── */
+  /* ── SUMMARY ─────────────────────────────────────── */
+  summary: [
+    "Generalist builder and technical program manager working across code, hardware, and AI systems. Specializes in 0-to-1 execution - taking a fuzzy problem and shipping a working solution, often without a playbook or prior art. Experienced in AI/ML product development, LLM tooling, NLP systems, process optimization, and cross-functional ownership from requirements to post-launch adoption. Seeking a Founder Office, Chief of Staff, or 0-to-1 execution role at an early-stage startup in AI/ML, B2B SaaS, or deep-tech where I can act as a force multiplier for the founding team's vision.",
+    "Mechanical engineer by degree. AI practitioner by choice. Builder by instinct.",
+    "<strong>Looking for Corporate to StartUp transition</strong>"
+  ],
 
-  layout: {
-    sidebarWidth: "280px",  // 210px default → go up to ~320px max before it crowds the main
-  },
-  builds: [
+  /* ── WORK EXPERIENCE ─────────────────────────────── */
+  experience: [
     {
-      title:    "IntelliCAD",
-      subtitle: "LLM-powered Text to CAD generation",
-      story:    "Just wanted to try things out of my curiosity.,Engineers waste thousands of hours clicking through CAD tools to model ideas they already have in their heads. I fixed that. IntelliCAD lets you describe a 3D geometry in plain language and get a ready-madela CAD file  no manual sketches, no constraint dragging. You talk to it like a peer, it ships the geometry. The interface CAD software should have built a decade ago.",
-      company:  "Personal",
-      stack:    "LLMs · Prompt Eng · Python · OpenAI APIs",
-      role:     "Personal Project",
-      links: [                                  // (optional)  add as many as you want
-        { url: "https://github.com/goku03l/IntelliCAD", label: "GitHub" },
-        { url: "https://intellicad-ap6znq2zrc7bw7zzxddkru.streamlit.app/",label: "Application" },
-        { url: "https://youtu.be/56AVSxNFZ3c?si=B2PBN5J1O2j2utpr",label: "Demo Video" },
+      title:  "Technical Program Manager - AI and ML",
+      org:    "Maruti Suzuki India Limited, Gurugram",
+      period: "Apr 2025 - Present",
+      bullets: [
+        "A traditional, bureaucratic legacy organization with zero tech infrastructure and no IT playbook needed modernization. Taking absolute ownership, the entire zero-to-one product lifecycle was driven from scratch—translating raw requirements from non-technical stakeholders, managing external tech partners, and pushing through deep organizational inertia",
+        "Over the span of one year, two platforms were delivered end-to-end. This included conceptualizing, building, and launching Smart Pulse, a social media sentiment and insight platform and Forge AI, a GenAI based test report automation.",
+        "By authoring the PRD, defining the KPIs, developing, running UAT, and actively selling the value of technology to a change-resistant workforce, over 2,500+ traditional users were successfully transitioned away from decades-old manual workflows into hyper-care adoption.",
       ],
     },
     {
-      title:    "ForgeAI",
-      subtitle: "LLM-powered document & report generation",
-      story:    "Nobody asked me to build this. I spotted the pain point, recruited 3 engineers without a mandate, framed the problem from scratch, and shipped an LLM system that replaced a manual error-prone process across the entire engineering org.",
-      company:  "Maruti Suzuki · 2025",
-      impact:   "~20,000 man-hours saved",
-      stack:    "LLMs · Prompt Eng · Python · OpenAI APIs",
-      role:     "Conceived · Resourced · Shipped",
-    },
-    {
-      title:    "Smart Pulse",
-      subtitle: "Social media sentiment & insight platform",
-      story:    "Turned unstructured social media noise into dashboards business teams open every morning. Owned the full arc  PRD, KPIs, UAT, post-launch adoption.",
-      company:  "Maruti Suzuki · 2025",
-      impact:   "2,500+ internal users",
-      stack:    "NLP · Sentiment Classification · Analytics",
-      role:     "Product Owner · PM · Adoption Lead",
-    },
-    {
-      title:    "Election Pulse",
-      subtitle: "Social media sentiment & insight platform for Elections",
-      story:    "A freelance project for a Political Party. Turned unstructured social media noise into dashboards business teams open every morning.",
-      company:  "Freelance",
-      stack:    "NLP · Sentiment Classification · Analytics · X API · Youtube API",
-      role:     "Developer · Freelance · Business Analyst",
-    },
-    {
-      title:    "ML Clash Detection",
-      subtitle: "Automated vehicle design validation",
-      story:    "Replaced manual triage of thousands of vehicle design clashes. Built an ML classifier that auto-categorised every clash  cutting lead time by 70% and manual effort by 95%.",
-      company:  "Renault Nissan Tech · 2023–25",
-      impact:   "70% faster · 95% less manual",
-      stack:    "Python · Scikit-learn · 3DEXPERIENCE",
-      role:     "Built end-to-end",
-    },
-    {
-      title:    "DrawDIFF",
-      subtitle: "Compare two similar drawings, and do version change analysis",
-      story:    "Attempt to challenge my organisation to solve this usecase, In high-stakes engineering, a missed revision doesn't just slow things down  it can cost millions. DrawingDIFF kills the 'spot the difference' problem in drawing reviews entirely. Upload two revisions, get a pixel-perfect overlay with every moved line and modified dimension highlighted in high contrast, plus an auto-generated audit trail ready to export. Built for environments where a misread millimetre has real consequences.",
-      company:  "Personal",
-      stack:    "LLMs · Prompt Eng · Python · OpenAI APIs",
-      role:     "Personal Project",
-      links: [                                  // (optional)  add as many as you want
-        { url: "https://github.com/goku03l/DrawingDIFF", label: "GitHub" },
-        { url: "https://drawingdiff-dvaacmnaapwuvdhzt7zvo5.streamlit.app/",label: "Application" },
-        { url: "https://youtu.be/MfWPskO2LjM?si=jt7FonFJiFlNe4y",label: "Demo Video" },
+      title:  "Digital Transformation Analyst - PLM and AI",
+      org:    "Renault Nissan TBCI (Global Capability Centre), Chennai",
+      period: "Jun 2023 - Apr 2025",
+      bullets: [
+        "Part of a Renaultion Virtual Twin (Renault + Revolution) Program at Renault Group a strategic digital transformation initiative redefining how vehicles are engineered through a digital-first approach.",
+        "Used Advanced Machine Learning algorithms to automate existing manual tasks which took 100's of man hours",
+        "From understanding business requirements and evaluating technical feasibility to designing, developing, and validating robust business logic implementations. Collaborated closely with cross-functional stakeholders to translate engineering needs into scalable digital solutions.",
       ],
     },
-
-
   ],
 
-  /* ── PRINCIPLES  any number ──────────────────────────── */
-  principles: [
-    { headline: "Start with the problem.",  body: "Most of what I've built began as something I noticed was broken not a task assigned to me. ForgeAI didn't have a ticket." },
-    { headline: "Comfortable with fog.",    body: "At Maruti,Renault, there was no AI team, no prior art, no template, No process. I figured it out. Founder office roles should feel the same." },
-    { headline: "Close the loop.",          body: "Involved myself across all the stages from requirment collection to delivery" },
-    { headline: "Code + boardroom.",        body: "I can go from whiteboard to working prototype and brief a business head on outcomes the next morning." },
+  /* ── SKILLS ──────────────────────────────────────── */
+  skills: [
+    { category: "AI and ML",          items: "LLMs, Prompt Engineering, NLP, Sentiment Classification, Scikit-learn, OpenAI APIs, ML Classifiers" },
+    { category: "Programming",        items: "Python, JavaScript" },
+    { category: "Product and Program",items: "PRD Writing, Sprint Planning, KPI Definition, UAT, Stakeholder Management, 0-to-1 Product Development, Post-Launch Adoption" },
+    { category: "Tools and Platforms",items: "Streamlit, 3DEXPERIENCE (Dassault), Scikit-learn, X API, YouTube API" },
+    { category: "Domain",             items: "Manufacturing, Automotive, AI Transformation, PLM, Process Optimization, Engineering Design" },
   ],
 
-  /* ── TIMELINE  any number of entries ────────────────── */
-  timeline: [
-    { period: "Apr 2025 → now",      role: "Technical Program Manager  AI & ML",       org: "Maruti Suzuki India Limited, Gurugram" },
-    { period: "Jun 2023 – Apr 2025", role: "Digital Transformation Analyst  PLM & AI", org: "Renault Nissan TBCI (GCC), Chennai" },
-    { period: "2019 – 2023",         role: "B.Tech Mechanical Engineering · 9.05 CGPA", org: "B.S. Abdur Rahman Crescent Institute, Chennai" },
+  /* ── EDUCATION ───────────────────────────────────── */
+  education: [
+    {
+      degree: "B.Tech, Mechanical Engineering - CGPA: 9.05 / 10",
+      org:    "B.S. Abdur Rahman Crescent Institute of Science and Technology, Chennai",
+      period: "2019 - 2023",
+    },
   ],
 
-  /* ── LOOKING  entire block optional ─────────────────── */
-  looking: {
-    headline: "A Founder Office, or 0→1 execution role at an early-stage startup or builder, strategist, operator, all at once.",
-    body:     "Ideally AI/ML, B2B SaaS, or deep-tech, but the problem matters more than the sector. I want to be close to the founding team, own real outcomes, and eventually build my own.",
-    cta:      "If you're a founder who needs someone who can think with you on Monday and ship with you on Friday, let's talk.",
-  },
-
-  /* ── LABELS  (optional) override section headings ───── */
-  // labels: {
-  //   builds:     "Things I've Actually Built",
-  //   principles: "How I Think & Work",
-  //   looking:    "What I'm Looking For",
-  // },
+  /* ── PROJECTS ────────────────────────────────────── */
+  projects: [
+    {
+      title:       "IntelliCAD",
+      type:        "Personal Project",
+      subtitle:    "LLM-powered Text-to-CAD Generation",
+      description: "Converts natural language descriptions of 3D geometry into ready-made CAD files using LLMs and OpenAI APIs - eliminating manual sketching and constraint-dragging for engineers.",
+      stack:       "Python, LLMs, Prompt Engineering, OpenAI APIs, Streamlit",
+      links: [
+        { label: "GitHub",     href: "https://github.com/goku03l/IntelliCAD" },
+        { label: "Live App",   href: "https://intellicad-ap6znq2zrc7bw7zzxddkru.streamlit.app/" },
+        { label: "Demo Video", href: "https://youtu.be/56AVSxNFZ3c" },
+      ],
+    },
+    {
+      title:       "DrawingDIFF",
+      type:        "Personal Project",
+      subtitle:    "Engineering Drawing Version Comparison and Audit Tool",
+      description: "Upload two drawing revisions to get a high-contrast pixel overlay highlighting every changed line and dimension, plus an auto-generated audit trail ready for export.",
+      stack:       "Python, LLMs, OpenAI APIs, Streamlit, Computer Vision",
+      links: [
+        { label: "GitHub",     href: "https://github.com/goku03l/DrawingDIFF" },
+        { label: "Live App",   href: "https://drawingdiff-dvaacmnaapwuvdhzt7zvo5.streamlit.app/" },
+        { label: "Demo Video", href: "https://youtu.be/MfWPskO2LjM" },
+      ],
+    },
+    {
+      title:       "Election Pulse",
+      type:        "Freelance",
+      subtitle:    "Social Media Sentiment Platform for Political Analytics",
+      description: "Built for a political party client: ingested unstructured social media data via X API and YouTube API and transformed it into actionable sentiment dashboards for campaign teams.",
+      stack:       "Python, NLP, Sentiment Classification, X API, YouTube API, Analytics",
+      links:       [],
+    },
+  ],
 
 };

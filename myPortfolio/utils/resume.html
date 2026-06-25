@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Gokul Kumar Resume</title>
+<title>Resume</title>
 <style>
   :root {
     --brg:       #1B4332;
     --brg-mid:   #2D6A4F;
-    --brg-pale:  #E4EDE6;
     --surface:   #F7F7F2;
     --ink:       #1C2319;
     --mist:      #5E6E62;
@@ -30,93 +29,63 @@
     padding: 36px 40px 48px;
   }
 
-  .name {
-    font-size: 24pt;
-    font-weight: 700;
-    letter-spacing: .01em;
-    color: var(--brg);
-    margin-bottom: 2px;
-  }
-  .eyebrow {
-    font-size: 9.5pt;
-    color: var(--silver-dk);
-    margin-bottom: 8px;
-    letter-spacing: .04em;
-  }
-  .contact-line {
-    font-size: 9.5pt;
-    color: var(--mist);
-    margin-bottom: 4px;
-  }
-  .contact-line a { color: var(--brg-mid); text-decoration: none; }
-  .contact-line a:hover { text-decoration: underline; }
+  /* Header */
+  #r-name    { font-size: 24pt; font-weight: 700; color: var(--brg); margin-bottom: 2px; }
+  #r-tagline { font-size: 9.5pt; color: var(--silver-dk); margin-bottom: 8px; letter-spacing: .04em; }
+  #r-contact { font-size: 9.5pt; color: var(--mist); }
+  #r-contact a { color: var(--brg-mid); text-decoration: none; }
+  #r-contact a:hover { text-decoration: underline; }
   .sep { margin: 0 6px; color: var(--silver); }
 
-  hr {
-    border: none;
-    border-top: 1.5px solid var(--brg);
-    margin: 14px 0 10px;
-  }
+  hr { border: none; border-top: 1.5px solid var(--brg); margin: 14px 0 10px; }
 
   h2 {
-    font-size: 10.5pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .12em;
+    font-size: 10.5pt; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .12em;
     color: var(--brg);
     border-bottom: 1px solid var(--silver-lt);
-    padding-bottom: 3px;
-    margin: 20px 0 10px;
+    padding-bottom: 3px; margin: 20px 0 10px;
   }
 
-  .summary p { font-size: 10.5pt; margin-bottom: 6px; color: var(--ink); }
+  /* Summary */
+  .summary p { font-size: 10.5pt; margin-bottom: 6px; }
 
-  .job { margin-bottom: 14px; }
-  .job-header { display: flex; justify-content: space-between; align-items: baseline; }
-  .job-title { font-weight: 700; font-size: 11pt; color: var(--ink); }
-  .job-period { font-size: 9.5pt; color: var(--mist); white-space: nowrap; }
-  .job-org { font-size: 10pt; color: var(--silver-dk); margin-bottom: 4px; }
-  .job ul { padding-left: 18px; margin-top: 4px; }
-  .job li { font-size: 10.5pt; margin-bottom: 3px; color: var(--ink); }
-  .job li strong { color: var(--brg); }
-
-  .project { margin-bottom: 14px; }
-  .proj-header { display: flex; justify-content: space-between; align-items: baseline; }
-  .proj-title { font-weight: 700; font-size: 11pt; color: var(--brg); }
-  .proj-org { font-size: 9.5pt; color: var(--mist); white-space: nowrap; }
-  .proj-sub { font-size: 10pt; font-style: italic; color: var(--silver-dk); margin-bottom: 4px; }
-  .project p { font-size: 10.5pt; margin-bottom: 3px; color: var(--ink); }
-  .proj-meta { font-size: 9.5pt; color: var(--mist); margin-top: 3px; }
-  .proj-meta strong { color: var(--silver-dk); }
-  .proj-links { font-size: 9.5pt; margin-top: 3px; }
-  .proj-links a { color: var(--brg-mid); margin-right: 10px; text-decoration: none; }
+  /* Experience & Projects */
+  .block       { margin-bottom: 14px; }
+  .block-hdr   { display: flex; justify-content: space-between; align-items: baseline; }
+  .block-title { font-weight: 700; font-size: 11pt; color: var(--ink); }
+  .block-title.proj { color: var(--brg); }
+  .block-meta  { font-size: 9.5pt; color: var(--mist); white-space: nowrap; }
+  .block-org   { font-size: 10pt; color: var(--silver-dk); margin-bottom: 4px; }
+  .block-sub   { font-size: 10pt; font-style: italic; color: var(--silver-dk); margin-bottom: 4px; }
+  .block ul    { padding-left: 18px; margin-top: 4px; }
+  .block li    { font-size: 10.5pt; margin-bottom: 3px; }
+  .block li strong { color: var(--brg); }
+  .block p     { font-size: 10.5pt; margin-bottom: 3px; }
+  .stack       { font-size: 9.5pt; color: var(--mist); margin-top: 3px; }
+  .stack strong{ color: var(--silver-dk); }
+  .proj-links  { font-size: 9.5pt; margin-top: 3px; }
+  .proj-links a{ color: var(--brg-mid); margin-right: 10px; text-decoration: none; }
   .proj-links a:hover { text-decoration: underline; }
 
-  .skills-grid { display: block; }
-  .skill-row { font-size: 10.5pt; margin-bottom: 5px; color: var(--ink); }
+  /* Skills */
+  .skill-row        { font-size: 10.5pt; margin-bottom: 5px; }
   .skill-row strong { display: inline-block; min-width: 160px; color: var(--brg); }
 
-  .edu { margin-bottom: 10px; }
-  .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
-  .edu-deg { font-weight: 700; font-size: 11pt; color: var(--ink); }
-  .edu-period { font-size: 9.5pt; color: var(--mist); }
-  .edu-org { font-size: 10pt; color: var(--silver-dk); }
+  /* Education */
+  .edu-hdr   { display: flex; justify-content: space-between; align-items: baseline; }
+  .edu-deg   { font-weight: 700; font-size: 11pt; }
+  .edu-period{ font-size: 9.5pt; color: var(--mist); }
+  .edu-org   { font-size: 10pt; color: var(--silver-dk); }
 
-  .toolbar {
-    display: flex;
-    justify-content: flex-end;
-    margin: 10px 0 4px;
-  }
+  /* Toolbar */
+  .toolbar { display: flex; justify-content: flex-end; margin: 10px 0 4px; }
   .btn-pdf {
-    background: var(--brg);
-    color: var(--surface);
-    border: none;
-    padding: 9px 20px;
+    background: var(--brg); color: var(--surface);
+    border: none; padding: 9px 20px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10pt;
-    font-weight: 600;
-    letter-spacing: .04em;
-    cursor: pointer;
+    font-size: 10pt; font-weight: 600;
+    letter-spacing: .04em; cursor: pointer;
     transition: background .18s;
   }
   .btn-pdf:hover { background: var(--brg-mid); }
@@ -124,137 +93,178 @@
   @media print {
     @page { size: Letter; margin: 14mm 16mm; }
     body { padding: 0; max-width: 100%; background: #fff; }
-    a { color: var(--brg-mid) !important; }
     .toolbar { display: none !important; }
   }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="name">Gokul Kumar</div>
-  <div class="eyebrow">Founder Office | Chief of Staff | 0-to-1 Builder</div>
-  <div class="contact-line">
-    <a href="mailto:gokul@thunivin.com">gokul@thunivin.com</a>
-    <span class="sep">|</span>
-    <a href="tel:+919884990139">+91 98849 90139</a>
-    <span class="sep">|</span>
-    Gurugram, India
-    <span class="sep">|</span>
-    <a href="https://linkedin.com/in/goku03l" target="_blank">linkedin.com/in/goku03l</a>
-    <span class="sep">|</span>
-    <a href="https://github.com/goku03l" target="_blank">github.com/goku03l</a>
-    <span class="sep">|</span>
-    <a href="https://thunivin.com" target="_blank">thunivin.com</a>
-  </div>
-</div>
+<div id="resume-root"></div>
 
-<hr/>
+<!-- Load your content first, then the renderer -->
+<script src="config.js"></script>
+<script>
+(function () {
 
-<div class="toolbar">
-  <button class="btn-pdf" onclick="window.print()">Download PDF</button>
-</div>
+  /* ── tiny helpers ── */
+  function el(tag, cls, html) {
+    var d = document.createElement(tag);
+    if (cls)  d.className   = cls;
+    if (html !== undefined) d.innerHTML = html;
+    return d;
+  }
+  function append(parent) {
+    var children = Array.prototype.slice.call(arguments, 1);
+    children.forEach(function(c){ if (c) parent.appendChild(c); });
+    return parent;
+  }
 
-<!-- PROFESSIONAL SUMMARY -->
-<h2>Professional Summary</h2>
-<div class="summary">
-  <p>
-    Generalist builder and technical program manager working across code, hardware, and AI systems. Specializes in 0-to-1 execution - taking a fuzzy problem and shipping a working solution, often without a playbook or prior art. Experienced in AI/ML product development, LLM tooling, NLP systems, process optimization, and cross-functional ownership from requirements to post-launch adoption. Seeking a Founder Office, Chief of Staff, or 0-to-1 execution role at an early-stage startup in AI/ML, B2B SaaS, or deep-tech where I can act as a force multiplier for the founding team's vision.
-  </p>
-  <p>Mechanical engineer by degree. AI practitioner by choice. Builder by instinct.</p>
-</div>
+  /* ── HEADER ── */
+  function buildHeader() {
+    var wrap = el('div', 'header');
+    append(wrap,
+      el('div', null, null),   // spacer — name set below via id
+      el('div', 'eyebrow', null)
+    );
 
-<!-- WORK EXPERIENCE -->
-<h2>Work Experience</h2>
+    var name = el('div');
+    name.id = 'r-name';
+    name.textContent = RESUME.name;
 
-<div class="job">
-  <div class="job-header">
-    <div class="job-title">Technical Program Manager - AI and ML</div>
-    <div class="job-period">Apr 2025 - Present</div>
-  </div>
-  <div class="job-org">Maruti Suzuki India Limited, Gurugram</div>
-  <ul>
-    <li>Conceived and shipped <strong>ForgeAI</strong> - an LLM-powered document and report generation system - by recruiting 3 engineers without a formal mandate, replacing a manual error-prone process across the entire engineering org and saving approximately 20,000 man-hours.</li>
-    <li>Built and owned <strong>Smart Pulse</strong>, a social media sentiment and insight platform: authored the PRD, defined KPIs, ran UAT, and drove post-launch adoption to 2,500+ internal users.</li>
-    <li>Operated as primary AI/ML program owner with no prior internal playbook; drove full project arc from problem identification through stakeholder delivery.</li>
-  </ul>
-</div>
+    var tag = el('div');
+    tag.id = 'r-tagline';
+    tag.textContent = RESUME.tagline;
 
-<div class="job">
-  <div class="job-header">
-    <div class="job-title">Digital Transformation Analyst - PLM and AI</div>
-    <div class="job-period">Jun 2023 - Apr 2025</div>
-  </div>
-  <div class="job-org">Renault Nissan TBCI (Global Capability Centre), Chennai</div>
-  <ul>
-    <li>Built an <strong>ML Clash Detection</strong> classifier (Python, Scikit-learn, 3DEXPERIENCE) to automate triage of thousands of vehicle design clashes - cutting lead time by 70% and manual effort by 95%.</li>
-    <li>Developed <strong>DrawingDIFF</strong>, a pixel-perfect engineering drawing comparison tool with automated audit trail export - targeting high-stakes environments where a misread dimension has real cost consequences.</li>
-    <li>Drove AI adoption and digital transformation initiatives across PLM workflows with no pre-existing AI team or internal template to follow.</li>
-  </ul>
-</div>
+    var contact = el('div');
+    contact.id = 'r-contact';
+    RESUME.contact.forEach(function(c, i) {
+      if (i > 0) contact.appendChild(el('span', 'sep', '|'));
+      if (c.href) {
+        var a = el('a');
+        a.href = c.href;
+        if (!c.href.startsWith('mailto') && !c.href.startsWith('tel')) a.target = '_blank';
+        a.textContent = c.value;
+        contact.appendChild(a);
+      } else {
+        contact.appendChild(document.createTextNode(c.value));
+      }
+    });
 
-<!-- SKILLS -->
-<h2>Skills</h2>
-<div class="skills-grid">
-  <div class="skill-row"><strong>AI and ML:</strong> LLMs, Prompt Engineering, NLP, Sentiment Classification, Scikit-learn, OpenAI APIs, ML Classifiers</div>
-  <div class="skill-row"><strong>Programming:</strong> Python, JavaScript</div>
-  <div class="skill-row"><strong>Product and Program:</strong> PRD Writing, Sprint Planning, KPI Definition, UAT, Stakeholder Management, 0-to-1 Product Development, Post-Launch Adoption</div>
-  <div class="skill-row"><strong>Tools and Platforms:</strong> Streamlit, 3DEXPERIENCE (Dassault), Scikit-learn, X API, YouTube API</div>
-  <div class="skill-row"><strong>Domain:</strong> Manufacturing, Automotive, AI Transformation, PLM, Process Optimization, Engineering Design</div>
-</div>
+    append(wrap, name, tag, contact);
+    return wrap;
+  }
 
-<!-- EDUCATION -->
-<h2>Education</h2>
-<div class="edu">
-  <div class="edu-header">
-    <div class="edu-deg">B.Tech, Mechanical Engineering - CGPA: 9.05 / 10</div>
-    <div class="edu-period">2019 - 2023</div>
-  </div>
-  <div class="edu-org">B.S. Abdur Rahman Crescent Institute of Science and Technology, Chennai</div>
-</div>
+  /* ── SECTION HEADING ── */
+  function heading(text) { return el('h2', null, text); }
 
-<!-- PROJECTS -->
-<h2>Projects</h2>
+  /* ── SUMMARY ── */
+  function buildSummary() {
+    var wrap = el('div', 'summary');
+    RESUME.summary.forEach(function(para) {
+      wrap.appendChild(el('p', null, para));
+    });
+    return wrap;
+  }
 
-<div class="project">
-  <div class="proj-header">
-    <div class="proj-title">IntelliCAD</div>
-    <div class="proj-org">Personal Project</div>
-  </div>
-  <div class="proj-sub">LLM-powered Text-to-CAD Generation</div>
-  <p>Converts natural language descriptions of 3D geometry into ready-made CAD files using LLMs and OpenAI APIs - eliminating manual sketching and constraint-dragging for engineers.</p>
-  <div class="proj-meta"><strong>Stack:</strong> Python, LLMs, Prompt Engineering, OpenAI APIs, Streamlit</div>
-  <div class="proj-links">
-    <a href="https://github.com/goku03l/IntelliCAD">GitHub</a>
-    <a href="https://intellicad-ap6znq2zrc7bw7zzxddkru.streamlit.app/">Live App</a>
-    <a href="https://youtu.be/56AVSxNFZ3c">Demo Video</a>
-  </div>
-</div>
+  /* ── EXPERIENCE ── */
+  function buildExperience() {
+    var frag = document.createDocumentFragment();
+    RESUME.experience.forEach(function(job) {
+      var block = el('div', 'block');
 
-<div class="project">
-  <div class="proj-header">
-    <div class="proj-title">DrawingDIFF</div>
-    <div class="proj-org">Personal Project</div>
-  </div>
-  <div class="proj-sub">Engineering Drawing Version Comparison and Audit Tool</div>
-  <p>Upload two drawing revisions to get a high-contrast pixel overlay highlighting every changed line and dimension, plus an auto-generated audit trail ready for export.</p>
-  <div class="proj-meta"><strong>Stack:</strong> Python, LLMs, OpenAI APIs, Streamlit, Computer Vision</div>
-  <div class="proj-links">
-    <a href="https://github.com/goku03l/DrawingDIFF">GitHub</a>
-    <a href="https://drawingdiff-dvaacmnaapwuvdhzt7zvo5.streamlit.app/">Live App</a>
-    <a href="https://youtu.be/MfWPskO2LjM">Demo Video</a>
-  </div>
-</div>
+      var hdr = el('div', 'block-hdr');
+      append(hdr, el('div', 'block-title', job.title), el('div', 'block-meta', job.period));
 
-<div class="project">
-  <div class="proj-header">
-    <div class="proj-title">Election Pulse</div>
-    <div class="proj-org">Freelance</div>
-  </div>
-  <div class="proj-sub">Social Media Sentiment Platform for Political Analytics</div>
-  <p>Built for a political party client: ingested unstructured social media data via X API and YouTube API and transformed it into actionable sentiment dashboards for campaign teams.</p>
-  <div class="proj-meta"><strong>Stack:</strong> Python, NLP, Sentiment Classification, X API, YouTube API, Analytics</div>
-</div>
+      var ul = el('ul');
+      job.bullets.forEach(function(b) { ul.appendChild(el('li', null, b)); });
 
+      append(block, hdr, el('div', 'block-org', job.org), ul);
+      frag.appendChild(block);
+    });
+    return frag;
+  }
+
+  /* ── SKILLS ── */
+  function buildSkills() {
+    var wrap = el('div');
+    RESUME.skills.forEach(function(row) {
+      var r = el('div', 'skill-row');
+      r.innerHTML = '<strong>' + row.category + ':</strong> ' + row.items;
+      wrap.appendChild(r);
+    });
+    return wrap;
+  }
+
+  /* ── EDUCATION ── */
+  function buildEducation() {
+    var frag = document.createDocumentFragment();
+    RESUME.education.forEach(function(edu) {
+      var wrap = el('div', 'block');
+      var hdr  = el('div', 'edu-hdr');
+      append(hdr, el('div', 'edu-deg', edu.degree), el('div', 'edu-period', edu.period));
+      append(wrap, hdr, el('div', 'edu-org', edu.org));
+      frag.appendChild(wrap);
+    });
+    return frag;
+  }
+
+  /* ── PROJECTS ── */
+  function buildProjects() {
+    var frag = document.createDocumentFragment();
+    RESUME.projects.forEach(function(proj) {
+      var block = el('div', 'block');
+
+      var hdr = el('div', 'block-hdr');
+      append(hdr, el('div', 'block-title proj', proj.title), el('div', 'block-meta', proj.type));
+
+      var stack = el('div', 'stack');
+      stack.innerHTML = '<strong>Stack:</strong> ' + proj.stack;
+
+      var links = el('div', 'proj-links');
+      proj.links.forEach(function(lnk) {
+        var a = el('a');
+        a.href = lnk.href; a.target = '_blank'; a.textContent = lnk.label;
+        links.appendChild(a);
+      });
+
+      append(block,
+        hdr,
+        el('div', 'block-sub', proj.subtitle),
+        el('p',   null,        proj.description),
+        stack,
+        proj.links.length ? links : null
+      );
+      frag.appendChild(block);
+    });
+    return frag;
+  }
+
+  /* ── TOOLBAR ── */
+  function buildToolbar() {
+    var toolbar = el('div', 'toolbar');
+    var btn = el('button', 'btn-pdf', 'Download PDF');
+    btn.onclick = function(){ window.print(); };
+    toolbar.appendChild(btn);
+    return toolbar;
+  }
+
+  /* ── ASSEMBLE ── */
+  var root = document.getElementById('resume-root');
+  append(root,
+    buildHeader(),
+    el('hr'),
+    buildToolbar(),
+    heading('Professional Summary'), buildSummary(),
+    heading('Work Experience'),      buildExperience(),
+    heading('Skills'),               buildSkills(),
+    heading('Education'),            buildEducation(),
+    heading('Projects'),             buildProjects()
+  );
+
+  /* Set page title from name */
+  document.title = RESUME.name + ' - Resume';
+
+})();
+</script>
 </body>
 </html>
