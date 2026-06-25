@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Gokul Kumar — Resume</title>
+<title>Gokul Kumar Resume</title>
 <style>
-  /* ── ATS-FRIENDLY: single-column, no floats, no grid, no JS ── */
-  /* ── Color palette from resume.html ── */
   :root {
     --brg:       #1B4332;
     --brg-mid:   #2D6A4F;
@@ -32,7 +30,6 @@
     padding: 36px 40px 48px;
   }
 
-  /* ── HEADER ── */
   .name {
     font-size: 24pt;
     font-weight: 700;
@@ -55,14 +52,12 @@
   .contact-line a:hover { text-decoration: underline; }
   .sep { margin: 0 6px; color: var(--silver); }
 
-  /* ── DIVIDER ── */
   hr {
     border: none;
     border-top: 1.5px solid var(--brg);
     margin: 14px 0 10px;
   }
 
-  /* ── SECTION HEADINGS ── */
   h2 {
     font-size: 10.5pt;
     font-weight: 700;
@@ -74,10 +69,8 @@
     margin: 20px 0 10px;
   }
 
-  /* ── SUMMARY ── */
   .summary p { font-size: 10.5pt; margin-bottom: 6px; color: var(--ink); }
 
-  /* ── EXPERIENCE ── */
   .job { margin-bottom: 14px; }
   .job-header { display: flex; justify-content: space-between; align-items: baseline; }
   .job-title { font-weight: 700; font-size: 11pt; color: var(--ink); }
@@ -87,7 +80,6 @@
   .job li { font-size: 10.5pt; margin-bottom: 3px; color: var(--ink); }
   .job li strong { color: var(--brg); }
 
-  /* ── PROJECTS ── */
   .project { margin-bottom: 14px; }
   .proj-header { display: flex; justify-content: space-between; align-items: baseline; }
   .proj-title { font-weight: 700; font-size: 11pt; color: var(--brg); }
@@ -100,19 +92,16 @@
   .proj-links a { color: var(--brg-mid); margin-right: 10px; text-decoration: none; }
   .proj-links a:hover { text-decoration: underline; }
 
-  /* ── SKILLS ── */
   .skills-grid { display: block; }
   .skill-row { font-size: 10.5pt; margin-bottom: 5px; color: var(--ink); }
   .skill-row strong { display: inline-block; min-width: 160px; color: var(--brg); }
 
-  /* ── EDUCATION ── */
   .edu { margin-bottom: 10px; }
   .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
   .edu-deg { font-weight: 700; font-size: 11pt; color: var(--ink); }
   .edu-period { font-size: 9.5pt; color: var(--mist); }
   .edu-org { font-size: 10pt; color: var(--silver-dk); }
 
-  /* ── PDF BUTTON ── */
   .toolbar {
     display: flex;
     justify-content: flex-end;
@@ -132,7 +121,6 @@
   }
   .btn-pdf:hover { background: var(--brg-mid); }
 
-  /* ── PRINT ── */
   @media print {
     @page { size: Letter; margin: 14mm 16mm; }
     body { padding: 0; max-width: 100%; background: #fff; }
@@ -143,12 +131,9 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════
-     HEADER
-════════════════════════════════════════════ -->
 <div class="header">
   <div class="name">Gokul Kumar</div>
-  <div class="eyebrow">Founder Office · Chief of Staff · 0→1 Builder</div>
+  <div class="eyebrow">Founder Office | Chief of Staff | 0-to-1 Builder</div>
   <div class="contact-line">
     <a href="mailto:gokul@thunivin.com">gokul@thunivin.com</a>
     <span class="sep">|</span>
@@ -166,42 +151,69 @@
 
 <hr/>
 
-<!-- ══════════════════════════════════════════
-     PDF DOWNLOAD BUTTON
-════════════════════════════════════════════ -->
 <div class="toolbar">
-  <button class="btn-pdf" onclick="window.print()">⬇ Download PDF</button>
+  <button class="btn-pdf" onclick="window.print()">Download PDF</button>
 </div>
 
-<!-- ══════════════════════════════════════════
-     PROFESSIONAL SUMMARY
-════════════════════════════════════════════ -->
+<!-- PROFESSIONAL SUMMARY -->
 <h2>Professional Summary</h2>
 <div class="summary">
   <p>
-    Generalist builder and technical program manager working across code, hardware, and AI systems. Specializes in 0→1 execution — taking a fuzzy problem and shipping a working solution, often without a playbook or prior art. Experienced in AI/ML product development, LLM tooling, NLP systems, process optimization, and cross-functional ownership from requirements to post-launch adoption. Seeking a Founder Office or Chief of Staff role at an early-stage startup where I can act as a force multiplier for the founding team's vision.
+    Generalist builder and technical program manager working across code, hardware, and AI systems. Specializes in 0-to-1 execution - taking a fuzzy problem and shipping a working solution, often without a playbook or prior art. Experienced in AI/ML product development, LLM tooling, NLP systems, process optimization, and cross-functional ownership from requirements to post-launch adoption. Seeking a Founder Office, Chief of Staff, or 0-to-1 execution role at an early-stage startup in AI/ML, B2B SaaS, or deep-tech where I can act as a force multiplier for the founding team's vision.
   </p>
-  <p>
-    Mechanical engineer by degree. AI practitioner by choice. Builder by instinct.
-  </p>
+  <p>Mechanical engineer by degree. AI practitioner by choice. Builder by instinct.</p>
 </div>
 
-<!-- ══════════════════════════════════════════
-     WHAT I'M LOOKING FOR
-════════════════════════════════════════════ -->
-<h2>What I'm Looking For</h2>
-<div class="summary">
-  <p>
-    A Founder Office, Chief of Staff, or 0→1 execution role at an early-stage startup — acting as builder, strategist, and operator simultaneously. Ideally in AI/ML, B2B SaaS, or deep-tech, though the problem matters more than the sector. I want to be close to the founding team, own real outcomes, and earn the operational scars that come with scaling a company from scratch.
-  </p>
-  <p>
-    If you're a founder who needs someone who can think with you on Monday and ship with you on Friday, let's talk.
-  </p>
+<!-- WORK EXPERIENCE -->
+<h2>Work Experience</h2>
+
+<div class="job">
+  <div class="job-header">
+    <div class="job-title">Technical Program Manager - AI and ML</div>
+    <div class="job-period">Apr 2025 - Present</div>
+  </div>
+  <div class="job-org">Maruti Suzuki India Limited, Gurugram</div>
+  <ul>
+    <li>Conceived and shipped <strong>ForgeAI</strong> - an LLM-powered document and report generation system - by recruiting 3 engineers without a formal mandate, replacing a manual error-prone process across the entire engineering org and saving approximately 20,000 man-hours.</li>
+    <li>Built and owned <strong>Smart Pulse</strong>, a social media sentiment and insight platform: authored the PRD, defined KPIs, ran UAT, and drove post-launch adoption to 2,500+ internal users.</li>
+    <li>Operated as primary AI/ML program owner with no prior internal playbook; drove full project arc from problem identification through stakeholder delivery.</li>
+  </ul>
 </div>
 
-<!-- ══════════════════════════════════════════
-     PROJECTS
-════════════════════════════════════════════ -->
+<div class="job">
+  <div class="job-header">
+    <div class="job-title">Digital Transformation Analyst - PLM and AI</div>
+    <div class="job-period">Jun 2023 - Apr 2025</div>
+  </div>
+  <div class="job-org">Renault Nissan TBCI (Global Capability Centre), Chennai</div>
+  <ul>
+    <li>Built an <strong>ML Clash Detection</strong> classifier (Python, Scikit-learn, 3DEXPERIENCE) to automate triage of thousands of vehicle design clashes - cutting lead time by 70% and manual effort by 95%.</li>
+    <li>Developed <strong>DrawingDIFF</strong>, a pixel-perfect engineering drawing comparison tool with automated audit trail export - targeting high-stakes environments where a misread dimension has real cost consequences.</li>
+    <li>Drove AI adoption and digital transformation initiatives across PLM workflows with no pre-existing AI team or internal template to follow.</li>
+  </ul>
+</div>
+
+<!-- SKILLS -->
+<h2>Skills</h2>
+<div class="skills-grid">
+  <div class="skill-row"><strong>AI and ML:</strong> LLMs, Prompt Engineering, NLP, Sentiment Classification, Scikit-learn, OpenAI APIs, ML Classifiers</div>
+  <div class="skill-row"><strong>Programming:</strong> Python, JavaScript</div>
+  <div class="skill-row"><strong>Product and Program:</strong> PRD Writing, Sprint Planning, KPI Definition, UAT, Stakeholder Management, 0-to-1 Product Development, Post-Launch Adoption</div>
+  <div class="skill-row"><strong>Tools and Platforms:</strong> Streamlit, 3DEXPERIENCE (Dassault), Scikit-learn, X API, YouTube API</div>
+  <div class="skill-row"><strong>Domain:</strong> Manufacturing, Automotive, AI Transformation, PLM, Process Optimization, Engineering Design</div>
+</div>
+
+<!-- EDUCATION -->
+<h2>Education</h2>
+<div class="edu">
+  <div class="edu-header">
+    <div class="edu-deg">B.Tech, Mechanical Engineering - CGPA: 9.05 / 10</div>
+    <div class="edu-period">2019 - 2023</div>
+  </div>
+  <div class="edu-org">B.S. Abdur Rahman Crescent Institute of Science and Technology, Chennai</div>
+</div>
+
+<!-- PROJECTS -->
 <h2>Projects</h2>
 
 <div class="project">
@@ -210,8 +222,8 @@
     <div class="proj-org">Personal Project</div>
   </div>
   <div class="proj-sub">LLM-powered Text-to-CAD Generation</div>
-  <p>Converts natural language descriptions of 3D geometry into ready-made CAD files using LLMs and OpenAI APIs — eliminating manual sketching and constraint-dragging for engineers.</p>
-  <div class="proj-meta"><strong>Stack:</strong> Python · LLMs · Prompt Engineering · OpenAI APIs · Streamlit</div>
+  <p>Converts natural language descriptions of 3D geometry into ready-made CAD files using LLMs and OpenAI APIs - eliminating manual sketching and constraint-dragging for engineers.</p>
+  <div class="proj-meta"><strong>Stack:</strong> Python, LLMs, Prompt Engineering, OpenAI APIs, Streamlit</div>
   <div class="proj-links">
     <a href="https://github.com/goku03l/IntelliCAD">GitHub</a>
     <a href="https://intellicad-ap6znq2zrc7bw7zzxddkru.streamlit.app/">Live App</a>
@@ -224,9 +236,9 @@
     <div class="proj-title">DrawingDIFF</div>
     <div class="proj-org">Personal Project</div>
   </div>
-  <div class="proj-sub">Engineering Drawing Version Comparison &amp; Audit Tool</div>
+  <div class="proj-sub">Engineering Drawing Version Comparison and Audit Tool</div>
   <p>Upload two drawing revisions to get a high-contrast pixel overlay highlighting every changed line and dimension, plus an auto-generated audit trail ready for export.</p>
-  <div class="proj-meta"><strong>Stack:</strong> Python · LLMs · OpenAI APIs · Streamlit · Computer Vision</div>
+  <div class="proj-meta"><strong>Stack:</strong> Python, LLMs, OpenAI APIs, Streamlit, Computer Vision</div>
   <div class="proj-links">
     <a href="https://github.com/goku03l/DrawingDIFF">GitHub</a>
     <a href="https://drawingdiff-dvaacmnaapwuvdhzt7zvo5.streamlit.app/">Live App</a>
@@ -241,62 +253,7 @@
   </div>
   <div class="proj-sub">Social Media Sentiment Platform for Political Analytics</div>
   <p>Built for a political party client: ingested unstructured social media data via X API and YouTube API and transformed it into actionable sentiment dashboards for campaign teams.</p>
-  <div class="proj-meta"><strong>Stack:</strong> Python · NLP · Sentiment Classification · X API · YouTube API · Analytics</div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     SKILLS
-════════════════════════════════════════════ -->
-<h2>Skills</h2>
-<div class="skills-grid">
-  <div class="skill-row"><strong>AI / ML:</strong> LLMs, Prompt Engineering, NLP, Sentiment Classification, Scikit-learn, OpenAI APIs, ML Classifiers</div>
-  <div class="skill-row"><strong>Programming:</strong> Python, JavaScript</div>
-  <div class="skill-row"><strong>Product &amp; Program:</strong> PRD Writing, Sprint Planning, KPI Definition, UAT, Stakeholder Management, 0→1 Product Development, Post-Launch Adoption</div>
-  <div class="skill-row"><strong>Tools &amp; Platforms:</strong> Streamlit, 3DEXPERIENCE (Dassault), Scikit-learn, X API, YouTube API</div>
-  <div class="skill-row"><strong>Domain:</strong> Manufacturing / Automotive, AI Transformation, PLM, Process Optimization, Engineering Design</div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     EDUCATION
-════════════════════════════════════════════ -->
-<h2>Education</h2>
-<div class="edu">
-  <div class="edu-header">
-    <div class="edu-deg">B.Tech, Mechanical Engineering — CGPA: 9.05 / 10</div>
-    <div class="edu-period">2019 – 2023</div>
-  </div>
-  <div class="edu-org">B.S. Abdur Rahman Crescent Institute of Science and Technology, Chennai</div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     WORK EXPERIENCE
-════════════════════════════════════════════ -->
-<h2>Work Experience</h2>
-
-<div class="job">
-  <div class="job-header">
-    <div class="job-title">Technical Program Manager — AI &amp; ML</div>
-    <div class="job-period">Apr 2025 – Present</div>
-  </div>
-  <div class="job-org">Maruti Suzuki India Limited, Gurugram</div>
-  <ul>
-    <li>Conceived and shipped <strong>ForgeAI</strong> — an LLM-powered document and report generation system — by recruiting 3 engineers without a formal mandate, replacing a manual error-prone process across the entire engineering org and saving approximately 20,000 man-hours.</li>
-    <li>Built and owned <strong>Smart Pulse</strong>, a social media sentiment and insight platform: authored the PRD, defined KPIs, ran UAT, and drove post-launch adoption to 2,500+ internal users.</li>
-    <li>Operated as primary AI/ML program owner with no prior internal playbook; drove full project arc from problem identification through stakeholder delivery.</li>
-  </ul>
-</div>
-
-<div class="job">
-  <div class="job-header">
-    <div class="job-title">Digital Transformation Analyst — PLM &amp; AI</div>
-    <div class="job-period">Jun 2023 – Apr 2025</div>
-  </div>
-  <div class="job-org">Renault Nissan TBCI (Global Capability Centre), Chennai</div>
-  <ul>
-    <li>Built an <strong>ML Clash Detection</strong> classifier (Python, Scikit-learn, 3DEXPERIENCE) to automate triage of thousands of vehicle design clashes — cutting lead time by 70% and manual effort by 95%.</li>
-    <li>Developed <strong>DrawingDIFF</strong>, a pixel-perfect engineering drawing comparison tool with automated audit trail export — targeting high-stakes environments where a misread dimension has real cost consequences.</li>
-    <li>Drove AI adoption and digital transformation initiatives across PLM workflows with no pre-existing AI team or internal template to follow.</li>
-  </ul>
+  <div class="proj-meta"><strong>Stack:</strong> Python, NLP, Sentiment Classification, X API, YouTube API, Analytics</div>
 </div>
 
 </body>
