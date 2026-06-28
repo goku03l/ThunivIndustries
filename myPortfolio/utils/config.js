@@ -5,12 +5,12 @@ const RESUME = {
   tagline: "Founder Office | Chief of Staff | 0-to-1 Builder",
 
   contact: [
-    { label: "Email",    value: "gokul@thunivin.com",        href: "mailto:gokul@thunivin.com" },
+    { label: "Email",    value: "kgokul371c@gmail.com",        href: "mailto:kgokul371c@gmail.com" },
     { label: "Phone",    value: "+91 98849 90139",           href: "tel:+919884990139" },
     { label: "Location", value: "Gurugram, India",           href: null },
     { label: "LinkedIn", value: "linkedin.com/in/goku03l",   href: "https://linkedin.com/in/goku03l" },
     { label: "GitHub",   value: "github.com/goku03l",        href: "https://github.com/goku03l" },
-    { label: "Website",  value: "thunivin.com",              href: "https://thunivin.com" },
+    { label: "Portfolio",  value: "Portfolio:thunivin.com",              href: "https://thunivin.com/myPortfolio" },
   ],
 
   /* ── SUMMARY ─────────────────────────────────────── */
