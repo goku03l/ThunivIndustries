@@ -27,7 +27,7 @@ const RESUME = {
       org:    "Maruti Suzuki India Limited, Gurugram",
       period: "Apr 2025 - Present",
       bullets: [
-        "A traditional, bureaucratic legacy organization with zero tech infrastructure and no IT playbook needed modernization. Taking absolute ownership, the entire zero-to-one product lifecycle was driven from scratch—translating raw requirements from non-technical stakeholders, managing external tech partners, and pushing through deep organizational inertia",
+        "A traditional, bureaucratic legacy organization with zero tech infrastructure and no IT playbook needed modernization. Taking absolute ownership, the entire zero-to-one product lifecycle was driven from scratch-translating raw requirements from non-technical stakeholders, managing external tech partners, and pushing through deep organizational inertia",
         "Over the span of one year, two platforms were delivered end-to-end. This included conceptualizing, building, and launching Smart Pulse, a social media sentiment and insight platform and Forge AI, a GenAI based test report automation.",
         "By authoring the PRD, defining the KPIs, developing, running UAT, and actively selling the value of technology to a change-resistant workforce, over 2,500+ traditional users were successfully transitioned away from decades-old manual workflows into hyper-care adoption.",
       ],
