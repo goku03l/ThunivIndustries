@@ -23,13 +23,13 @@ const RESUME = {
   /* ── WORK EXPERIENCE ─────────────────────────────── */
   experience: [
     {
-      title:  "Technical Program Manager - AI and ML",
+      title:  "Product Manager - Engineering Intelligence",
       org:    "Maruti Suzuki India Limited, Gurugram",
       period: "Apr 2025 - Present",
       bullets: [
-        "A traditional, bureaucratic legacy organization with zero tech infrastructure and no IT playbook needed modernization. Taking absolute ownership, the entire zero-to-one product lifecycle was driven from scratch-translating raw requirements from non-technical stakeholders, managing external tech partners, and pushing through deep organizational inertia",
-        "Over the span of one year, two platforms were delivered end-to-end. This included conceptualizing, building, and launching Smart Pulse, a social media sentiment and insight platform and Forge AI, a GenAI based test report automation.",
-        "By authoring the PRD, defining the KPIs, developing, running UAT, and actively selling the value of technology to a change-resistant workforce, over 2,500+ traditional users were successfully transitioned away from decades-old manual workflows into hyper-care adoption.",
+        "Drove digital transformation in a legacy automotive environment by taking 0-1 ownership of the AI/ML product roadmap—translating complex business needs into technical requirements and managing cross-functional teams and external vendors.",
+        "Conceptualized, built, and launched 2 enterprise platforms end-to-end within 12 months: Smart Pulse (social sentiment analysis) and Forge AI (GenAI-powered test report automation).",
+        "Led complete product lifecycles—from PRD authoring and KPI definition to UAT and change management—successfully onboarding 2,500+ legacy users and replacing decades-old manual workflows.",
       ],
     },
     {
