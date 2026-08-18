@@ -2,7 +2,7 @@ const RESUME = {
 
   /* ── HEADER ─────────────────────────────────────── */
   name: "Gokul Kumar",
-  tagline: "Technical Program Manager | Founder Office| 0-to-1 Builder",
+  tagline: "Product Manager | Founder Office| 0-to-1 Builder",
 
   contact: [
     { label: "Email",    value: "kgokul371c@gmail.com",        href: "mailto:kgokul371c@gmail.com" },
