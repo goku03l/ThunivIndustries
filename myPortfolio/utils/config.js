@@ -2,7 +2,7 @@ const RESUME = {
 
   /* ── HEADER ─────────────────────────────────────── */
   name: "Gokul Kumar",
-  tagline: "Product Manager | Founder Office| 0-to-1 Builder",
+  tagline: "Startup Founder · Ex-PM, Maruti Suzuki · Founder's Office / 0-to-1 Builder",
 
   contact: [
     { label: "Email",    value: "kgokul371c@gmail.com",        href: "mailto:kgokul371c@gmail.com" },
@@ -10,22 +10,33 @@ const RESUME = {
     { label: "Location", value: "Gurugram, India",           href: null },
     { label: "LinkedIn", value: "linkedin.com/in/goku03l",   href: "https://linkedin.com/in/goku03l" },
     { label: "GitHub",   value: "github.com/goku03l",        href: "https://github.com/goku03l" },
-    { label: "Portfolio",  value: "Portfolio:thunivin.com",              href: "https://thunivin.com/myPortfolio" },
+    { label: "Portfolio",  value: "Portfolio:thunivin.com",              href: "https://thunivin.com" },
   ],
 
   /* ── SUMMARY ─────────────────────────────────────── */
   summary: [
-    "Generalist builder and technical program manager working across code, hardware, and AI systems. Specializes in 0-to-1 execution - taking a fuzzy problem and shipping a working solution, often without a playbook or prior art. Experienced in AI/ML product development, LLM tooling, NLP systems, process optimization, and cross-functional ownership from requirements to post-launch adoption. Seeking a Founder Office, Chief of Staff, or 0-to-1 execution role at an early-stage startup in AI/ML, B2B SaaS, or deep-tech where I can act as a force multiplier for the founding team's vision.",
-    "Mechanical engineer by degree. AI practitioner by choice. Builder by instinct.",
-    "<strong>Looking for Corporate to StartUp transition</strong>"
+    "Founder of Thuniv Industries, an AI product studio building for engineering, construction, and B2B sales teams. Started it nights and weekends in March 2026 while still a Product Manager at Maruti Suzuki, then left that role in July 2026 to build full-time. Six months in: one product is a working MVP, the other has paying customers and recurring revenue.",
+    "Solo across product, engineering, and go-to-market so far - no co-founder yet. Now looking for a Founder's Office, Chief of Staff, or 0-to-1 execution role at a funded early-stage startup, to learn how a team does what one person can't, sharpen what a solo build doesn't force, and find the right co-founder along the way.",
+    "<strong>Solo founder with early revenue, looking for a season in someone else's Founder's Office before going all-in again.</strong>"
   ],
 
   /* ── WORK EXPERIENCE ─────────────────────────────── */
   experience: [
     {
-      title:  "Product Manager - Engineering Intelligence",
+      title:  "Founder",
+      org:    "Thuniv Industries",
+      period: "Mar 2026 - Present",
+      bullets: [
+        "Left a Product Manager role to build full-time, after validating demand nights and weekends for four months.",
+        "Shipped ThadamIQ, an autonomous AI sales agent that lets small manufacturers sell direct instead of through a distributor - 3 paying licences and ~₹15k MRR to date, sold and supported solo.",
+        "Built PLMC to a working MVP: an AI-native PLM/BOM platform for construction, with an assistant that can act on project data under a two-phase confirm safeguard.",
+        "Running product, engineering, and sales as a team of one - now looking to pair that with Founder's Office to learn what a solo build can't teach.",
+      ],
+    },
+    {
+      title:  "Product Manager - Engineering Efficiency",
       org:    "Maruti Suzuki India Limited, Gurugram",
-      period: "Apr 2025 - Present",
+      period: "Apr 2025 - Jul 2026",
       bullets: [
         "Drove digital transformation in a legacy automotive environment by taking 0-1 ownership of the AI/ML product roadmap—translating complex business needs into technical requirements and managing cross-functional teams and external vendors.",
         "Conceptualized, built, and launched 2 enterprise platforms end-to-end within 12 months: Smart Pulse (social sentiment analysis) and Forge AI (GenAI-powered test report automation).",
@@ -46,6 +57,7 @@ const RESUME = {
 
   /* ── SKILLS ──────────────────────────────────────── */
   skills: [
+    { category: "Founder / 0-to-1",   items: "Solo 0-to-revenue execution, Customer acquisition, Pricing & GTM, Full-stack product ownership, Bootstrapped shipping" },
     { category: "AI and ML",          items: "LLMs, Prompt Engineering, NLP, Sentiment Classification, Scikit-learn, OpenAI APIs, Machine Learning, RAG" },
     { category: "Programming",        items: "Python, JavaScript" },
     { category: "Product and Program",items: "PRD Writing, Sprint Planning, KPI Definition, UAT, Stakeholder Management, 0-to-1 Product Development, Post-Launch Adoption" },
