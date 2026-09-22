@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thuniv Industries — Coming Soon</title>
+  <title>Thuniv Industries — AI for the industries that build</title>
+  <meta name="description" content="Thuniv Industries builds AI products for engineering, construction and sales teams: Jarvis, PLMC and ThadamIQ.">
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#1A6B50">
-  <meta property="og:title" content="Thuniv Industries — Coming Soon">
-  <meta property="og:description" content="Something formidable is being forged. A new company is on the horizon.">
+  <meta name="theme-color" content="#0D1F18">
+  <meta property="og:title" content="Thuniv Industries — AI for the industries that build">
+  <meta property="og:description" content="Jarvis, PLMC and ThadamIQ — AI products for engineering, construction and sales teams.">
   <meta property="og:image" content="icons/icon-512.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:ital,opsz,wght@0,12..96,200..800;1,12..96,200..800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -30,7 +31,6 @@
       --forest-card:  #162C20;
       --forest-lift:  #1C3828;
       --green:        #1A6B50;
-      --green-mid:    #22845F;
       --green-bright: #2AA876;
       --green-glow:   #3EC99A;
       --gold:         #B8922A;
@@ -38,198 +38,310 @@
       --gold-pale:    #F0D898;
       --ink:          #1A2A22;
       --ink-soft:     #3D5248;
-      --ink-muted:    #6B8878;
+      --ink-muted:    #5E7A6B;
       --light:        #F0EBE0;
       --light-soft:   #C8D8CC;
-      --light-muted:  #7A9E8C;
-      --border-light: #D0C9B8;
+      --light-muted:  #86A898;
       --border-dark:  #243D2E;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body:    'DM Sans', sans-serif;
-      --font-mono:    'DM Mono', monospace;
+
+      /* per-product accents */
+      --jarvis:   #3EC99A;
+      --plmc:     #D4A83A;
+      --thadam:   #E0785A;
+
+      --font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+      --max: 1160px;
+      --ease-out: cubic-bezier(.16,1,.3,1);
     }
 
-    html, body { height: 100%; font-family: var(--font-body); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-weight: 400; line-height: 1.65; background: var(--forest); color: var(--light); overflow-x: hidden; -webkit-font-smoothing: antialiased; position: relative; }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: .03;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .mono { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
 
-    /* NAV — cream */
+    /* ── NAV ─────────────────────────────────────────── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(13,31,24,0.95);
-      backdrop-filter: blur(14px);
+      position: fixed; inset: 0 0 auto 0; z-index: 100;
+      background: rgba(13,31,24,0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-dark);
-      box-shadow: 0 2px 16px rgba(0,0,0,0.4);
     }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 2rem;
-      height: 68px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
-      color: var(--light); letter-spacing: -0.01em; text-decoration: none;
-      display: flex; align-items: center; gap: 10px;
-    }
+    .nav-inner { position: relative; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--light); text-decoration: none; display: flex; align-items: center; gap: 10px; }
     .nav-logo svg { width: 28px; height: 28px; flex-shrink: 0; }
-    .nav-status {
-      font-family: var(--font-mono); font-size: 0.66rem;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--light-muted); display: flex; align-items: center; gap: 8px;
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 0.86rem; color: var(--light-soft); transition: color .2s var(--ease-out); }
+    .nav-links a:hover { color: var(--green-glow); }
+    .nav-cta { border: 1px solid rgba(240,235,224,0.25); padding: 0.45rem 1.1rem; border-radius: 8px; transition: border-color .2s var(--ease-out), transform .2s var(--ease-out); }
+    .nav-cta:hover { border-color: var(--green-glow); transform: translateY(-1px); }
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 34px; height: 34px; background: none; border: 0; cursor: pointer; padding: 0; }
+    .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--light-soft); border-radius: 2px; transition: transform .3s var(--ease-out), opacity .2s var(--ease-out); }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── BUTTONS ─────────────────────────────────────── */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.8rem 1.8rem; border-radius: 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; text-decoration: none; transition: background .25s var(--ease-out), color .25s var(--ease-out), border-color .25s var(--ease-out), transform .25s var(--ease-out), box-shadow .25s var(--ease-out); }
+    .btn:hover { transform: translateY(-3px); }
+    .btn:active { transform: translateY(-1px) scale(.98); }
+    .btn-primary { background: var(--cream); color: var(--forest); }
+    .btn-primary:hover { background: var(--gold-pale); box-shadow: 0 12px 28px rgba(212,168,58,.22); }
+    .btn-ghost { border: 1px solid rgba(240,235,224,0.28); color: var(--light-soft); font-weight: 500; }
+    .btn-ghost:hover { border-color: var(--green-glow); color: var(--green-glow); box-shadow: 0 12px 28px rgba(62,201,154,.14); }
+    .btn-dark { background: var(--forest); color: var(--light); }
+    .btn-dark:hover { background: var(--green); box-shadow: 0 12px 28px rgba(26,107,80,.25); }
+
+    /* ── HERO ────────────────────────────────────────── */
+    #hero { position: relative; min-height: 100svh; display: flex; align-items: center; padding: 120px 0 80px; overflow: hidden; }
+    .hero-grid-bg {
+      position: absolute; inset: -5% -5% -5% -5%; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(62,201,154,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(62,201,154,0.05) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, #000 20%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, #000 20%, transparent 75%);
+      transition: transform .4s var(--ease-out);
     }
-    .nav-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--green-glow); animation: pulse 2.2s ease-in-out infinite;
+    .hero-auras { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .aura { position: absolute; border-radius: 50%; filter: blur(90px); will-change: transform; }
+    .aura-1 { width: 460px; height: 460px; top: -110px; right: 6%; background: radial-gradient(circle, rgba(212,168,58,0.32), transparent 70%); animation: drift1 22s ease-in-out infinite; }
+    .aura-2 { width: 420px; height: 420px; bottom: -160px; left: 2%; background: radial-gradient(circle, rgba(62,201,154,0.28), transparent 70%); animation: drift2 27s ease-in-out infinite; }
+    .aura-3 { width: 300px; height: 300px; top: 34%; right: 26%; background: radial-gradient(circle, rgba(224,120,90,0.22), transparent 70%); animation: drift3 19s ease-in-out infinite; }
+    .hero-stripe { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, transparent, var(--green) 20%, var(--gold-warm) 50%, var(--green) 80%, transparent); opacity: .8; }
+    .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr 1fr; gap: 4rem; align-items: center; }
+    /* grid items default to min-width:auto, which can force the whole track (and its text)
+       wider than the viewport on narrow screens once a font's min-content run is wide enough;
+       min-width:0 lets them shrink and wrap normally instead. */
+    .hero-inner > *, .product > *, .founder-card > * { min-width: 0; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--green-glow); background: rgba(62,201,154,0.08); border: 1px solid rgba(62,201,154,0.2); padding: .35rem .9rem; border-radius: 999px; margin-bottom: 1.75rem; }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green-glow); animation: pulse 2.2s infinite; }
+    h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 6vw, 5.2rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.03em; margin-bottom: 1.5rem; text-wrap: balance; overflow-wrap: break-word; }
+    h1 em { font-style: italic; color: var(--green-glow); }
+    .hero-lede { font-size: 1.12rem; color: var(--light-soft); max-width: 520px; margin-bottom: 2.5rem; font-weight: 300; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-stack { display: grid; gap: 14px; }
+    .stack-card { position: relative; overflow: hidden; display: grid; grid-template-columns: 44px 1fr auto; gap: 16px; align-items: center; padding: 18px 20px; background: rgba(22,44,32,0.72); border: 1px solid var(--border-dark); border-radius: 14px; text-decoration: none; transition: border-color .25s var(--ease-out), transform .25s var(--ease-out), background .25s var(--ease-out); }
+    .stack-card::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity .3s var(--ease-out); pointer-events: none; background: radial-gradient(220px circle at var(--mx,50%) var(--my,50%), color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%); }
+    .stack-card:hover { transform: translateX(-6px); background: var(--forest-card); border-color: var(--accent); }
+    .stack-card:hover::before { opacity: 1; }
+    .stack-card:nth-child(2) { margin-left: 28px; }
+    .stack-card:nth-child(3) { margin-left: 56px; }
+    .stack-icon { position: relative; width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+    .stack-icon svg { width: 22px; height: 22px; }
+    .stack-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--light); line-height: 1.2; }
+    .stack-desc { position: relative; font-size: .84rem; color: var(--light-muted); }
+    .stack-arrow { position: relative; color: var(--accent); font-size: 1.1rem; transition: transform .25s var(--ease-out); }
+    .stack-card:hover .stack-arrow { transform: translateX(3px); }
+
+    /* ── SECTION HEADERS ─────────────────────────────── */
+    section { position: relative; }
+    .sec-label { color: var(--green-glow); display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+    .sec-label::before { content: ''; width: 22px; height: 1.5px; background: currentColor; }
+    h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; overflow-wrap: break-word; }
+    h2 em { font-style: italic; color: var(--green-glow); }
+    .sec-intro { font-size: 1.05rem; color: var(--light-soft); max-width: 560px; margin-top: 1rem; font-weight: 300; }
+
+    /* ── PRODUCTS ────────────────────────────────────── */
+    #products { padding: 7rem 0 3rem; }
+    .product { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; padding: 5rem 0; border-top: 1px solid var(--border-dark); }
+    .product:first-of-type { border-top: 0; }
+    .product.flip .product-copy { order: 2; }
+    .product-index { color: var(--accent); display: flex; align-items: center; gap: 10px; margin-bottom: 1.1rem; flex-wrap: wrap; }
+    .product-index b { font-weight: 500; }
+    .product-index .pill { border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); color: var(--accent); padding: .15rem .6rem; border-radius: 999px; letter-spacing: .12em; font-size: .62rem; }
+    .proof { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .proof-stat { display: flex; align-items: baseline; gap: 7px; padding: .55rem 1rem; border-radius: 10px; background: color-mix(in srgb, var(--accent) 10%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+    .proof-stat b { font-family: var(--font-display); font-size: 1.1rem; color: var(--accent); font-weight: 700; }
+    .proof-stat span { font-size: .78rem; color: var(--light-muted); }
+    .product h3 { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: .6rem; overflow-wrap: break-word; }
+    .product-tagline { font-family: var(--font-display); font-style: italic; font-size: 1.25rem; color: var(--accent); margin-bottom: 1.25rem; }
+    .product-body { color: var(--light-soft); font-weight: 300; margin-bottom: 1.75rem; max-width: 500px; }
+    .features { list-style: none; display: grid; gap: .8rem; margin-bottom: 2rem; }
+    .features li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; font-size: .95rem; color: var(--light); opacity: 0; transform: translateY(14px); transition: opacity .55s var(--ease-out), transform .55s var(--ease-out); }
+    .features.visible li { opacity: 1; transform: none; }
+    .features.visible li:nth-child(1) { transition-delay: .05s; }
+    .features.visible li:nth-child(2) { transition-delay: .15s; }
+    .features.visible li:nth-child(3) { transition-delay: .25s; }
+    .features.visible li:nth-child(4) { transition-delay: .35s; }
+    .features li::before { content: ''; width: 8px; height: 8px; margin-top: 8px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+    .features li span { color: var(--light-muted); }
+    .product-link { color: var(--accent); text-decoration: none; font-weight: 500; font-size: .92rem; border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); padding-bottom: 2px; transition: border-color .2s var(--ease-out); }
+    .product-link:hover { border-color: var(--accent); }
+
+    /* product mockups */
+    .mock { background: var(--forest-card); border: 1px solid var(--border-dark); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.02) inset; overflow: hidden; position: relative; transition: transform .4s var(--ease-out), box-shadow .4s var(--ease-out); }
+    .mock:hover { transform: translateY(-4px); box-shadow: 0 40px 90px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03) inset; }
+    .mock::after { content: ''; position: absolute; inset: auto 0 0 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: .6; }
+    .mock-bar { display: flex; align-items: center; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--border-dark); background: var(--forest-mid); }
+    .mock-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border-dark); }
+    .mock-bar i.live { background: var(--green-glow); box-shadow: 0 0 8px var(--green-glow); animation: pulse 2s infinite; }
+    .mock-bar span { margin-left: 10px; font-family: var(--font-mono); font-size: .68rem; color: var(--light-muted); letter-spacing: .08em; }
+    .mock-body { padding: 22px; display: grid; gap: 14px; font-size: .85rem; }
+    .mock-body > * { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
+    .mock.visible .mock-body > * { opacity: 1; transform: none; }
+    .mock.visible .mock-body > *:nth-child(1) { transition-delay: .15s; }
+    .mock.visible .mock-body > *:nth-child(2) { transition-delay: .35s; }
+    .mock.visible .mock-body > *:nth-child(3) { transition-delay: .55s; }
+    .mock.visible .mock-body > *:nth-child(4) { transition-delay: .75s; }
+    .mock.visible .mock-body > *:nth-child(5) { transition-delay: .95s; }
+    .mock.visible .mock-body > *:nth-child(6) { transition-delay: 1.15s; }
+
+    /* Jarvis chat */
+    .msg { max-width: 86%; padding: 11px 14px; border-radius: 12px; line-height: 1.5; }
+    .msg.user { justify-self: end; background: var(--forest-lift); color: var(--light); border-bottom-right-radius: 3px; }
+    .msg.bot { background: rgba(62,201,154,0.08); border: 1px solid rgba(62,201,154,0.18); color: var(--light-soft); border-bottom-left-radius: 3px; }
+    .msg.bot b { color: var(--jarvis); font-weight: 500; }
+    .sources { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+    .sources span { font-family: var(--font-mono); font-size: .64rem; padding: 2px 8px; border-radius: 6px; background: var(--forest); color: var(--light-muted); border: 1px solid var(--border-dark); }
+    .typing { display: flex; gap: 4px; padding: 4px 2px; }
+    .typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--jarvis); opacity: .5; animation: blink 1.2s infinite; }
+    .typing i:nth-child(2) { animation-delay: .2s; } .typing i:nth-child(3) { animation-delay: .4s; }
+
+    /* PLMC tree */
+    .tree-row { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 12px; border-radius: 8px; background: var(--forest-mid); border: 1px solid var(--border-dark); font-family: var(--font-mono); font-size: .74rem; color: var(--light-soft); }
+    .tree-row.l1 { margin-left: 18px; } .tree-row.l2 { margin-left: 36px; }
+    .tree-row.changed { border-color: rgba(212,168,58,0.5); background: rgba(212,168,58,0.07); }
+    .rev { color: var(--light-muted); }
+    .tag { padding: 2px 7px; border-radius: 6px; font-size: .62rem; letter-spacing: .06em; }
+    .tag.ok { background: rgba(62,201,154,0.12); color: var(--green-glow); }
+    .tag.warn { background: rgba(212,168,58,0.15); color: var(--gold-warm); }
+    .impact { padding: 12px 14px; border-radius: 10px; border: 1px dashed rgba(212,168,58,0.45); color: var(--light-soft); font-size: .82rem; }
+    .impact b { color: var(--plmc); font-weight: 500; }
+
+    /* ThadamIQ trace */
+    .trace { display: grid; gap: 0; }
+    .trace-step { display: grid; grid-template-columns: 22px 1fr auto; gap: 14px; align-items: start; position: relative; padding-bottom: 16px; opacity: 0; transform: translateX(-8px); transition: opacity .45s var(--ease-out), transform .45s var(--ease-out); }
+    .trace-step:last-child { padding-bottom: 0; }
+    .trace-step::before { content: ''; position: absolute; left: 10px; top: 18px; bottom: 0; width: 2px; background: var(--border-dark); }
+    .trace-step:last-child::before { display: none; }
+    .mock.visible .trace-step { opacity: 1; transform: none; }
+    .mock.visible .trace-step:nth-child(1) { transition-delay: .3s; }
+    .mock.visible .trace-step:nth-child(2) { transition-delay: .55s; }
+    .mock.visible .trace-step:nth-child(3) { transition-delay: .8s; }
+    .mock.visible .trace-step:nth-child(4) { transition-delay: 1.05s; }
+    .mock.visible .trace-step:nth-child(5) { transition-delay: 1.3s; }
+    .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--thadam); background: var(--forest-card); position: relative; z-index: 1; }
+    .dot.alert { border-color: #E07F6A; background: rgba(224,127,106,0.18); }
+    .trace-title { color: var(--light); font-size: .86rem; }
+    .trace-meta { font-family: var(--font-mono); font-size: .66rem; color: var(--light-muted); letter-spacing: .04em; }
+    .trace-time { font-family: var(--font-mono); font-size: .66rem; color: var(--light-muted); }
+    .trace-alert { padding: 12px 14px; border-radius: 10px; background: rgba(127,179,224,0.08); border: 1px solid rgba(127,179,224,0.28); color: var(--light-soft); font-size: .82rem; }
+    .trace-alert b { color: var(--thadam); font-weight: 500; }
+    .mock.visible .trace-alert { transition-delay: 1.55s; }
+
+    /* ── HOW WE BUILD ────────────────────────────────── */
+    .approach { padding: 7rem 0; background: var(--forest-mid); border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
+    .principles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
+    .principle { position: relative; overflow: hidden; padding: 1.75rem 1.5rem; border: 1px solid var(--border-dark); border-radius: 14px; background: var(--forest); transition: border-color .3s var(--ease-out), transform .3s var(--ease-out); }
+    .principle::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity .3s var(--ease-out); pointer-events: none; background: radial-gradient(220px circle at var(--mx,50%) var(--my,50%), rgba(62,201,154,.14), transparent 70%); }
+    .principle:hover { border-color: var(--green); transform: translateY(-4px); }
+    .principle:hover::before { opacity: 1; }
+    .principle .mono { color: var(--gold-warm); display: block; margin-bottom: 1rem; position: relative; }
+    .principle h4 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: .5rem; line-height: 1.25; position: relative; }
+    .principle p { font-size: .9rem; color: var(--light-muted); position: relative; }
+
+    /* ── FOUNDER ─────────────────────────────────────── */
+    .founder { padding: 7rem 0; }
+    .founder-card { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: center; padding: 3.5rem; border-radius: 20px; background: linear-gradient(135deg, var(--forest-card), var(--forest)); border: 1px solid var(--border-dark); }
+    .founder blockquote { font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.3; font-style: italic; color: var(--light); }
+    .founder blockquote em { color: var(--gold-warm); }
+    .founder-meta { margin-top: 1.5rem; color: var(--light-muted); font-size: .9rem; }
+    .founder-meta b { color: var(--light); font-weight: 600; }
+    .founder-side { display: grid; gap: 1rem; justify-items: start; }
+    .founder-side p { color: var(--light-soft); font-weight: 300; }
+
+    /* ── CONTACT (cream) ─────────────────────────────── */
+    .contact { background: var(--cream); color: var(--ink); padding: 6.5rem 0; text-align: center; }
+    .contact::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--green), var(--gold-warm), var(--green), transparent); }
+    .contact .sec-label { color: var(--green); justify-content: center; }
+    .contact .sec-label::after { content: ''; width: 22px; height: 1.5px; background: currentColor; }
+    .contact h2 em { color: var(--green); }
+    .contact p { color: var(--ink-soft); max-width: 520px; margin: 1rem auto 2.25rem; }
+    .contact-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-outline-dark { border: 1px solid var(--ink); color: var(--ink); font-weight: 500; }
+    .btn-outline-dark:hover { background: var(--ink); color: var(--cream); }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer { padding: 3rem 0 2.5rem; border-top: 1px solid var(--border-dark); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+    .footer-brand small { display: block; font-family: var(--font-mono); font-weight: 400; font-size: .64rem; letter-spacing: .14em; color: var(--light-muted); margin-top: 4px; }
+    .footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; list-style: none; }
+    .footer-links a { text-decoration: none; font-size: .86rem; color: var(--light-muted); transition: color .2s var(--ease-out); }
+    .footer-links a:hover { color: var(--green-glow); }
+    .footer-copy { width: 100%; font-family: var(--font-mono); font-size: .64rem; color: var(--light-muted); opacity: .6; letter-spacing: .08em; }
+
+    /* ── MOTION ──────────────────────────────────────── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.4); } }
+    @keyframes blink { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-40px,30px) scale(1.12); } }
+    @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(35px,-25px) scale(1.08); } }
+    @keyframes drift3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-25px,-20px) scale(1.15); } }
+    .hero-copy > * { animation: fadeUp .7s var(--ease-out) both; }
+    .hero-copy > :nth-child(2) { animation-delay: .08s; }
+    .hero-copy > :nth-child(3) { animation-delay: .16s; }
+    .hero-copy > :nth-child(4) { animation-delay: .24s; }
+    .hero-stack { animation: fadeUp .8s .3s var(--ease-out) both; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal, .features li, .mock-body > *, .trace-step { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
     }
 
-    /* HERO — dark forest */
-    #hero {
-      position: relative; min-height: 100svh;
-      display: flex; align-items: center;
-      overflow: hidden; padding-top: 68px;
-      background: var(--forest);
-      color: var(--light);
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero-inner, .product, .founder-card { grid-template-columns: 1fr; gap: 3rem; }
+      .product.flip .product-copy { order: 0; }
+      .principles { grid-template-columns: 1fr 1fr; }
+      .stack-card:nth-child(n) { margin-left: 0; }
+      .founder-card { padding: 2.5rem; }
     }
-    .hero-light {
-      position: absolute; inset: 0; pointer-events: none;
-      background:
-        radial-gradient(ellipse 55% 65% at 88% 25%, rgba(245,240,232,0.055) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(62,201,154,0.07) 0%, transparent 50%);
+    @media (max-width: 720px) {
+      .wrap { padding: 0 1rem; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: absolute; top: 68px; left: 0; right: 0; z-index: 90;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: rgba(13,31,24,0.98); backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border-dark);
+        max-height: 0; overflow: hidden; opacity: 0;
+        transition: max-height .35s var(--ease-out), opacity .25s var(--ease-out);
+      }
+      .nav-links.open { max-height: 320px; opacity: 1; }
+      .nav-links li { width: 100%; }
+      .nav-links li a { display: block; padding: .95rem 1.25rem; }
+      .nav-links li:not(:last-child) a { border-bottom: 1px solid var(--border-dark); }
+      .nav-cta { border: none; border-radius: 0; }
+      #hero { padding-top: 104px; }
+      .principles { grid-template-columns: 1fr; }
+      .product { padding: 3.5rem 0; }
+      .mock-body { padding: 16px; }
+      .founder-card { padding: 1.75rem; }
+      .approach, .founder, .contact { padding: 4.5rem 0; }
     }
-    .hero-stripe {
-      position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
-      background: linear-gradient(180deg, transparent 0%, var(--green) 20%, var(--gold-warm) 50%, var(--green) 80%, transparent 100%);
-      opacity: 0.8;
+    @media (max-width: 480px) {
+      .hero-actions .btn, .contact-actions .btn { flex: 1 1 auto; justify-content: center; }
+      .stack-arrow { display: none; }
+      .stack-card { grid-template-columns: 40px 1fr; }
     }
-    .hero-inner {
-      position: relative; z-index: 2;
-      max-width: 1100px; margin: 0 auto; padding: 6rem 2rem 4rem;
-    }
-    .racing-detail { display: flex; align-items: center; gap: 3px; margin-bottom: 1.5rem; animation: fadeUp 0.5s ease both; }
-    .racing-detail span { display: block; height: 2.5px; border-radius: 2px; }
-    .racing-detail span:nth-child(1) { width: 28px; background: var(--green-glow); }
-    .racing-detail span:nth-child(2) { width: 7px; background: var(--gold-warm); }
-    .racing-detail span:nth-child(3) { width: 28px; background: var(--green-glow); }
-
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(62,201,154,0.1); color: var(--green-glow);
-      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
-      padding: 0.32rem 0.9rem; border-radius: 4px; border: 1px solid rgba(62,201,154,0.2);
-      margin-bottom: 1.5rem; animation: fadeUp 0.6s 0.05s ease both;
-    }
-    .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--green-glow); border-radius: 50%; animation: pulse 2.2s infinite; }
-
-    .hero-name {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 8vw, 7rem); font-weight: 700; line-height: 1.0;
-      letter-spacing: -0.03em; color: var(--light); margin-bottom: 0.75rem;
-      animation: fadeUp 0.7s 0.1s ease both;
-    }
-    .hero-name em { font-style: italic; color: var(--green-glow); }
-
-    .hero-sub {
-      font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 400; font-style: italic;
-      color: var(--gold-warm); margin-bottom: 1.25rem;
-      animation: fadeUp 0.7s 0.2s ease both;
-    }
-    .hero-tagline {
-      font-size: 1.05rem; color: var(--light-soft);
-      max-width: 480px; margin-bottom: 2.5rem;
-      animation: fadeUp 0.7s 0.3s ease both;
-    }
-
-    /* COUNTDOWN */
-    .countdown-wrap { display: flex; align-items: flex-start; gap: 0; margin-bottom: 2.75rem; animation: fadeUp 0.7s 0.35s ease both; }
-    .c-block { text-align: center; min-width: 72px; }
-    .c-num { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; color: var(--light); line-height: 1; }
-    .c-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--light-muted); margin-top: 4px; }
-    .c-sep { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--green-glow); padding: 0 6px; line-height: 1.05; align-self: flex-start; }
-
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.4s ease both; }
-    .btn-primary {
-      background: var(--cream); color: var(--forest);
-      padding: 0.75rem 2rem; border-radius: 4px; font-size: 0.82rem; font-weight: 600;
-      text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
-      transition: background 0.2s, transform 0.15s; display: inline-flex; align-items: center; gap: 8px;
-    }
-    .btn-primary:hover { background: var(--gold-pale); transform: translateY(-2px); }
-    .btn-secondary {
-      border: 1px solid rgba(240,235,224,0.28); color: var(--light-soft);
-      padding: 0.75rem 2rem; border-radius: 4px; font-size: 0.82rem; font-weight: 400;
-      text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
-      transition: border-color 0.2s, color 0.2s, transform 0.15s;
-    }
-    .btn-secondary:hover { border-color: var(--green-glow); color: var(--green-glow); transform: translateY(-2px); }
-
-    /* TEASER — cream */
-    .teaser-strip {
-      background: var(--cream-warm);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-dark);
-      padding: 5rem 0; position: relative; overflow: hidden;
-    }
-    .teaser-strip::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, transparent, var(--green), var(--gold-warm), var(--green), transparent);
-    }
-    .teaser-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 2rem;
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; text-align: center;
-    }
-    .teaser-item {
-      padding: 2rem 1.5rem; background: white;
-      border: 1px solid var(--cream-border); border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(26,42,34,0.07);
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-      position: relative; overflow: hidden;
-    }
-    .teaser-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--green); opacity: 0; transition: opacity 0.2s; }
-    .teaser-item:hover { border-color: var(--cream-deep); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(26,42,34,0.1); }
-    .teaser-item:hover::before { opacity: 1; }
-    .teaser-icon { font-size: 1.75rem; margin-bottom: 1rem; }
-    .teaser-mono { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); display: block; margin-bottom: 0.5rem; }
-    .teaser-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; }
-    .teaser-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.7; }
-
-    /* CONTACT — dark */
-    .contact-strip {
-      background: var(--forest); text-align: center; padding: 5.5rem 2rem;
-      position: relative; overflow: hidden; border-top: 1px solid var(--border-dark);
-    }
-    .contact-strip::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--green-glow), transparent);
-    }
-    .contact-label { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--green-glow); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
-    .contact-label::before, .contact-label::after { content: ''; display: block; width: 20px; height: 1.5px; background: var(--green-glow); }
-    .contact-heading { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; line-height: 1.1; color: var(--light); margin-bottom: 0.75rem; }
-    .contact-heading em { font-style: italic; color: var(--green-glow); }
-    .contact-sub { font-size: 0.95rem; color: var(--light-muted); margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; }
-
-    footer { background: var(--forest); border-top: 1px solid var(--border-dark); text-align: center; padding: 2rem 1rem; }
-    footer p { font-family: var(--font-display); font-size: 0.9rem; color: var(--light-muted); }
-    .footer-sub { font-family: var(--font-mono); font-size: 0.64rem; margin-top: 0.3rem; opacity: 0.45; }
-
-    .hero-scroll-hint {
-      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-      font-size: 0.68rem; font-family: var(--font-mono); color: var(--light-muted); letter-spacing: 0.16em;
-      animation: fadeUp 0.7s 0.8s ease both, bounce 2s 1.5s ease-in-out infinite;
-    }
-
-    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(1.4);} }
-    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(7px);} }
-    .reveal { opacity:0; transform:translateY(26px); transition:opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-
-    @media (max-width: 768px) { .teaser-inner { grid-template-columns:1fr; } .hero-inner { padding:5rem 1.5rem 3rem; } }
-    @media (max-width: 480px) { .c-block { min-width:54px; } }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
+    <div class="wrap nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Thuniv Industries home">
         <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="256" cy="256" r="245" fill="#0D1F18"/>
           <circle cx="256" cy="256" r="234" fill="none" stroke="#1A6B50" stroke-width="12" stroke-opacity="0.9"/>
@@ -239,83 +351,280 @@
         </svg>
         Thuniv Industries
       </a>
-      <div class="nav-status"><div class="nav-dot"></div>Coming Soon</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#founder">Founder</a></li>
+        <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
+  <!-- ═══ HERO ═══ -->
   <section id="hero">
-    <div class="hero-light"></div>
+    <div class="hero-grid-bg" id="heroGrid"></div>
+    <div class="hero-auras" aria-hidden="true">
+      <div class="aura aura-1"></div>
+      <div class="aura aura-2"></div>
+      <div class="aura aura-3"></div>
+    </div>
     <div class="hero-stripe"></div>
-    <div class="hero-inner">
-      <div class="racing-detail"><span></span><span></span><span></span></div>
-      <div class="hero-tag">In the making</div>
-      <h1 class="hero-name">Thuniv<br><em>Industries.</em></h1>
-      <p class="hero-sub">Something formidable is being forged.</p>
-      <p class="hero-tagline">A new company is on the horizon. Big things take time — we're building ours with intention.</p>
-      <div class="countdown-wrap">
-        <div class="c-block"><div class="c-num" id="cd-d">000</div><div class="c-label">Days</div></div>
-        <div class="c-sep">:</div>
-        <div class="c-block"><div class="c-num" id="cd-h">00</div><div class="c-label">Hours</div></div>
-        <div class="c-sep">:</div>
-        <div class="c-block"><div class="c-num" id="cd-m">00</div><div class="c-label">Mins</div></div>
-        <div class="c-sep">:</div>
-        <div class="c-block"><div class="c-num" id="cd-s">00</div><div class="c-label">Secs</div></div>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <div class="hero-tag mono">Three products · One mission</div>
+        <h1>AI for the industries that <em>build the world.</em></h1>
+        <p class="hero-lede">Thuniv Industries makes AI products for engineering, construction and B2B sales teams. They sit on the systems and data you already have, cut out repetitive work and help people make faster decisions.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-primary">Explore products ↓</a>
+          <a href="#contact" class="btn btn-ghost">Request early access</a>
+        </div>
       </div>
-      <div class="hero-actions">
-        <a href="https://thunivin.com/myPortfolio" target="_blank" rel="noopener" class="btn-primary">Meet the Founder ↗</a>
-        <a href="#whats-coming" class="btn-secondary">What's Coming</a>
-      </div>
-    </div>
-    <div class="hero-scroll-hint">scroll ↓</div>
-  </section>
 
-  <section class="teaser-strip" id="whats-coming">
-    <div class="teaser-inner">
-      <div class="teaser-item reveal">
-        <div class="teaser-icon">🛠</div>
-        <span class="teaser-mono">Phase 01</span>
-        <div class="teaser-title">Being Built</div>
-        <p class="teaser-desc">Every great company starts with a vision. Thuniv Industries is being crafted with purpose, detail and ambition.</p>
-      </div>
-      <div class="teaser-item reveal">
-        <div class="teaser-icon">🌐</div>
-        <span class="teaser-mono">Phase 02</span>
-        <div class="teaser-title">Going Live</div>
-        <p class="teaser-desc">Soon this page will make way for the full Thuniv Industries experience. Watch this space.</p>
-      </div>
-      <div class="teaser-item reveal">
-        <div class="teaser-icon">🚀</div>
-        <span class="teaser-mono">Phase 03</span>
-        <div class="teaser-title">The Launch</div>
-        <p class="teaser-desc">From concept to industry — the journey of Thuniv Industries begins in the near future. Stay ready.</p>
+      <div class="hero-stack" aria-label="Products">
+        <a href="#plmc" class="stack-card" style="--accent: var(--plmc)">
+          <div class="stack-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/></svg></div>
+          <div><div class="stack-name">PLMC</div><div class="stack-desc">PLM, BOM and cost control for construction</div></div>
+          <div class="stack-arrow">→</div>
+        </a>
+        <a href="#jarvis" class="stack-card" style="--accent: var(--jarvis)">
+          <div class="stack-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.6"/><path d="M12 8.4V4M12 20v-4.4M8.4 12H4M20 12h-4.4"/><circle cx="12" cy="4" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="20" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="20" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></div>
+          <div><div class="stack-name">Jarvis</div><div class="stack-desc">The decision layer that runs your shop floor</div></div>
+          <div class="stack-arrow">→</div>
+        </a>
+        <a href="#thadamiq" class="stack-card" style="--accent: var(--thadam)">
+          <div class="stack-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg></div>
+          <div><div class="stack-name">ThadamIQ</div><div class="stack-desc">Lets small manufacturers sell direct, no distributor</div></div>
+          <div class="stack-arrow">→</div>
+        </a>
       </div>
     </div>
   </section>
 
-  <div class="contact-strip reveal">
-    <div class="contact-label">Curious?</div>
-    <h2 class="contact-heading">Meet the mind<br><em>behind it all.</em></h2>
-    <p class="contact-sub">Until Thuniv Industries launches, explore the founder's portfolio and work.</p>
-    <a href="https://thunivin.com/myPortfolio" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;">View Portfolio ↗</a>
-  </div>
+  <!-- ═══ PRODUCTS ═══
+       Edit copy per product below. Accent colours live in :root (--jarvis, --plmc, --thadam). -->
+  <section id="products">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="sec-label mono">The product suite</div>
+        <h2>Three products that <em>work together.</em></h2>
+        <p class="sec-intro">Each one is an agent grounded in your own data — it can act inside your systems, not just answer questions, and it always asks before anything irreversible happens.</p>
+      </div>
+
+      <!-- 01 · PLMC — PLM / BOM for construction (source: Desktop/PLMC) -->
+      <article class="product" id="plmc" style="--accent: var(--plmc)">
+        <div class="product-copy reveal">
+          <div class="product-index mono"><b>01</b> — Construction PLM <span class="pill">Working MVP</span></div>
+          <h3>PLMC</h3>
+          <p class="product-tagline">Plan a building the way engineers plan a product.</p>
+          <p class="product-body">Construction projects are still estimated in spreadsheets that fall out of date by the next revision. PLMC brings manufacturing-style PLM to construction: a live structure of towers, floors, units and assemblies, a bill of materials on every item, cost rolled up to the project total — and an AI agent sitting on top of all of it, grounded in your real numbers, that can act on them when you let it.</p>
+          <ul class="features">
+            <li><div>An agent that acts, not just answers <span>— ask it about costs, BOMs, suppliers or quotes in English, हिन्दी or தமிழ். Flip it from read-only to changes-allowed and it can update the plan itself — it still previews every irreversible step and waits for your yes</span></div></li>
+            <li><div>Live cost roll-up <span>— quantity × rate, plus wastage, labour, equipment and transport, totalled up the tree and split by trade</span></div></li>
+            <li><div>RFQs straight from the BOM <span>— the agent can raise one and invite suppliers itself; they quote through a no-login portal for you to compare and award</span></div></li>
+            <li><div>Documents on every node <span>— drawings, photos and spec sheets filed next to the scope they describe</span></div></li>
+          </ul>
+          <a href="#contact" class="product-link">See PLMC on your project →</a>
+        </div>
+        <!-- Illustrative figures, based on the "Thuniv Paradise" sample project in the PLMC seed data.
+             Mirrors the real two-phase confirm flow (preview -> explicit yes -> execute) in apps/api/src/agent/chat.ts. -->
+        <div class="mock reveal" aria-hidden="true">
+          <div class="mock-bar"><i class="live"></i><i></i><i></i><span>plmc · assistant · ✏️ changes allowed</span></div>
+          <div class="mock-body">
+            <div class="msg user">Why did Tower 1 go ₹40L over this week?</div>
+            <div class="msg bot">Tile wastage came in at 11%, not the 8% budgeted — that's <b>₹31L</b> of it. The rest is a labour-rate bump on two RMC pours.
+              <div class="sources"><span>BOM · IN-VITRIFIED</span><span>Node · Tower 1 › 4F</span><span>Rate · RMC-M30</span></div>
+            </div>
+            <div class="msg user">Reassign that tile line to the supplier who quoted ₹1,090/m².</div>
+            <div class="impact"><b>Proposed:</b> move IN-VITRIFIED to the lower-quote supplier across 7 units in Tower 1. New line cost ₹74,120 (was ₹78,200). <b>Confirm?</b></div>
+            <div class="msg user">Confirm.</div>
+            <div class="msg bot"><b>✅ Done.</b> Supplier reassigned, cost rolled up project-wide.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 · JARVIS — decision-making layer between a human instruction and the shop floor
+           (source: OneDrive/Documents/Jarvis.pdf) -->
+      <article class="product flip" id="jarvis" style="--accent: var(--jarvis)">
+        <div class="product-copy reveal">
+          <div class="product-index mono"><b>02</b> — Decision Layer <span class="pill">In design</span></div>
+          <h3>Jarvis</h3>
+          <p class="product-tagline">Say it once. Every machine on the floor hears it.</p>
+          <p class="product-body">Jarvis sits between a human instruction — typed or spoken — and the equipment that actually does the work. An intent analyser reads what you meant, Jarvis reasons over two knowledge bases (general domain knowledge, plus what it knows about your own plant) to make a context-aware call, then dispatches coordinated actions to whichever layers need to move: machining centres, PLCs, cameras and LIDAR, robotic arms and drones — all from one decision layer, not four separate systems.</p>
+          <ul class="features">
+            <li><div>One instruction, every layer <span>— machining (CNC, 3D printers), PLC (start/stop/slow a line), visual (camera/LIDAR) and kinematic (robotic arms, drones) all coordinate through the same core</span></div></li>
+            <li><div>Two knowledge bases, one decision <span>— general domain knowledge plus knowledge specific to your industry and plant combine into a context-aware call, not a generic one</span></div></li>
+            <li><div>Closes the loop <span>— every layer reports status back — machine state, position, load, contact — so Jarvis confirms an action actually happened before moving on</span></div></li>
+          </ul>
+          <a href="#contact" class="product-link">Talk to us about Jarvis →</a>
+        </div>
+        <!-- Illustrative figures — Jarvis has no running build yet; this follows the architecture
+             in Jarvis.pdf: Intent Analyser -> Decision Layer -> Machining / PLC / Visual / Kinematic layers. -->
+        <div class="mock reveal" aria-hidden="true">
+          <div class="mock-bar"><i></i><i></i><i></i><span>jarvis · decision layer · voice command</span></div>
+          <div class="mock-body">
+            <div class="msg user">"Slow the Line 3 conveyor to 60%, and get me eyes on Station 12."</div>
+            <div class="sources"><span>Intent · slow_conveyor</span><span>Line 3 → 60%</span><span>Intent · inspect</span><span>Station 12</span></div>
+            <div class="tree-row"><span>PLC Layer</span><span class="rev">Line 3 conveyor</span><span class="tag ok">60% · ack 220ms</span></div>
+            <div class="tree-row"><span>Visual Layer</span><span class="rev">Camera · Station 12</span><span class="tag ok">Live feed</span></div>
+            <div class="tree-row"><span>Machining Layer</span><span class="rev">CNC-04</span><span class="tag ok">Idle · no change</span></div>
+            <div class="tree-row"><span>Kinematic Layer</span><span class="rev">Arm-02</span><span class="tag ok">Holding position</span></div>
+            <div class="msg bot"><b>Done.</b> Line 3 at 60%, Station 12 camera live. Everything else held position.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 · THADAMIQ — autonomous B2B sales agent (source: Desktop/ThadamIQ, T1Qv3) -->
+      <article class="product" id="thadamiq" style="--accent: var(--thadam)">
+        <div class="product-copy reveal">
+          <div class="product-index mono"><b>03</b> — Sales &amp; Growth <span class="pill">Live · Revenue</span></div>
+          <h3>ThadamIQ</h3>
+          <p class="product-tagline">Every lead leaves a trace. ThadamIQ follows it to a close.</p>
+          <div class="proof">
+            <div class="proof-stat"><b>3</b><span>paying licences</span></div>
+            <div class="proof-stat"><b>₹15k</b><span>MRR</span></div>
+          </div>
+          <p class="product-body"><em>Thadam</em> (தடம்) means trace. ThadamIQ is B2B sales AI built for small and medium manufacturers who want to sell direct instead of going through a distributor. It sources leads, reads each one's own website before writing to them, and sends a personalised first email — not a mail-merge — in 13 clicks. It's simple enough for one person to run with almost no training, and it follows up and reads replies on its own from there.</p>
+          <ul class="features">
+            <li><div>Built for manufacturers, not distributors <span>— sell straight to buyers instead of routing everything through a distributor network, with no separate sales team to hire</span></div></li>
+            <li><div>13 clicks, start to sent <span>— source a lead, get it researched, and send the first personalised email in 13 clicks. Easy enough to train someone on in an afternoon</span></div></li>
+            <li><div>Runs the loop on its own after that <span>— qualifies, follows up across email and WhatsApp, and reads replies automatically, with a kill switch, daily caps and quiet hours in front of every send</span></div></li>
+            <li><div>GST-ready quotes &amp; invoices <span>— correct CGST/SGST or IGST split generated automatically, exported as PDF or Word</span></div></li>
+          </ul>
+          <a href="#contact" class="product-link">See ThadamIQ in action →</a>
+        </div>
+        <!-- Illustrative figures, shaped by the agent's own real batch sizes (agent.js: qualify 8 · engage 5 · follow-up 5 · replies 8 per tick) -->
+        <div class="mock reveal" aria-hidden="true">
+          <div class="mock-bar"><i class="live"></i><i></i><i></i><span>thadamiq · agent · tick #482</span></div>
+          <div class="mock-body">
+            <div class="trace">
+              <div class="trace-step"><div class="dot"></div><div><div class="trace-title">Source</div><div class="trace-meta">12 new leads pulled into the pool</div></div><div class="trace-time">:02</div></div>
+              <div class="trace-step"><div class="dot"></div><div><div class="trace-title">Qualify</div><div class="trace-meta">8 researched · 5 passed ICP fit</div></div><div class="trace-time">:41</div></div>
+              <div class="trace-step"><div class="dot"></div><div><div class="trace-title">Engage</div><div class="trace-meta">5 personalised first emails sent</div></div><div class="trace-time">1:38</div></div>
+              <div class="trace-step"><div class="dot"></div><div><div class="trace-title">Follow up</div><div class="trace-meta">5 second touches, no reply after 3 days</div></div><div class="trace-time">2:15</div></div>
+              <div class="trace-step"><div class="dot alert"></div><div><div class="trace-title">Replies</div><div class="trace-meta">2 scored ≥ 40 · flagged Interested</div></div><div class="trace-time">2:50</div></div>
+            </div>
+            <div class="trace-alert"><b>2 interested replies</b> waiting on the board · every send this tick stayed under today's cap and inside quiet-hours rules.</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══ APPROACH ═══ -->
+  <section class="approach" id="approach">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="sec-label mono">How we build</div>
+        <h2>Built by engineers, <em>not just for them.</em></h2>
+        <p class="sec-intro">We've worked inside OEMs and global engineering centres. We know how slow change can be on a factory floor, and we build for how these teams actually work.</p>
+      </div>
+      <div class="principles">
+        <div class="principle reveal"><span class="mono">01</span><h4>Start from the problem</h4><p>Every product starts with a real bottleneck we've seen on the floor, not with a technology looking for a use.</p></div>
+        <div class="principle reveal"><span class="mono">02</span><h4>Grounded, not guessed</h4><p>In engineering a wrong answer costs a lot. Every output can be traced back to its source.</p></div>
+        <div class="principle reveal"><span class="mono">03</span><h4>Fits your systems</h4><p>We connect to what you already run — PLM, ERP, your inbox, WhatsApp, even the PLCs and machines on the floor. No big migration first.</p></div>
+        <div class="principle reveal"><span class="mono">04</span><h4>Measured in hours saved</h4><p>If it doesn't save your team measurable time, it isn't finished.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOUNDER ═══ -->
+  <section class="founder" id="founder">
+    <div class="wrap">
+      <div class="founder-card reveal">
+        <div>
+          <div class="sec-label mono">From the founder</div>
+          <blockquote>"To me, a slow corporate process is just a <em>badly engineered machine.</em> Thuniv exists to fix that machine."</blockquote>
+          <div class="founder-meta"><b>Gokul Kumar</b> · Founder, Thuniv Industries</div>
+        </div>
+        <div class="founder-side">
+          <p>Gokul trained as a mechanical engineer and has spent years building AI and ML systems at Maruti Suzuki and Renault Nissan. His work there includes LLM document automation, ML design validation and sentiment platforms used by thousands of people.</p>
+          <a href="https://thunivin.com/myPortfolio" target="_blank" rel="noopener" class="btn btn-ghost">View portfolio ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section class="contact" id="contact">
+    <div class="wrap reveal">
+      <div class="sec-label mono">Early access</div>
+      <h2>Let's build <em>something great.</em></h2>
+      <p>We work with a small number of design partners in automotive, industrial and engineering services. If one of these problems sounds familiar, get in touch.</p>
+      <div class="contact-actions">
+        <a href="mailto:gokul@thunivin.com?subject=Thuniv%20Industries%20%E2%80%94%20Early%20access" class="btn btn-dark">Email us</a>
+        <a href="https://www.linkedin.com/in/goku03l/" target="_blank" rel="noopener" class="btn btn-outline-dark">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p>Thuniv Industries</p>
-    <p class="footer-sub">Welcome / நல்வரவு</p>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">Thuniv Industries<small>Welcome / நல்வரவு</small></div>
+      <ul class="footer-links">
+        <li><a href="#plmc">PLMC</a></li>
+        <li><a href="#jarvis">Jarvis</a></li>
+        <li><a href="#thadamiq">ThadamIQ</a></li>
+        <li><a href="https://thunivin.com/myPortfolio" target="_blank" rel="noopener">Founder</a></li>
+        <li><a href="mailto:gokul@thunivin.com">Contact</a></li>
+      </ul>
+      <div class="footer-copy">© <span id="yr">2026</span> Thuniv Industries · Gurugram, India</div>
+    </div>
   </footer>
 
   <script>
-    const launch = new Date("2028-07-03T00:00:00");
-    function tick() {
-      const diff = launch - new Date(); if (diff <= 0) return;
-      document.getElementById("cd-d").textContent = String(Math.floor(diff/86400000)).padStart(3,"0");
-      document.getElementById("cd-h").textContent = String(Math.floor((diff%86400000)/3600000)).padStart(2,"0");
-      document.getElementById("cd-m").textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,"0");
-      document.getElementById("cd-s").textContent = String(Math.floor((diff%60000)/1000)).padStart(2,"0");
+    document.getElementById("yr").textContent = new Date().getFullYear();
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // ── mobile nav toggle ──────────────────────────────
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        const open = navLinks.classList.toggle("open");
+        navToggle.classList.toggle("open", open);
+        navToggle.setAttribute("aria-expanded", String(open));
+      });
+      navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        navToggle.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }));
     }
-    tick(); setInterval(tick, 1000);
-    const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("visible"); }), {threshold:0.1});
-    document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+
+    // ── scroll reveal (+ feature/mock stagger) ──
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("visible");
+      obs.unobserve(e.target);
+    }), { threshold: 0.12 });
+    document.querySelectorAll(".reveal, .features, .mock").forEach(el => obs.observe(el));
+
+    // ── spotlight cursor glow on cards ─────────────────
+    if (!reduceMotion) {
+      document.querySelectorAll(".stack-card, .principle").forEach(card => {
+        card.addEventListener("mousemove", ev => {
+          const r = card.getBoundingClientRect();
+          card.style.setProperty("--mx", (ev.clientX - r.left) + "px");
+          card.style.setProperty("--my", (ev.clientY - r.top) + "px");
+        });
+      });
+
+      // ── subtle hero grid parallax ──────────────────────
+      const heroGrid = document.getElementById("heroGrid");
+      const heroEl = document.getElementById("hero");
+      if (heroGrid && heroEl) {
+        heroEl.addEventListener("mousemove", ev => {
+          const r = heroEl.getBoundingClientRect();
+          const x = ((ev.clientX - r.left) / r.width - 0.5) * 2;
+          const y = ((ev.clientY - r.top) / r.height - 0.5) * 2;
+          heroGrid.style.transform = `translate(${x * -10}px, ${y * -10}px)`;
+        });
+        heroEl.addEventListener("mouseleave", () => { heroGrid.style.transform = "translate(0,0)"; });
+      }
+    }
   </script>
 </body>
 </html>
